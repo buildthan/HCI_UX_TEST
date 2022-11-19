@@ -11,7 +11,7 @@ var cart = []; //장바구니
 
 var result_price; //총 결제금액 변수
 
-var server_url = "http://localhost:80"; //나중에 서버 배포시 바꿔얗 하는 내용
+var server_url = "http://52.21.241.198:80"; //나중에 서버 배포시 바꿔얗 하는 내용
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(session({
