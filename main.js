@@ -1882,12 +1882,12 @@ app.get('/',function(req,res){ //아무런 pathname없이 들어왔을 경우 ma
 
 app.get('/main', function(req,res){ //키오스크 메인화면, 주문하기 버튼이 주요 요소임.
 
+    var output = `
+    ${starthtml()}
     <audio autoplay="autoplay">
     <source src="${server_url}/tts/test.mp3" type="audio/mpeg" />
     </audio> 
-
-    var output = `
-    ${starthtml()}
+    
     <div class="container justify-content-center">
         
         <div class="row text-center" style="width: 100%">
