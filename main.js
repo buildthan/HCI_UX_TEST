@@ -6,6 +6,7 @@ var FileStore = require('session-file-store')(session);
 var app = express();
 
 app.use('/img', express.static('img'));
+app.use('/tts', express.static('tts'));
 
 var cart = []; //장바구니
 
@@ -1880,6 +1881,10 @@ app.get('/',function(req,res){ //아무런 pathname없이 들어왔을 경우 ma
 })
 
 app.get('/main', function(req,res){ //키오스크 메인화면, 주문하기 버튼이 주요 요소임.
+
+    <audio autoplay="autoplay">
+    <source src="${server_url}/tts/test.mp3" type="audio/mpeg" />
+    </audio> 
 
     var output = `
     ${starthtml()}
