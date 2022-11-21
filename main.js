@@ -1927,7 +1927,7 @@ app.get('/main', function(req,res){ //키오스크 메인화면, 주문하기 �
     
         <!--출력 종료-->
 
-        <p><br><br><br><br><br><br></p>
+        <p><br><br><br><br><br><br><br><br><br><br></p>
         
   <div class="d-flex justify-content-center">
   <form class="row justify-content-center " >
@@ -1939,7 +1939,7 @@ app.get('/main', function(req,res){ //키오스크 메인화면, 주문하기 �
   </form>
   </div>
 
-        <p><br><br><br><br><br><br></p>
+        <p><br><br><br><br><br><br><br><br><br><br></p>
 
             <div class="container justify-content-center border mt-5">
                 <div class="row justify-content-center">
@@ -1999,6 +1999,8 @@ app.get("/scenario1/result_mode/1", (req,res) => { //시나리오1 결과창을 
 
   res.redirect('/payment');
 })
+
+
 app.get("/scenario1/guide_mode/3", (req,res) => {
   
   var output = `
@@ -3598,14 +3600,11 @@ app.get("/scenario_process", (req,res) =>{
       <div class="row text-center" style="width: 100%">
 
           <div style="width: 100%; float:none; margin:0 auto" >
-                  <h1>주문을 진행 중이에요.
-                      <br>
-                      <br>
-                      <br>
-                      <br>
-                  </h1>
+                  <h1>주문을 진행 중이에요.</h1>
           </div>
       </div>
+
+      <p><br><br><br><br><br><br><br><br><br><br></p>
 
 
       <div class="d-flex justify-content-center">
@@ -3619,15 +3618,13 @@ app.get("/scenario_process", (req,res) =>{
         </form>
       </div>
 
+      <p><br><br><br><br><br><br><br><br><br><br></p>
+
 
         <div class="row text-center" style="width: 100%">
 
           <div style="width: 100%; float:none; margin:0 auto" >
-                  <h1>
-                      <br>
-                      <br>
-                      <br>
-                      <br>잠시만 기다려 주세요...</h1>
+                  <h1>잠시만 기다려 주세요...</h1>
           </div>
       </div>
 
@@ -3717,7 +3714,7 @@ app.get("/start_scenario", (req,res) => {
 
   <!--출력 종료-->
 
-  <br><br><br><br><br>
+  <p><br><br><br><br><br><br><br><br><br><br></p>
 
   <div class="row text-center" style="width: 100%">
   <input type="text" id="speech_result" readonly/>
@@ -4399,14 +4396,11 @@ app.get("/payment_process",function(req,res){
       <div class="row text-center" style="width: 100%">
 
           <div style="width: 100%; float:none; margin:0 auto" >
-                  <h1>결제가 진행 중 이에요
-                      <br>
-                      <br>
-                      <br>
-                      <br>
-                  </h1>
+                  <h1>결제가 진행 중 이에요</h1>
           </div>
       </div>
+
+      <p><br><br><br><br><br><br><br><br><br><br></p>
 
 
       <div class="d-flex justify-content-center">
@@ -4420,15 +4414,13 @@ app.get("/payment_process",function(req,res){
         </form>
       </div>
 
+      <p><br><br><br><br><br><br><br><br><br><br></p>
+
 
         <div class="row text-center" style="width: 100%">
 
           <div style="width: 100%; float:none; margin:0 auto" >
-                  <h1>
-                      <br>
-                      <br>
-                      <br>
-                      <br>카드를 리더기에 꽂아주세요</h1>
+                  <h1>카드를 리더기에 꽂아주세요</h1>
           </div>
       </div>
 
@@ -4465,14 +4457,11 @@ app.get("/payment_success",function(req,res){
   <div class="row text-center" style="width: 100%">
 
       <div style="width: 100%; float:none; margin:0 auto" >
-              <h1>결제가 완료 되었습니다!
-                  <br>
-                  <br>
-                  <br>
-                  <br>
-              </h1>
+              <h1>결제가 완료 되었습니다!</h1>
       </div>
   </div>
+
+  <p><br><br><br><br><br><br><br><br><br><br></p>
 
 
   <div class="d-flex justify-content-center">
@@ -4484,15 +4473,13 @@ app.get("/payment_success",function(req,res){
 </form>
     </div>
 
+    <p><br><br><br><br><br><br><br><br><br><br></p>
+
 
     <div class="row text-center" style="width: 100%">
 
       <div style="width: 100%; float:none; margin:0 auto" >
-              <h1>
-                  <br>
-                  <br>
-                  <br>
-                  <br>이용해주셔서 감사합니다.</h1>
+              <h1>이용해주셔서 감사합니다.</h1>
       </div>
   </div>
 

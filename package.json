@@ -28,5 +28,6 @@
     "url": "https://github.com/buildthan/test_mysql/issues"
   },
   "homepage": "https://github.com/buildthan/test_mysql#readme",
+  "devDependencies": {},
   "description": ""
 }
