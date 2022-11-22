@@ -55,7 +55,7 @@ function order_main_cart_html() {
   var output = `<ul>`;
 
   for (var i = 0; i < cart.length; i++) { //cart에 담긴 리스트를 출력해주는 반복문
-    output += `<li>` + `${cart[i].name} 주문 수량 : ${cart[i].count} 가격 : ${cart[i].total}` + `</li>`
+    output += `<li><h5>` + `${cart[i].name} 주문 수량 : ${cart[i].count} 가격 : ${cart[i].total}` + `</h5></li>`
     result_price += parseInt(cart[i].total)
   }
 
@@ -93,9 +93,9 @@ function americano_modal() {
                     </div>
     
                     <div class = "col">
-                        <p class="text-center">상품명 - 아메리카노</p>
+                        <h5 class="text-center">상품명 - 아메리카노</h5>
                         <input type = "hidden" value = "아메리카노" name = "product_name">
-                        <p class="text-center">가격 - 3200원</p>
+                        <h5 class="text-center">가격 - 3200원</h5>
                         <input type = "hidden" value = "3200" name = "basic_price">
                     </div>
                 </div>
@@ -112,13 +112,13 @@ function americano_modal() {
                     <tbody>
                       <tr>
                         <!---->
-                        <th scope="row">사이즈 선택</th>
+                        <th scope="row"><h5>사이즈 선택</h5></th>
 
                         <td>
                     <div class="custom-control custom-radio image-checkbox">
                         <input type="radio" name="size" class="custom-control-input" id="ck1a" value = "0" checked>
                         <label class="custom-control-label" for="ck1a">
-                        레귤러<br>+0
+                        <h5>레귤러<br>+0</h5>
                         </label>
                     </div>
                         </td>
@@ -127,7 +127,7 @@ function americano_modal() {
                     <div class="custom-control custom-radio image-checkbox">
                         <input type="radio" name="size" class="custom-control-input" id="ck1b" value = "1000">
                         <label class="custom-control-label" for="ck1b">
-                        엑스트라<br>+1000
+                        <h5>엑스트라<br>+1000</h5>
                         </label>
                     </div>
                         </td>
@@ -136,12 +136,12 @@ function americano_modal() {
 
 
                       <tr>
-                        <th scope="row">얼음 선택</th>
+                        <th scope="row"><h5>얼음 선택</h5></th>
                         <td>
                     <div class="custom-control custom-radio image-checkbox">
                         <input type="radio" name="ice" class="custom-control-input" id="ck1c" value = "0,S">
                         <label class="custom-control-label" for="ck1c">
-                        조금<br>+0
+                        <h5>조금<br>+0</h5>
                         </label>
                     </div>
                         </td>
@@ -150,7 +150,7 @@ function americano_modal() {
                     <div class="custom-control custom-radio image-checkbox">
                             <input type="radio" name="ice" class="custom-control-input" id="ck1d" value = "0,M" checked>
                             <label class="custom-control-label" for="ck1d">
-                            보통<br>+0
+                            <h5>보통<br>+0</h5>
                             </label>
                     </div>
                         </td>
@@ -159,7 +159,7 @@ function americano_modal() {
                     <div class="custom-control custom-radio image-checkbox">
                             <input type="radio" name="ice" class="custom-control-input" id="ck1e" value = "0,L">
                             <label class="custom-control-label" for="ck1e">
-                            많이<br>+0
+                            <h5>많이<br>+0</h5>
                             </label>
                     </div>
                         </td>
@@ -167,13 +167,13 @@ function americano_modal() {
 
 
                       <tr>
-                        <th scope="row">토핑 선택</th>
+                        <th scope="row"><h5>토핑 선택</h5></th>
 
                         <td>
                     <div class="custom-control custom-checkbox image-checkbox">
                         <input type="checkbox" name="topping1" class="custom-control-input" id="ck1f" value = "500">
                         <label class="custom-control-label" for="ck1f">
-                        샷 추가<br>+500
+                        <h5>샷 추가<br>+500</h5>
                         </label>
                     </div>
                         </td>
@@ -182,7 +182,7 @@ function americano_modal() {
                     <div class="custom-control custom-checkbox image-checkbox">
                         <input type="checkbox" name="topping2" class="custom-control-input" id="ck1g" value = "500">
                         <label class="custom-control-label" for="ck1g">
-                        휘핑크림<br>+500
+                        <h5>휘핑크림<br>+500</h5>
                         </label>
                     </div>
                         </td>
@@ -191,7 +191,7 @@ function americano_modal() {
                     <div class="custom-control custom-checkbox image-checkbox">
                         <input type="checkbox" name="topping3" class="custom-control-input" id="ck1h" value = "300">
                         <label class="custom-control-label" for="ck1h">
-                        시럽<br>+300
+                        <h5>시럽<br>+300</h5>
                         </label>
                     </div>
                         </td>
@@ -214,9 +214,11 @@ function americano_modal() {
   <option value="3">3</option>
         </select>
 
+        <br><br>
+
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-          <button type="submit" class="btn btn-primary">장바구니에 추가</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><h5>닫기</h5></button>
+          <button type="submit" class="btn btn-primary"><h5>장바구니에 추가</h5></button>
 
         </div>
 
@@ -253,9 +255,9 @@ function bubble_black_modal() {
                             </div>
         
                         <div class = "col">
-                        <p class="text-center">상품명 - 버블흑당콜드브루</p>
+                        <h5 class="text-center">상품명 - 버블흑당콜드브루</h5>
                         <input type = "hidden" value = "버블흑당콜드브루" name = "product_name">
-                        <p class="text-center">가격 - 4700원</p>
+                        <h5 class="text-center">가격 - 4700원</h5>
                         <input type = "hidden" value = "4700" name = "basic_price">
                         </div>
                     </div>
@@ -272,13 +274,13 @@ function bubble_black_modal() {
                         <tbody>
                           <tr>
                             <!---->
-                            <th scope="row">사이즈 선택</th>
+                            <th scope="row"><h5>사이즈 선택</h5></th>
     
                             <td>
                         <div class="custom-control custom-radio image-checkbox">
                             <input type="radio" name="size" class="custom-control-input" id="ak1a" value = "0" checked>
                             <label class="custom-control-label" for="ak1a">
-                            레귤러<br>+0
+                            <h5>레귤러<br>+0</h5>
                             </label>
                         </div>
                             </td>
@@ -287,7 +289,7 @@ function bubble_black_modal() {
                         <div class="custom-control custom-radio image-checkbox">
                             <input type="radio" name="size" class="custom-control-input" id="ak1b" value = "1000">
                             <label class="custom-control-label" for="ak1b">
-                            엑스트라<br>+1000
+                            <h5>엑스트라<br>+1000</h5>
                             </label>
                         </div>
                             </td>
@@ -296,12 +298,12 @@ function bubble_black_modal() {
     
     
                           <tr>
-                            <th scope="row">얼음 선택</th>
+                            <th scope="row"><h5>얼음 선택</h5></th>
                             <td>
                         <div class="custom-control custom-radio image-checkbox">
                             <input type="radio" name="ice" class="custom-control-input" id="ak1c" value = "0,S">
                             <label class="custom-control-label" for="ak1c">
-                            조금<br>+0
+                            <h5>조금<br>+0</h5>
                             </label>
                         </div>
                             </td>
@@ -310,7 +312,7 @@ function bubble_black_modal() {
                         <div class="custom-control custom-radio image-checkbox">
                                 <input type="radio" name="ice" class="custom-control-input" id="ak1d" value = "0,M" checked>
                                 <label class="custom-control-label" for="ak1d">
-                                보통<br>+0
+                                <h5>보통<br>+0</h5>
                                 </label>
                         </div>
                             </td>
@@ -319,7 +321,7 @@ function bubble_black_modal() {
                         <div class="custom-control custom-radio image-checkbox">
                                 <input type="radio" name="ice" class="custom-control-input" id="ak1e" value = "0,L">
                                 <label class="custom-control-label" for="ak1e">
-                                많이<br>+0
+                                <h5>많이<br>+0</h5>
                                 </label>
                         </div>
                             </td>
@@ -327,13 +329,13 @@ function bubble_black_modal() {
     
     
                           <tr>
-                            <th scope="row">토핑 선택</th>
+                            <th scope="row"><h5>토핑 선택</h5></th>
     
                             <td>
                         <div class="custom-control custom-checkbox image-checkbox">
                             <input type="checkbox" name="topping1" class="custom-control-input" id="ak1f" value = "500">
                             <label class="custom-control-label" for="ak1f">
-                            샷 추가<br>+500
+                            <h5>샷 추가<br>+500</h5>
                             </label>
                         </div>
                             </td>
@@ -342,7 +344,7 @@ function bubble_black_modal() {
                         <div class="custom-control custom-checkbox image-checkbox">
                             <input type="checkbox" name="topping2" class="custom-control-input" id="ak1g" value = "500">
                             <label class="custom-control-label" for="ak1g">
-                            휘핑크림<br>+500
+                            <h5>휘핑크림<br>+500</h5>
                             </label>
                         </div>
                             </td>
@@ -351,7 +353,7 @@ function bubble_black_modal() {
                         <div class="custom-control custom-checkbox image-checkbox">
                             <input type="checkbox" name="topping3" class="custom-control-input" id="ak1h" value = "300">
                             <label class="custom-control-label" for="ak1h">
-                            시럽<br>+300
+                            <h5>시럽<br>+300</h5>
                             </label>
                         </div>
                             </td>
@@ -374,10 +376,12 @@ function bubble_black_modal() {
             <option value="3">3</option>
             </select>
 
+            <br><br>
+
 
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-              <button type="submit" class="btn btn-primary">장바구니에 추가</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><h5>닫기</h5></button>
+              <button type="submit" class="btn btn-primary"><h5>장바구니에 추가</h5></button>
     
             </div>
     
@@ -413,9 +417,9 @@ function einstephener_modal() {
                   </div>
   
                   <div class = "col">
-                  <p class="text-center">상품명 - 아인슈페너</p>
+                  <h5 class="text-center">상품명 - 아인슈페너</h5>
                   <input type = "hidden" value = "아인슈페너" name = "product_name">
-                  <p class="text-center">가격 - 3700</p>
+                  <h5 class="text-center">가격 - 3700</h5>
                   <input type = "hidden" value = "3700" name = "basic_price">
                   </div>
               </div>
@@ -432,13 +436,13 @@ function einstephener_modal() {
                   <tbody>
                     <tr>
                       <!---->
-                      <th scope="row">사이즈 선택</th>
+                      <th scope="row"><h5>사이즈 선택</h5></th>
 
                       <td>
                   <div class="custom-control custom-radio image-checkbox">
                       <input type="radio" name="size" class="custom-control-input" id="ek1a" value = "0" checked>
                       <label class="custom-control-label" for="ek1a">
-                      레귤러<br>+0
+                      <h5>레귤러<br>+0</h5>
                       </label>
                   </div>
                       </td>
@@ -447,7 +451,7 @@ function einstephener_modal() {
                   <div class="custom-control custom-radio image-checkbox">
                       <input type="radio" name="size" class="custom-control-input" id="ek1b" value = "1000">
                       <label class="custom-control-label" for="ek1b">
-                      엑스트라<br>+1000
+                      <h5>엑스트라<br>+1000</h5>
                       </label>
                   </div>
                       </td>
@@ -456,12 +460,12 @@ function einstephener_modal() {
 
 
                     <tr>
-                      <th scope="row">얼음 선택</th>
+                      <th scope="row"><h5>얼음 선택</h5></th>
                       <td>
                   <div class="custom-control custom-radio image-checkbox">
                       <input type="radio" name="ice" class="custom-control-input" id="ek1c" value = "0,S">
                       <label class="custom-control-label" for="ek1c">
-                      조금<br>+0
+                      <h5>조금<br>+0</h5>
                       </label>
                   </div>
                       </td>
@@ -470,7 +474,7 @@ function einstephener_modal() {
                   <div class="custom-control custom-radio image-checkbox">
                           <input type="radio" name="ice" class="custom-control-input" id="ek1d" value = "0,M" checked>
                           <label class="custom-control-label" for="ek1d">
-                          보통<br>+0
+                          <h5>보통<br>+0</h5>
                           </label>
                   </div>
                       </td>
@@ -479,7 +483,7 @@ function einstephener_modal() {
                   <div class="custom-control custom-radio image-checkbox">
                           <input type="radio" name="ice" class="custom-control-input" id="ek1e" value = "0,L">
                           <label class="custom-control-label" for="ek1e">
-                          많이<br>+0
+                          <h5>많이<br>+0</h5>
                           </label>
                   </div>
                       </td>
@@ -487,13 +491,13 @@ function einstephener_modal() {
 
 
                     <tr>
-                      <th scope="row">토핑 선택</th>
+                      <th scope="row"><h5>토핑 선택</h5></th>
 
                       <td>
                   <div class="custom-control custom-checkbox image-checkbox">
                       <input type="checkbox" name="topping1" class="custom-control-input" id="ek1f" value = "500">
                       <label class="custom-control-label" for="ek1f">
-                      샷 추가<br>+500
+                      <h5>샷 추가<br>+500</h5>
                       </label>
                   </div>
                       </td>
@@ -502,7 +506,7 @@ function einstephener_modal() {
                   <div class="custom-control custom-checkbox image-checkbox">
                       <input type="checkbox" name="topping2" class="custom-control-input" id="ek1g" value = "500">
                       <label class="custom-control-label" for="ek1g">
-                      휘핑크림<br>+500
+                      <h5>휘핑크림<br>+500</h5>
                       </label>
                   </div>
                       </td>
@@ -511,7 +515,7 @@ function einstephener_modal() {
                   <div class="custom-control custom-checkbox image-checkbox">
                       <input type="checkbox" name="topping3" class="custom-control-input" id="ek1h" value = "300">
                       <label class="custom-control-label" for="ek1h">
-                      시럽<br>+300
+                      <h5>시럽<br>+300</h5>
                       </label>
                   </div>
                       </td>
@@ -534,10 +538,11 @@ function einstephener_modal() {
       <option value="3">3</option>
       </select>
 
+      <br><br>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-        <button type="submit" class="btn btn-primary">장바구니에 추가</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><h5>닫기</h5></button>
+        <button type="submit" class="btn btn-primary"><h5>장바구니에 추가</h5></button>
 
       </div>
 
@@ -575,9 +580,9 @@ function cafe_latte_modal() {
                   </div>
   
                   <div class = "col">
-                  <p class="text-center">상품명 - 카페라떼</p>
+                  <h5 class="text-center">상품명 - 카페라떼</h5>
                   <input type = "hidden" value = "카페라떼" name = "product_name">
-                  <p class="text-center">가격 - 3700</p>
+                  <h5 class="text-center">가격 - 3700</h5>
                   <input type = "hidden" value = "3700" name = "basic_price">
                   </div>
               </div>
@@ -594,13 +599,13 @@ function cafe_latte_modal() {
                   <tbody>
                     <tr>
                       <!---->
-                      <th scope="row">사이즈 선택</th>
+                      <th scope="row"><h5>사이즈 선택</h5></th>
 
                       <td>
                   <div class="custom-control custom-radio image-checkbox">
                       <input type="radio" name="size" class="custom-control-input" id="bk1a" value = "0" checked>
                       <label class="custom-control-label" for="bk1a">
-                      레귤러<br>+0
+                      <h5>레귤러<br>+0</h5>
                       </label>
                   </div>
                       </td>
@@ -609,7 +614,7 @@ function cafe_latte_modal() {
                   <div class="custom-control custom-radio image-checkbox">
                       <input type="radio" name="size" class="custom-control-input" id="bk1b" value = "1000">
                       <label class="custom-control-label" for="bk1b">
-                      엑스트라<br>+1000
+                      <h5>엑스트라<br>+1000</h5>
                       </label>
                   </div>
                       </td>
@@ -618,12 +623,12 @@ function cafe_latte_modal() {
 
 
                     <tr>
-                      <th scope="row">얼음 선택</th>
+                      <th scope="row"><h5>얼음 선택</h5></th>
                       <td>
                   <div class="custom-control custom-radio image-checkbox">
                       <input type="radio" name="ice" class="custom-control-input" id="bk1c" value = "0,S">
                       <label class="custom-control-label" for="bk1c">
-                      조금<br>+0
+                      <h5>조금<br>+0</h5>
                       </label>
                   </div>
                       </td>
@@ -632,7 +637,7 @@ function cafe_latte_modal() {
                   <div class="custom-control custom-radio image-checkbox">
                           <input type="radio" name="ice" class="custom-control-input" id="bk1d" value = "0,M" checked>
                           <label class="custom-control-label" for="bk1d">
-                          보통<br>+0
+                          <h5>보통<br>+0</h5>
                           </label>
                   </div>
                       </td>
@@ -641,7 +646,7 @@ function cafe_latte_modal() {
                   <div class="custom-control custom-radio image-checkbox">
                           <input type="radio" name="ice" class="custom-control-input" id="bk1e" value = "0,L">
                           <label class="custom-control-label" for="bk1e">
-                          많이<br>+0
+                          <h5>많이<br>+0</h5>
                           </label>
                   </div>
                       </td>
@@ -649,13 +654,13 @@ function cafe_latte_modal() {
 
 
                     <tr>
-                      <th scope="row">토핑 선택</th>
+                      <th scope="row"><h5>토핑 선택</h5></th>
 
                       <td>
                   <div class="custom-control custom-checkbox image-checkbox">
                       <input type="checkbox" name="topping1" class="custom-control-input" id="bk1f" value = "500">
                       <label class="custom-control-label" for="bk1f">
-                      샷 추가<br>+500
+                      <h5>샷 추가<br>+500</h5>
                       </label>
                   </div>
                       </td>
@@ -664,7 +669,7 @@ function cafe_latte_modal() {
                   <div class="custom-control custom-checkbox image-checkbox">
                       <input type="checkbox" name="topping2" class="custom-control-input" id="bk1g" value = "500">
                       <label class="custom-control-label" for="bk1g">
-                      휘핑크림<br>+500
+                      <h5>휘핑크림<br>+500</h5>
                       </label>
                   </div>
                       </td>
@@ -673,7 +678,7 @@ function cafe_latte_modal() {
                   <div class="custom-control custom-checkbox image-checkbox">
                       <input type="checkbox" name="topping3" class="custom-control-input" id="bk1h" value = "300">
                       <label class="custom-control-label" for="bk1h">
-                      시럽<br>+300
+                      <h5>시럽<br>+300</h5>
                       </label>
                   </div>
                       </td>
@@ -696,10 +701,12 @@ function cafe_latte_modal() {
       <option value="3">3</option>
       </select>
 
+      <br><br>
+
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-        <button type="submit" class="btn btn-primary">장바구니에 추가</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><h5>닫기</h5></button>
+        <button type="submit" class="btn btn-primary"><h5>장바구니에 추가</h5></button>
 
       </div>
 
@@ -736,9 +743,9 @@ function cold_brew_modal() {
                   </div>
   
                   <div class = "col">
-                  <p class="text-center">상품명 - 콜드브루라떼</p>
+                  <h5 class="text-center">상품명 - 콜드브루라떼</h5>
                   <input type = "hidden" value = "콜드브루라떼" name = "product_name">
-                  <p class="text-center">가격 - 4200</p>
+                  <h5 class="text-center">가격 - 4200</h5>
                   <input type = "hidden" value = "4200" name = "basic_price">
                   </div>
               </div>
@@ -755,13 +762,13 @@ function cold_brew_modal() {
                   <tbody>
                     <tr>
                       <!---->
-                      <th scope="row">사이즈 선택</th>
+                      <th scope="row"><h5>사이즈 선택</h5></th>
 
                       <td>
                   <div class="custom-control custom-radio image-checkbox">
                       <input type="radio" name="size" class="custom-control-input" id="a1" value = "0" checked>
                       <label class="custom-control-label" for="a1">
-                      레귤러<br>+0
+                      <h5>레귤러<br>+0</h5>
                       </label>
                   </div>
                       </td>
@@ -770,7 +777,7 @@ function cold_brew_modal() {
                   <div class="custom-control custom-radio image-checkbox">
                       <input type="radio" name="size" class="custom-control-input" id="a2" value = "1000">
                       <label class="custom-control-label" for="a2">
-                      엑스트라<br>+1000
+                      <h5>엑스트라<br>+1000</h5>
                       </label>
                   </div>
                       </td>
@@ -779,12 +786,12 @@ function cold_brew_modal() {
 
 
                     <tr>
-                      <th scope="row">얼음 선택</th>
+                      <th scope="row"><h5>얼음 선택</h5></th>
                       <td>
                   <div class="custom-control custom-radio image-checkbox">
                       <input type="radio" name="ice" class="custom-control-input" id="a3" value = "0,S">
                       <label class="custom-control-label" for="a3">
-                      조금<br>+0
+                      <h5>조금<br>+0</h5>
                       </label>
                   </div>
                       </td>
@@ -793,7 +800,7 @@ function cold_brew_modal() {
                   <div class="custom-control custom-radio image-checkbox">
                           <input type="radio" name="ice" class="custom-control-input" id="a4" value = "0,M" checked>
                           <label class="custom-control-label" for="a4">
-                          보통<br>+0
+                          <h5>보통<br>+0</h5>
                           </label>
                   </div>
                       </td>
@@ -802,7 +809,7 @@ function cold_brew_modal() {
                   <div class="custom-control custom-radio image-checkbox">
                           <input type="radio" name="ice" class="custom-control-input" id="a5" value = "0,L">
                           <label class="custom-control-label" for="a5">
-                          많이<br>+0
+                          <h5>많이<br>+0</h5>
                           </label>
                   </div>
                       </td>
@@ -810,13 +817,13 @@ function cold_brew_modal() {
 
 
                     <tr>
-                      <th scope="row">토핑 선택</th>
+                      <th scope="row"><h5>토핑 선택</h5></th>
 
                       <td>
                   <div class="custom-control custom-checkbox image-checkbox">
                       <input type="checkbox" name="topping1" class="custom-control-input" id="a6" value = "500">
                       <label class="custom-control-label" for="a6">
-                      샷 추가<br>+500
+                      <h5>샷 추가<br>+500</h5>
                       </label>
                   </div>
                       </td>
@@ -825,7 +832,7 @@ function cold_brew_modal() {
                   <div class="custom-control custom-checkbox image-checkbox">
                       <input type="checkbox" name="topping2" class="custom-control-input" id="a7" value = "500">
                       <label class="custom-control-label" for="a7">
-                      휘핑크림<br>+500
+                      <h5>휘핑크림<br>+500</h5>
                       </label>
                   </div>
                       </td>
@@ -834,7 +841,7 @@ function cold_brew_modal() {
                   <div class="custom-control custom-checkbox image-checkbox">
                       <input type="checkbox" name="topping3" class="custom-control-input" id="a8" value = "300">
                       <label class="custom-control-label" for="a8">
-                      시럽<br>+300
+                      <h5>시럽<br>+300</h5>
                       </label>
                   </div>
                       </td>
@@ -857,10 +864,12 @@ function cold_brew_modal() {
       <option value="3">3</option>
       </select>
 
+      <br><br>
+
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-        <button type="submit" class="btn btn-primary">장바구니에 추가</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><h5>닫기</h5></button>
+        <button type="submit" class="btn btn-primary"><h5>장바구니에 추가</h5></button>
 
       </div>
 
@@ -898,9 +907,9 @@ function cold_brew_americano_modal() {
                   </div>
   
                   <div class = "col">
-                  <p class="text-center">상품명 - 콜드브루아메리카노</p>
+                  <h5 class="text-center">상품명 - 콜드브루아메리카노</h5>
                   <input type = "hidden" value = "콜드브루아메리카노" name = "product_name">
-                  <p class="text-center">가격 - 3700</p>
+                  <h5 class="text-center">가격 - 3700</h5>
                   <input type = "hidden" value = "3700" name = "basic_price">
                   </div>
               </div>
@@ -917,13 +926,13 @@ function cold_brew_americano_modal() {
                   <tbody>
                     <tr>
                       <!---->
-                      <th scope="row">사이즈 선택</th>
+                      <th scope="row"><h5>사이즈 선택</h5></th>
 
                       <td>
                   <div class="custom-control custom-radio image-checkbox">
                       <input type="radio" name="size" class="custom-control-input" id="dk1a" value = "0" checked>
                       <label class="custom-control-label" for="dk1a">
-                      레귤러<br>+0
+                      <h5>레귤러<br>+0</h5>
                       </label>
                   </div>
                       </td>
@@ -932,7 +941,7 @@ function cold_brew_americano_modal() {
                   <div class="custom-control custom-radio image-checkbox">
                       <input type="radio" name="size" class="custom-control-input" id="dk1b" value = "1000">
                       <label class="custom-control-label" for="dk1b">
-                      엑스트라<br>+1000
+                      <h5>엑스트라<br>+1000</h5>
                       </label>
                   </div>
                       </td>
@@ -941,12 +950,12 @@ function cold_brew_americano_modal() {
 
 
                     <tr>
-                      <th scope="row">얼음 선택</th>
+                      <th scope="row"><h5>얼음 선택</h5></th>
                       <td>
                   <div class="custom-control custom-radio image-checkbox">
                       <input type="radio" name="ice" class="custom-control-input" id="dk1c" value = "0,S">
                       <label class="custom-control-label" for="dk1c">
-                      조금<br>+0
+                      <h5>조금<br>+0</h5>
                       </label>
                   </div>
                       </td>
@@ -955,7 +964,7 @@ function cold_brew_americano_modal() {
                   <div class="custom-control custom-radio image-checkbox">
                           <input type="radio" name="ice" class="custom-control-input" id="dk1d" value = "0,M" checked>
                           <label class="custom-control-label" for="dk1d">
-                          보통<br>+0
+                          <h5>보통<br>+0</h5>
                           </label>
                   </div>
                       </td>
@@ -964,7 +973,7 @@ function cold_brew_americano_modal() {
                   <div class="custom-control custom-radio image-checkbox">
                           <input type="radio" name="ice" class="custom-control-input" id="dk1e" value = "0,L">
                           <label class="custom-control-label" for="dk1e">
-                          많이<br>+0
+                          <h5>많이<br>+0</h5>
                           </label>
                   </div>
                       </td>
@@ -972,13 +981,13 @@ function cold_brew_americano_modal() {
 
 
                     <tr>
-                      <th scope="row">토핑 선택</th>
+                      <th scope="row"><h5>토핑 선택</h5></th>
 
                       <td>
                   <div class="custom-control custom-checkbox image-checkbox">
                       <input type="checkbox" name="topping1" class="custom-control-input" id="dk1f" value = "500">
                       <label class="custom-control-label" for="dk1f">
-                      샷 추가<br>+500
+                      <h5>샷 추가<br>+500</h5>
                       </label>
                   </div>
                       </td>
@@ -987,7 +996,7 @@ function cold_brew_americano_modal() {
                   <div class="custom-control custom-checkbox image-checkbox">
                       <input type="checkbox" name="topping2" class="custom-control-input" id="dk1g" value = "500">
                       <label class="custom-control-label" for="dk1g">
-                      휘핑크림<br>+500
+                      <h5>휘핑크림<br>+500</h5>
                       </label>
                   </div>
                       </td>
@@ -996,7 +1005,7 @@ function cold_brew_americano_modal() {
                   <div class="custom-control custom-checkbox image-checkbox">
                       <input type="checkbox" name="topping3" class="custom-control-input" id="dk1h" value = "300">
                       <label class="custom-control-label" for="dk1h">
-                      시럽<br>+300
+                      <h5>시럽<br>+300</h5>
                       </label>
                   </div>
                       </td>
@@ -1020,9 +1029,11 @@ function cold_brew_americano_modal() {
       </select>
 
 
+      <br><br>
+
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-        <button type="submit" class="btn btn-primary">장바구니에 추가</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><h5>닫기</h5></button>
+        <button type="submit" class="btn btn-primary"><h5>장바구니에 추가</h5></button>
 
       </div>
 
@@ -1058,9 +1069,9 @@ function strawberry_modal() {
                   </div>
   
                   <div class = "col">
-                  <p class="text-center">상품명 - 딸기쉐이크</p>
+                  <h5 class="text-center">상품명 - 딸기쉐이크</h5>
                   <input type = "hidden" value = "딸기쉐이크" name = "product_name">
-                  <p class="text-center">가격 - 4800</p>
+                  <h5 class="text-center">가격 - 4800</h5>
                   <input type = "hidden" value = "4800" name = "basic_price">
                   </div>
               </div>
@@ -1077,13 +1088,13 @@ function strawberry_modal() {
                   <tbody>
                     <tr>
                       <!---->
-                      <th scope="row">사이즈 선택</th>
+                      <th scope="row"><h5>사이즈 선택</h5></th>
 
                       <td>
                   <div class="custom-control custom-radio image-checkbox">
                       <input type="radio" name="size" class="custom-control-input" id="fk1a" value = "0" checked>
                       <label class="custom-control-label" for="fk1a">
-                      레귤러<br>+0
+                      <h5>레귤러<br>+0</h5>
                       </label>
                   </div>
                       </td>
@@ -1092,7 +1103,7 @@ function strawberry_modal() {
                   <div class="custom-control custom-radio image-checkbox">
                       <input type="radio" name="size" class="custom-control-input" id="fk1b" value = "1000">
                       <label class="custom-control-label" for="fk1b">
-                      엑스트라<br>+1000
+                      <h5>엑스트라<br>+1000</h5>
                       </label>
                   </div>
                       </td>
@@ -1113,9 +1124,12 @@ function strawberry_modal() {
       <option value="2">2</option>
       <option value="3">3</option>
       </select>
+
+      <br><br>
+
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-        <button type="submit" class="btn btn-primary">장바구니에 추가</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><h5>닫기</h5></button>
+        <button type="submit" class="btn btn-primary"><h5>장바구니에 추가</h5></button>
       </div>
     </div>
   </div>
@@ -1148,9 +1162,9 @@ function lemonade_modal() {
                   </div>
   
                   <div class = "col">
-                  <p class="text-center">상품명 - 레몬에이드</p>
+                  <h5 class="text-center">상품명 - 레몬에이드</h5>
                   <input type = "hidden" value = "레몬에이드" name = "product_name">
-                  <p class="text-center">가격 - 3800</p>
+                  <h5 class="text-center">가격 - 3800</h5>
                   <input type = "hidden" value = "3800" name = "basic_price">
                   </div>
               </div>
@@ -1167,13 +1181,13 @@ function lemonade_modal() {
                   <tbody>
                     <tr>
                       <!---->
-                      <th scope="row">사이즈 선택</th>
+                      <th scope="row"><h5>사이즈 선택</h5></th>
 
                       <td>
                   <div class="custom-control custom-radio image-checkbox">
                       <input type="radio" name="size" class="custom-control-input" id="gk1a" value = "0" checked>
                       <label class="custom-control-label" for="gk1a">
-                      레귤러<br>+0
+                      <h5>레귤러<br>+0</h5>
                       </label>
                   </div>
                       </td>
@@ -1182,7 +1196,7 @@ function lemonade_modal() {
                   <div class="custom-control custom-radio image-checkbox">
                       <input type="radio" name="size" class="custom-control-input" id="gk1b" value = "1000">
                       <label class="custom-control-label" for="gk1b">
-                      엑스트라<br>+1000
+                      <h5>엑스트라<br>+1000</h5>
                       </label>
                   </div>
                       </td>
@@ -1203,9 +1217,12 @@ function lemonade_modal() {
       <option value="2">2</option>
       <option value="3">3</option>
       </select>
+
+      <br><br>
+
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-        <button type="submit" class="btn btn-primary">장바구니에 추가</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><h5>닫기</h5></button>
+        <button type="submit" class="btn btn-primary"><h5>장바구니에 추가</h5></button>
       </div>
     </div>
   </div>
@@ -1238,9 +1255,9 @@ function green_grape_modal() {
                   </div>
   
                   <div class = "col">
-                  <p class="text-center">상품명 - 청포도에이드</p>
+                  <h5 class="text-center">상품명 - 청포도에이드</h5>
                   <input type = "hidden" value = "청포도에이드" name = "product_name">
-                  <p class="text-center">가격 - 3800</p>
+                  <h5 class="text-center">가격 - 3800</h5>
                   <input type = "hidden" value = "3800" name = "basic_price">
                   </div>
               </div>
@@ -1257,13 +1274,13 @@ function green_grape_modal() {
                   <tbody>
                     <tr>
                       <!---->
-                      <th scope="row">사이즈 선택</th>
+                      <th scope="row"><h5>사이즈 선택</h5></th>
 
                       <td>
                   <div class="custom-control custom-radio image-checkbox">
                       <input type="radio" name="size" class="custom-control-input" id="hk1a" value = "0" checked>
                       <label class="custom-control-label" for="hk1a">
-                      레귤러<br>+0
+                      <h5>레귤러<br>+0</h5>
                       </label>
                   </div>
                       </td>
@@ -1272,7 +1289,7 @@ function green_grape_modal() {
                   <div class="custom-control custom-radio image-checkbox">
                       <input type="radio" name="size" class="custom-control-input" id="hk1b" value = "1000">
                       <label class="custom-control-label" for="hk1b">
-                      엑스트라<br>+1000
+                      <h5>엑스트라<br>+1000</h5>
                       </label>
                   </div>
                       </td>
@@ -1293,9 +1310,10 @@ function green_grape_modal() {
       <option value="2">2</option>
       <option value="3">3</option>
       </select>
+      <br><br>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-        <button type="submit" class="btn btn-primary">장바구니에 추가</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><h5>닫기</h5></button>
+        <button type="submit" class="btn btn-primary"><h5>장바구니에 추가</h5></button>
       </div>
     </div>
   </div>
@@ -1328,9 +1346,9 @@ function peach_modal() {
                   </div>
   
                   <div class = "col">
-                  <p class="text-center">상품명 - 피치얼그레이</p>
+                  <h5 class="text-center">상품명 - 피치얼그레이</h5>
                   <input type = "hidden" value = "피치얼그레이" name = "product_name">
-                  <p class="text-center">가격 - 3200</p>
+                  <h5 class="text-center">가격 - 3200</h5>
                   <input type = "hidden" value = "3200" name = "basic_price">
                   </div>
               </div>
@@ -1347,13 +1365,13 @@ function peach_modal() {
                   <tbody>
                     <tr>
                       <!---->
-                      <th scope="row">사이즈 선택</th>
+                      <th scope="row"><h5>사이즈 선택</h5></th>
 
                       <td>
                   <div class="custom-control custom-radio image-checkbox">
                       <input type="radio" name="size" class="custom-control-input" id="ik1a" value = "0" checked>
                       <label class="custom-control-label" for="ik1a">
-                      레귤러<br>+0
+                      <h5>레귤러<br>+0</h5>
                       </label>
                   </div>
                       </td>
@@ -1362,7 +1380,7 @@ function peach_modal() {
                   <div class="custom-control custom-radio image-checkbox">
                       <input type="radio" name="size" class="custom-control-input" id="ik1b" value = "1000">
                       <label class="custom-control-label" for="ik1b">
-                      엑스트라<br>+1000
+                      <h5>엑스트라<br>+1000</h5>
                       </label>
                   </div>
                       </td>
@@ -1383,9 +1401,12 @@ function peach_modal() {
       <option value="2">2</option>
       <option value="3">3</option>
       </select>
+
+      <br><br>
+
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-        <button type="submit" class="btn btn-primary">장바구니에 추가</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><h5>닫기</h5></button>
+        <button type="submit" class="btn btn-primary"><h5>장바구니에 추가</h5></button>
       </div>
     </div>
   </div>
@@ -1419,9 +1440,9 @@ function delicious_waffle_modal() {
                   </div>
   
                   <div class = "col">
-                  <p class="text-center">상품명 - 맛있는와플</p>
+                  <h5 class="text-center">상품명 - 맛있는와플</h5>
                   <input type = "hidden" value = "맛있는와플" name = "product_name">
-                  <p class="text-center">가격 - 3000</p>
+                  <h5 class="text-center">가격 - 3000</h5>
                   <input type = "hidden" value = "3000" name = "basic_price">
                   </div>
               </div>
@@ -1440,10 +1461,12 @@ function delicious_waffle_modal() {
       <option value="3">3</option>
       </select>
 
+      <br><br>
+
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-        <button type="submit" class="btn btn-primary">장바구니에 추가</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><h5>닫기</h5></button>
+        <button type="submit" class="btn btn-primary"><h5>장바구니에 추가</h5></button>
 
       </div>
 
@@ -1479,9 +1502,9 @@ function cream_waffle() {
                   </div>
   
                   <div class = "col">
-                  <p class="text-center">상품명 - 생크림와플</p>
+                  <h5 class="text-center">상품명 - 생크림와플</h5>
                   <input type = "hidden" value = "생크림와플" name = "product_name">
-                  <p class="text-center">가격 - 2500</p>
+                  <h5 class="text-center">가격 - 2500</h5>
                   <input type = "hidden" value = "2500" name = "basic_price">
                   </div>
               </div>
@@ -1503,8 +1526,8 @@ function cream_waffle() {
       <br><br>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-        <button type="submit" class="btn btn-primary">장바구니에 추가</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><h5>닫기</h5></button>
+        <button type="submit" class="btn btn-primary"><h5>장바구니에 추가</h5></button>
 
       </div>
 
@@ -1540,9 +1563,9 @@ function cheese_cake_modal() {
                   </div>
   
                   <div class = "col">
-                  <p class="text-center">상품명 - 수플레치즈케이크</p>
+                  <h5 class="text-center">상품명 - 수플레치즈케이크</h5>
                   <input type = "hidden" value = "수플레치즈케이크" name = "product_name">
-                  <p class="text-center">가격 - 3900</p>
+                  <h5 class="text-center">가격 - 3900</h5>
                   <input type = "hidden" value = "3900" name = "basic_price">
                   </div>
               </div>
@@ -1564,8 +1587,8 @@ function cheese_cake_modal() {
       <br><br>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-        <button type="submit" class="btn btn-primary">장바구니에 추가</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><h5>닫기</h5></button>
+        <button type="submit" class="btn btn-primary"><h5>장바구니에 추가</h5></button>
 
       </div>
 
@@ -1603,9 +1626,9 @@ function origin_shake_modal() {
                   </div>
   
                   <div class = "col">
-                  <p class="text-center">상품명 - 오리진쉐이크</p>
+                  <h5 class="text-center">상품명 - 오리진쉐이크</h5>
                   <input type = "hidden" value = "오리진쉐이크" name = "product_name">
-                  <p class="text-center">가격 - 4300</p>
+                  <h5 class="text-center">가격 - 4300</h5>
                   <input type = "hidden" value = "4300" name = "basic_price">
                   </div>
               </div>
@@ -1627,8 +1650,8 @@ function origin_shake_modal() {
       <br><br>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-        <button type="submit" class="btn btn-primary">장바구니에 추가</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><h5>닫기</h5></button>
+        <button type="submit" class="btn btn-primary"><h5>장바구니에 추가</h5></button>
 
       </div>
 
@@ -1665,9 +1688,9 @@ function tiramisu_modal() {
                   </div>
   
                   <div class = "col">
-                  <p class="text-center">상품명 - 초코티라미수</p>
+                  <h5 class="text-center">상품명 - 초코티라미수</h5>
                   <input type = "hidden" value = "초코티라미수" name = "product_name">
-                  <p class="text-center">가격 - 3900</p>
+                  <h5 class="text-center">가격 - 3900</h5>
                   <input type = "hidden" value = "3900" name = "basic_price">
                   </div>
               </div>
@@ -1689,8 +1712,8 @@ function tiramisu_modal() {
       <br><br>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-        <button type="submit" class="btn btn-primary">장바구니에 추가</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><h5>닫기</h5></button>
+        <button type="submit" class="btn btn-primary"><h5>장바구니에 추가</h5></button>
 
       </div>
 
@@ -1728,9 +1751,9 @@ function cream_cheese_waffle() {
                   </div>
   
                   <div class = "col">
-                  <p class="text-center">상품명 - 크림치즈와플</p>
+                  <h5 class="text-center">상품명 - 크림치즈와플</h5>
                   <input type = "hidden" value = "크림치즈와플" name = "product_name">
-                  <p class="text-center">가격 - 3000</p>
+                  <h5 class="text-center">가격 - 3000</h5>
                   <input type = "hidden" value = "3000" name = "basic_price">
                   </div>
               </div>
@@ -1752,8 +1775,8 @@ function cream_cheese_waffle() {
       <br><br>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-        <button type="submit" class="btn btn-primary">장바구니에 추가</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><h5>닫기</h5></button>
+        <button type="submit" class="btn btn-primary"><h5>장바구니에 추가</h5></button>
 
       </div>
 
@@ -1813,7 +1836,7 @@ function payment_cart_html() {
     output += `<img src="${cart[i].img_src}" class="card-img-top" alt="...">`;
     output += `<div class="card-body">`;
     output += `<h5 class="card-title">${cart[i].name}</h5>`;
-    output += `<p class="card-text">`;
+    output += `<h5 class="card-text">`;
 
     if (cart[i].size) {
       if (cart[i].size === "0") {
@@ -1853,7 +1876,7 @@ function payment_cart_html() {
       output += '<br>수량:' + cart[i].count;
     }
 
-    output += `</p>`;
+    output += `</h5>`;
     output += `</div>`;
     output += `</div>`;
 
@@ -1887,6 +1910,7 @@ app.get('/mode_result', (req, res) => {
 app.get('/scenario1', (req, res) => {
   scenario = 1;
 
+  res.redirect('/');
 })
 
 app.get('/scenario2', (req, res) => {
@@ -1995,25 +2019,24 @@ app.get('/main', function (req, res) { //키오스크 메인화면, 주문하기
     
         <div class="container justify-content-center m-1">
         <div class="row text-center" style="width: 100%">
-        <h5><img src='${server_url}/img/speak.png' alt ="#">AI의 도움이 필요하시다면 가운데의 빨간점을 눌러주세요</h5> 
+        <h5><img src='${server_url}/img/speak.png' alt ="#">AI의 도움이 필요하시다면 가운데의 마이크를 눌러주세요</h5> 
         </div>
         </div>
     
         <!--출력 종료-->
 
-        <p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
+        <p><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
         
   <div class="d-flex justify-content-center">
   <form class="row justify-content-center " >
       <a href="/start_scenario" class="btn btn-lg" tabindex="-1" role="button">
-          <div class="spinner-grow text-danger" role="status">
-              <span class="visually-hidden">Loading...</span>
-            </div>
+          
+      <img src='${server_url}/img/mic.png' alt ="#">
   </a>
   </form>
   </div>
 
-        <p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
+        <p><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
 
             <div class="container justify-content-center border mt-5">
                 <div class="row justify-content-center">
@@ -2071,8 +2094,6 @@ app.get("/scenario1/result_mode/1", (req, res) => { //시나리오1 결과창을
 
   cart.push(temp_2);
 
-  console.log(result_price);
-
   res.redirect('/payment');
 })
 
@@ -2111,13 +2132,13 @@ app.get("/scenario1/guide_mode/3", (req, res) => {
             
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
-              <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">커피</button>
+              <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true"><h5>커피</h5></button>
             </li>
             <li class="nav-item" role="presentation">
-              <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false" disabled>음료/에이드</button>
+              <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false" disabled><h5>음료/에이드</h5></button>
             </li>
             <li class="nav-item" role="presentation">
-              <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false" disabled>디저트</button>
+              <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false" disabled><h5>디저트</h5></button>
             </li>
           </ul>
 
@@ -2125,7 +2146,7 @@ app.get("/scenario1/guide_mode/3", (req, res) => {
           <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab">
           <!--커피 상세 메뉴-->
           
-            <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:750px;">
+            <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:850px;">
 
             <!--한 세트 시작-->
 
@@ -2140,8 +2161,8 @@ app.get("/scenario1/guide_mode/3", (req, res) => {
                             </button>
                           <div class="card-body">
                               <h5 class="card-title">아메리카노</h5>
-                              <p class="card-text">3200원
-                              </p>
+                              <h5 class="card-text">3200원
+                              </h5>
                           </div>
                           </div>
                   </div>
@@ -2156,8 +2177,8 @@ app.get("/scenario1/guide_mode/3", (req, res) => {
                         </button>
                       <div class="card-body">
                           <h5 class="card-title">버블흑당콜드브루</h5>
-                          <p class="card-text">4700원
-                          </p>
+                          <h5 class="card-text">4700원
+                          </h5>
                       </div>
                       </div>
                   </div>
@@ -2182,8 +2203,8 @@ app.get("/scenario1/guide_mode/3", (req, res) => {
                                 </button>
                               <div class="card-body">
                                   <h5 class="card-title">카페라떼</h5>
-                                  <p class="card-text">3700원
-                                  </p>
+                                  <h5 class="card-text">3700원
+                                  </h5>
                               </div>
                               </div>
                       </div>
@@ -2198,8 +2219,8 @@ app.get("/scenario1/guide_mode/3", (req, res) => {
                             </button>
                           <div class="card-body">
                               <h5 class="card-title">콜드브루아메리카노</h5>
-                              <p class="card-text">3700원
-                              </p>
+                              <h5 class="card-text">3700원
+                              </h5>
                           </div>
                           </div>
                       </div>
@@ -2222,8 +2243,8 @@ app.get("/scenario1/guide_mode/3", (req, res) => {
                                     </button>
                                   <div class="card-body">
                                       <h5 class="card-title">콜드브루라떼</h5>
-                                      <p class="card-text">4200원
-                                      </p>
+                                      <h5 class="card-text">4200원
+                                      </h5>
                                   </div>
                                   </div>
                           </div>
@@ -2238,8 +2259,8 @@ app.get("/scenario1/guide_mode/3", (req, res) => {
                                 </button>
                               <div class="card-body">
                                   <h5 class="card-title">아인슈페너</h5>
-                                  <p class="card-text">3700원
-                                  </p>
+                                  <h5 class="card-text">3700원
+                                  </h5>
                               </div>
                               </div>
                           </div>
@@ -2256,7 +2277,7 @@ app.get("/scenario1/guide_mode/3", (req, res) => {
           <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab">
           <!--음료, 에이드 상세 메뉴-->
 
-          <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:750px;">
+          <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:850px;">
 
             <!--한 세트 시작-->
 
@@ -2271,8 +2292,8 @@ app.get("/scenario1/guide_mode/3", (req, res) => {
                             </button>
                           <div class="card-body">
                               <h5 class="card-title">딸기쉐이크</h5>
-                              <p class="card-text">4800원
-                              </p>
+                              <h5 class="card-text">4800원
+                              </h5>
                           </div>
                           </div>
                   </div>
@@ -2287,8 +2308,8 @@ app.get("/scenario1/guide_mode/3", (req, res) => {
                         </button>
                       <div class="card-body">
                           <h5 class="card-title">레몬에이드</h5>
-                          <p class="card-text">3800원
-                          </p>
+                          <h5 class="card-text">3800원
+                          </h5>
                       </div>
                       </div>
                   </div>
@@ -2313,8 +2334,8 @@ app.get("/scenario1/guide_mode/3", (req, res) => {
                                 </button>
                               <div class="card-body">
                                   <h5 class="card-title">청포도에이드</h5>
-                                  <p class="card-text">3800원
-                                  </p>
+                                  <h5 class="card-text">3800원
+                                  </h5>
                               </div>
                               </div>
                       </div>
@@ -2329,8 +2350,8 @@ app.get("/scenario1/guide_mode/3", (req, res) => {
                             </button>
                           <div class="card-body">
                               <h5 class="card-title">피치얼그레이</h5>
-                              <p class="card-text">3200원
-                              </p>
+                              <h5 class="card-text">3200원
+                              </h5>
                           </div>
                           </div>
                       </div>
@@ -2347,7 +2368,7 @@ app.get("/scenario1/guide_mode/3", (req, res) => {
           <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab">
           <!--디저트 상세 메뉴-->
 
-          <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:750px;">
+          <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:850px;">
 
           <!--한 세트 시작-->
 
@@ -2362,8 +2383,8 @@ app.get("/scenario1/guide_mode/3", (req, res) => {
                           </button>
                         <div class="card-body">
                             <h5 class="card-title">맛있는와플</h5>
-                            <p class="card-text">3000원
-                            </p>
+                            <h5 class="card-text">3000원
+                            </h5>
                         </div>
                         </div>
                 </div>
@@ -2378,8 +2399,8 @@ app.get("/scenario1/guide_mode/3", (req, res) => {
                       </button>
                     <div class="card-body">
                         <h5 class="card-title">생크림와플</h5>
-                        <p class="card-text">2500원
-                        </p>
+                        <h5 class="card-text">2500원
+                        </h5>
                     </div>
                     </div>
                 </div>
@@ -2404,8 +2425,8 @@ app.get("/scenario1/guide_mode/3", (req, res) => {
                               </button>
                             <div class="card-body">
                                 <h5 class="card-title">수플레치즈케이크</h5>
-                                <p class="card-text">3900원
-                                </p>
+                                <h5 class="card-text">3900원
+                                </h5>
                             </div>
                             </div>
                     </div>
@@ -2420,8 +2441,8 @@ app.get("/scenario1/guide_mode/3", (req, res) => {
                           </button>
                         <div class="card-body">
                             <h5 class="card-title">오리진쉐이크</h5>
-                            <p class="card-text">4300원
-                            </p>
+                            <h5 class="card-text">4300원
+                            </h5>
                         </div>
                         </div>
                     </div>
@@ -2444,8 +2465,8 @@ app.get("/scenario1/guide_mode/3", (req, res) => {
                                   </button>
                                 <div class="card-body">
                                     <h5 class="card-title">초코티라미수</h5>
-                                    <p class="card-text">3900원
-                                    </p>
+                                    <h5 class="card-text">3900원
+                                    </h5>
                                 </div>
                                 </div>
                         </div>
@@ -2460,8 +2481,8 @@ app.get("/scenario1/guide_mode/3", (req, res) => {
                               </button>
                             <div class="card-body">
                                 <h5 class="card-title">크림치즈와플</h5>
-                                <p class="card-text">3000원
-                                </p>
+                                <h5 class="card-text">3000원
+                                </h5>
                             </div>
                             </div>
                         </div>
@@ -2486,7 +2507,7 @@ app.get("/scenario1/guide_mode/3", (req, res) => {
         </div>
 
         <div class="container justify-content-end">
-        <a href="/payment" class="btn btn-primary btn-lg m-1" tabindex="-1" role="button">결제하기</a>
+        <a href="/payment" class="btn btn-primary btn-lg m-1" tabindex="-1" role="button" style="background-color:red;">결제하기</a>
         </div>
 
 
@@ -2586,13 +2607,13 @@ app.get("/scenario1/guide_mode/2", (req, res) => {  //시나리오1 가이드 �
             
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
-              <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">커피</button>
+              <button class="nav-link active text-white" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true" style = "background-color: red;"><h5>커피</h5></button>
             </li>
             <li class="nav-item" role="presentation">
-              <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false" disabled>음료/에이드</button>
+              <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false" disabled><h5>음료/에이드</h5></button>
             </li>
             <li class="nav-item" role="presentation">
-              <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false" disabled>디저트</button>
+              <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false" disabled><h5>디저트</h5></button>
             </li>
           </ul>
 
@@ -2600,7 +2621,7 @@ app.get("/scenario1/guide_mode/2", (req, res) => {  //시나리오1 가이드 �
           <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab">
           <!--커피 상세 메뉴-->
           
-            <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:750px;">
+            <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:850px;">
 
             <!--한 세트 시작-->
 
@@ -2609,14 +2630,14 @@ app.get("/scenario1/guide_mode/2", (req, res) => {  //시나리오1 가이드 �
                 <div class="col-5 m-2 border"  >
                   <div class="row justify-content-center">
                       
-                      <div class="card m-1" style="width: 18rem;">
+                      <div class="card m-1" style="width: 18rem; background-color: red;" >
                           <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#americano">
                               <img class = "btn-img m-3" src='${server_url}/img/americano.png' alt="#">
                             </button>
                           <div class="card-body">
-                              <h5 class="card-title">아메리카노</h5>
-                              <p class="card-text">3200원
-                              </p>
+                              <h5 class="card-title text-white">아메리카노</h5>
+                              <h5 class="card-text text-white">3200원
+                              </h5>
                           </div>
                           </div>
                   </div>
@@ -2631,8 +2652,8 @@ app.get("/scenario1/guide_mode/2", (req, res) => {  //시나리오1 가이드 �
                         </button>
                       <div class="card-body">
                           <h5 class="card-title">버블흑당콜드브루</h5>
-                          <p class="card-text">4700원
-                          </p>
+                          <h5 class="card-text">4700원
+                          </h5>
                       </div>
                       </div>
                   </div>
@@ -2657,8 +2678,8 @@ app.get("/scenario1/guide_mode/2", (req, res) => {  //시나리오1 가이드 �
                                 </button>
                               <div class="card-body">
                                   <h5 class="card-title">카페라떼</h5>
-                                  <p class="card-text">3700원
-                                  </p>
+                                  <h5 class="card-text">3700원
+                                  </h5>
                               </div>
                               </div>
                       </div>
@@ -2673,8 +2694,8 @@ app.get("/scenario1/guide_mode/2", (req, res) => {  //시나리오1 가이드 �
                             </button>
                           <div class="card-body">
                               <h5 class="card-title">콜드브루아메리카노</h5>
-                              <p class="card-text">3700원
-                              </p>
+                              <h5 class="card-text">3700원
+                              </h5>
                           </div>
                           </div>
                       </div>
@@ -2697,8 +2718,8 @@ app.get("/scenario1/guide_mode/2", (req, res) => {  //시나리오1 가이드 �
                                     </button>
                                   <div class="card-body">
                                       <h5 class="card-title">콜드브루라떼</h5>
-                                      <p class="card-text">4200원
-                                      </p>
+                                      <h5 class="card-text">4200원
+                                      </h5>
                                   </div>
                                   </div>
                           </div>
@@ -2713,8 +2734,8 @@ app.get("/scenario1/guide_mode/2", (req, res) => {  //시나리오1 가이드 �
                                 </button>
                               <div class="card-body">
                                   <h5 class="card-title">아인슈페너</h5>
-                                  <p class="card-text">3700원
-                                  </p>
+                                  <h5 class="card-text">3700원
+                                  </h5>
                               </div>
                               </div>
                           </div>
@@ -2731,7 +2752,7 @@ app.get("/scenario1/guide_mode/2", (req, res) => {  //시나리오1 가이드 �
           <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab">
           <!--음료, 에이드 상세 메뉴-->
 
-          <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:750px;">
+          <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:850px;">
 
             <!--한 세트 시작-->
 
@@ -2746,8 +2767,8 @@ app.get("/scenario1/guide_mode/2", (req, res) => {  //시나리오1 가이드 �
                             </button>
                           <div class="card-body">
                               <h5 class="card-title">딸기쉐이크</h5>
-                              <p class="card-text">4800원
-                              </p>
+                              <h5 class="card-text">4800원
+                              </h5>
                           </div>
                           </div>
                   </div>
@@ -2762,8 +2783,8 @@ app.get("/scenario1/guide_mode/2", (req, res) => {  //시나리오1 가이드 �
                         </button>
                       <div class="card-body">
                           <h5 class="card-title">레몬에이드</h5>
-                          <p class="card-text">3800원
-                          </p>
+                          <h5 class="card-text">3800원
+                          </h5>
                       </div>
                       </div>
                   </div>
@@ -2788,8 +2809,8 @@ app.get("/scenario1/guide_mode/2", (req, res) => {  //시나리오1 가이드 �
                                 </button>
                               <div class="card-body">
                                   <h5 class="card-title">청포도에이드</h5>
-                                  <p class="card-text">3800원
-                                  </p>
+                                  <h5 class="card-text">3800원
+                                  </h5>
                               </div>
                               </div>
                       </div>
@@ -2804,8 +2825,8 @@ app.get("/scenario1/guide_mode/2", (req, res) => {  //시나리오1 가이드 �
                             </button>
                           <div class="card-body">
                               <h5 class="card-title">피치얼그레이</h5>
-                              <p class="card-text">3200원
-                              </p>
+                              <h5 class="card-text">3200원
+                              </h5>
                           </div>
                           </div>
                       </div>
@@ -2822,7 +2843,7 @@ app.get("/scenario1/guide_mode/2", (req, res) => {  //시나리오1 가이드 �
           <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab">
           <!--디저트 상세 메뉴-->
 
-          <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:750px;">
+          <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:850px;">
 
           <!--한 세트 시작-->
 
@@ -2837,8 +2858,8 @@ app.get("/scenario1/guide_mode/2", (req, res) => {  //시나리오1 가이드 �
                           </button>
                         <div class="card-body">
                             <h5 class="card-title">맛있는와플</h5>
-                            <p class="card-text">3000원
-                            </p>
+                            <h5 class="card-text">3000원
+                            </h5>
                         </div>
                         </div>
                 </div>
@@ -2853,8 +2874,8 @@ app.get("/scenario1/guide_mode/2", (req, res) => {  //시나리오1 가이드 �
                       </button>
                     <div class="card-body">
                         <h5 class="card-title">생크림와플</h5>
-                        <p class="card-text">2500원
-                        </p>
+                        <h5 class="card-text">2500원
+                        </h5>
                     </div>
                     </div>
                 </div>
@@ -2879,8 +2900,8 @@ app.get("/scenario1/guide_mode/2", (req, res) => {  //시나리오1 가이드 �
                               </button>
                             <div class="card-body">
                                 <h5 class="card-title">수플레치즈케이크</h5>
-                                <p class="card-text">3900원
-                                </p>
+                                <h5 class="card-text">3900원
+                                </h5>
                             </div>
                             </div>
                     </div>
@@ -2895,8 +2916,8 @@ app.get("/scenario1/guide_mode/2", (req, res) => {  //시나리오1 가이드 �
                           </button>
                         <div class="card-body">
                             <h5 class="card-title">오리진쉐이크</h5>
-                            <p class="card-text">4300원
-                            </p>
+                            <h5 class="card-text">4300원
+                            </h5>
                         </div>
                         </div>
                     </div>
@@ -2919,8 +2940,8 @@ app.get("/scenario1/guide_mode/2", (req, res) => {  //시나리오1 가이드 �
                                   </button>
                                 <div class="card-body">
                                     <h5 class="card-title">초코티라미수</h5>
-                                    <p class="card-text">3900원
-                                    </p>
+                                    <h5 class="card-text">3900원
+                                    </h5>
                                 </div>
                                 </div>
                         </div>
@@ -2935,8 +2956,8 @@ app.get("/scenario1/guide_mode/2", (req, res) => {  //시나리오1 가이드 �
                               </button>
                             <div class="card-body">
                                 <h5 class="card-title">크림치즈와플</h5>
-                                <p class="card-text">3000원
-                                </p>
+                                <h5 class="card-text">3000원
+                                </h5>
                             </div>
                             </div>
                         </div>
@@ -2990,9 +3011,9 @@ app.get("/scenario1/guide_mode/2", (req, res) => {  //시나리오1 가이드 �
                     </div>
     
                     <div class = "col">
-                        <p class="text-center">상품명 - 아메리카노</p>
+                        <h5 class="text-center">상품명 - 아메리카노</h5>
                         <input type = "hidden" value = "아메리카노" name = "product_name">
-                        <p class="text-center">가격 - 3200원</p>
+                        <h5 class="text-center">가격 - 3200원</h5>
                         <input type = "hidden" value = "3200" name = "basic_price">
                     </div>
                 </div>
@@ -3009,13 +3030,13 @@ app.get("/scenario1/guide_mode/2", (req, res) => {  //시나리오1 가이드 �
                     <tbody>
                       <tr>
                         <!---->
-                        <th scope="row">사이즈 선택</th>
+                        <th scope="row"><h5>사이즈 선택</h5></th>
 
                         <td>
                     <div class="custom-control custom-radio image-checkbox">
                         <input type="radio" name="size" class="custom-control-input" id="ck1a" value = "0" checked>
                         <label class="custom-control-label" for="ck1a">
-                        레귤러<br>+0
+                        <h5>레귤러<br>+0</h5>
                         </label>
                     </div>
                         </td>
@@ -3024,7 +3045,7 @@ app.get("/scenario1/guide_mode/2", (req, res) => {  //시나리오1 가이드 �
                     <div class="custom-control custom-radio image-checkbox">
                         <input type="radio" name="size" class="custom-control-input" id="ck1b" value = "1000">
                         <label class="custom-control-label" for="ck1b">
-                        엑스트라<br>+1000
+                        <h5>엑스트라<br>+1000</h5>
                         </label>
                     </div>
                         </td>
@@ -3033,12 +3054,12 @@ app.get("/scenario1/guide_mode/2", (req, res) => {  //시나리오1 가이드 �
 
 
                       <tr>
-                        <th scope="row">얼음 선택</th>
+                        <th scope="row"><h5>얼음 선택</h5></th>
                         <td>
                     <div class="custom-control custom-radio image-checkbox">
                         <input type="radio" name="ice" class="custom-control-input" id="ck1c" value = "0,S">
                         <label class="custom-control-label" for="ck1c">
-                        조금<br>+0
+                        <h5>조금<br>+0</h5>
                         </label>
                     </div>
                         </td>
@@ -3047,7 +3068,7 @@ app.get("/scenario1/guide_mode/2", (req, res) => {  //시나리오1 가이드 �
                     <div class="custom-control custom-radio image-checkbox">
                             <input type="radio" name="ice" class="custom-control-input" id="ck1d" value = "0,M" checked>
                             <label class="custom-control-label" for="ck1d">
-                            보통<br>+0
+                            <h5>보통<br>+0</h5>
                             </label>
                     </div>
                         </td>
@@ -3056,7 +3077,7 @@ app.get("/scenario1/guide_mode/2", (req, res) => {  //시나리오1 가이드 �
                     <div class="custom-control custom-radio image-checkbox">
                             <input type="radio" name="ice" class="custom-control-input" id="ck1e" value = "0,L">
                             <label class="custom-control-label" for="ck1e">
-                            많이<br>+0
+                            <h5>많이<br>+0</h5>
                             </label>
                     </div>
                         </td>
@@ -3064,13 +3085,13 @@ app.get("/scenario1/guide_mode/2", (req, res) => {  //시나리오1 가이드 �
 
 
                       <tr>
-                        <th scope="row">토핑 선택</th>
+                        <th scope="row"><h5>토핑 선택</h5></th>
 
                         <td>
                     <div class="custom-control custom-checkbox image-checkbox">
                         <input type="checkbox" name="topping1" class="custom-control-input" id="ck1f" value = "500">
                         <label class="custom-control-label" for="ck1f">
-                        샷 추가<br>+500
+                        <h5>샷 추가<br>+500</h5>
                         </label>
                     </div>
                         </td>
@@ -3079,7 +3100,7 @@ app.get("/scenario1/guide_mode/2", (req, res) => {  //시나리오1 가이드 �
                     <div class="custom-control custom-checkbox image-checkbox">
                         <input type="checkbox" name="topping2" class="custom-control-input" id="ck1g" value = "500">
                         <label class="custom-control-label" for="ck1g">
-                        휘핑크림<br>+500
+                        <h5>휘핑크림<br>+500</h5>
                         </label>
                     </div>
                         </td>
@@ -3088,7 +3109,7 @@ app.get("/scenario1/guide_mode/2", (req, res) => {  //시나리오1 가이드 �
                     <div class="custom-control custom-checkbox image-checkbox">
                         <input type="checkbox" name="topping3" class="custom-control-input" id="ck1h" value = "300">
                         <label class="custom-control-label" for="ck1h">
-                        시럽<br>+300
+                        <h5>시럽<br>+300</h5>
                         </label>
                     </div>
                         </td>
@@ -3112,8 +3133,8 @@ app.get("/scenario1/guide_mode/2", (req, res) => {  //시나리오1 가이드 �
         </select>
 
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-          <button type="submit" class="btn btn-primary">장바구니에 추가</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><h5>닫기</h5></button>
+          <button type="submit" class="btn btn-primary text-white" style = "background-color: red;"><h5>장바구니에 추가</h5></button>
 
         </div>
 
@@ -3210,13 +3231,13 @@ app.get("/scenario1/guide_mode/1", (req, res) => {
             
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
-              <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true" disabled>커피</button>
+              <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true" disabled><h5>커피</h5></button>
             </li>
             <li class="nav-item" role="presentation">
-              <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false" disabled>음료/에이드</button>
+              <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false" disabled><h5>음료/에이드</h5></button>
             </li>
             <li class="nav-item" role="presentation">
-              <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">디저트</button>
+              <button class="nav-link text-white" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false" style="background-color: red;"><h5>디저트</h5></button>
             </li>
           </ul>
 
@@ -3224,7 +3245,7 @@ app.get("/scenario1/guide_mode/1", (req, res) => {
           <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab">
           <!--커피 상세 메뉴-->
           
-            <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:750px;">
+            <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:850px;">
 
             <!--한 세트 시작-->
 
@@ -3239,8 +3260,8 @@ app.get("/scenario1/guide_mode/1", (req, res) => {
                             </button>
                           <div class="card-body">
                               <h5 class="card-title">아메리카노</h5>
-                              <p class="card-text">3200원
-                              </p>
+                              <h5 class="card-text">3200원
+                              </h5>
                           </div>
                           </div>
                   </div>
@@ -3255,8 +3276,8 @@ app.get("/scenario1/guide_mode/1", (req, res) => {
                         </button>
                       <div class="card-body">
                           <h5 class="card-title">버블흑당콜드브루</h5>
-                          <p class="card-text">4700원
-                          </p>
+                          <h5 class="card-text">4700원
+                          </h5>
                       </div>
                       </div>
                   </div>
@@ -3281,8 +3302,8 @@ app.get("/scenario1/guide_mode/1", (req, res) => {
                                 </button>
                               <div class="card-body">
                                   <h5 class="card-title">카페라떼</h5>
-                                  <p class="card-text">3700원
-                                  </p>
+                                  <h5 class="card-text">3700원
+                                  </h5>
                               </div>
                               </div>
                       </div>
@@ -3297,8 +3318,8 @@ app.get("/scenario1/guide_mode/1", (req, res) => {
                             </button>
                           <div class="card-body">
                               <h5 class="card-title">콜드브루아메리카노</h5>
-                              <p class="card-text">3700원
-                              </p>
+                              <h5 class="card-text">3700원
+                              </h5>
                           </div>
                           </div>
                       </div>
@@ -3321,8 +3342,8 @@ app.get("/scenario1/guide_mode/1", (req, res) => {
                                     </button>
                                   <div class="card-body">
                                       <h5 class="card-title">콜드브루라떼</h5>
-                                      <p class="card-text">4200원
-                                      </p>
+                                      <h5 class="card-text">4200원
+                                      </h5>
                                   </div>
                                   </div>
                           </div>
@@ -3337,8 +3358,8 @@ app.get("/scenario1/guide_mode/1", (req, res) => {
                                 </button>
                               <div class="card-body">
                                   <h5 class="card-title">아인슈페너</h5>
-                                  <p class="card-text">3700원
-                                  </p>
+                                  <h5 class="card-text">3700원
+                                  </h5>
                               </div>
                               </div>
                           </div>
@@ -3355,7 +3376,7 @@ app.get("/scenario1/guide_mode/1", (req, res) => {
           <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab">
           <!--음료, 에이드 상세 메뉴-->
 
-          <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:750px;">
+          <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:850px;">
 
             <!--한 세트 시작-->
 
@@ -3370,8 +3391,8 @@ app.get("/scenario1/guide_mode/1", (req, res) => {
                             </button>
                           <div class="card-body">
                               <h5 class="card-title">딸기쉐이크</h5>
-                              <p class="card-text">4800원
-                              </p>
+                              <h5 class="card-text">4800원
+                              </h5>
                           </div>
                           </div>
                   </div>
@@ -3386,8 +3407,8 @@ app.get("/scenario1/guide_mode/1", (req, res) => {
                         </button>
                       <div class="card-body">
                           <h5 class="card-title">레몬에이드</h5>
-                          <p class="card-text">3800원
-                          </p>
+                          <h5 class="card-text">3800원
+                          </h5>
                       </div>
                       </div>
                   </div>
@@ -3412,8 +3433,8 @@ app.get("/scenario1/guide_mode/1", (req, res) => {
                                 </button>
                               <div class="card-body">
                                   <h5 class="card-title">청포도에이드</h5>
-                                  <p class="card-text">3800원
-                                  </p>
+                                  <h5 class="card-text">3800원
+                                  </h5>
                               </div>
                               </div>
                       </div>
@@ -3428,8 +3449,8 @@ app.get("/scenario1/guide_mode/1", (req, res) => {
                             </button>
                           <div class="card-body">
                               <h5 class="card-title">피치얼그레이</h5>
-                              <p class="card-text">3200원
-                              </p>
+                              <h5 class="card-text">3200원
+                              </h5>
                           </div>
                           </div>
                       </div>
@@ -3446,7 +3467,7 @@ app.get("/scenario1/guide_mode/1", (req, res) => {
           <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab">
           <!--디저트 상세 메뉴-->
 
-          <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:750px;">
+          <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:850px;">
 
           <!--한 세트 시작-->
 
@@ -3461,8 +3482,8 @@ app.get("/scenario1/guide_mode/1", (req, res) => {
                           </button>
                         <div class="card-body">
                             <h5 class="card-title">맛있는와플</h5>
-                            <p class="card-text">3000원
-                            </p>
+                            <h5 class="card-text">3000원
+                            </h5>
                         </div>
                         </div>
                 </div>
@@ -3477,8 +3498,8 @@ app.get("/scenario1/guide_mode/1", (req, res) => {
                       </button>
                     <div class="card-body">
                         <h5 class="card-title">생크림와플</h5>
-                        <p class="card-text">2500원
-                        </p>
+                        <h5 class="card-text">2500원
+                        </h5>
                     </div>
                     </div>
                 </div>
@@ -3503,8 +3524,8 @@ app.get("/scenario1/guide_mode/1", (req, res) => {
                               </button>
                             <div class="card-body">
                                 <h5 class="card-title">수플레치즈케이크</h5>
-                                <p class="card-text">3900원
-                                </p>
+                                <h5 class="card-text">3900원
+                                </h5>
                             </div>
                             </div>
                     </div>
@@ -3519,8 +3540,8 @@ app.get("/scenario1/guide_mode/1", (req, res) => {
                           </button>
                         <div class="card-body">
                             <h5 class="card-title">오리진쉐이크</h5>
-                            <p class="card-text">4300원
-                            </p>
+                            <h5 class="card-text">4300원
+                            </h5>
                         </div>
                         </div>
                     </div>
@@ -3537,14 +3558,14 @@ app.get("/scenario1/guide_mode/1", (req, res) => {
                       <div class="col-5 m-2 border"  >
                         <div class="row justify-content-center">
                             
-                            <div class="card m-1" style="width: 18rem;">
+                            <div class="card m-1" style="width: 18rem; background-color: red;">
                                 <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#tiramisu">
                                     <img class = "btn-img m-3" src='${server_url}/img/tiramisu.png' alt="#">
                                   </button>
                                 <div class="card-body">
-                                    <h5 class="card-title">초코티라미수</h5>
-                                    <p class="card-text">3900원
-                                    </p>
+                                    <h5 class="card-title text-white">초코티라미수</h5>
+                                    <h5 class="card-text text-white">3900원
+                                    </h5>
                                 </div>
                                 </div>
                         </div>
@@ -3559,8 +3580,8 @@ app.get("/scenario1/guide_mode/1", (req, res) => {
                               </button>
                             <div class="card-body">
                                 <h5 class="card-title">크림치즈와플</h5>
-                                <p class="card-text">3000원
-                                </p>
+                                <h5 class="card-text">3000원
+                                </h5>
                             </div>
                             </div>
                         </div>
@@ -3614,9 +3635,9 @@ app.get("/scenario1/guide_mode/1", (req, res) => {
                   </div>
   
                   <div class = "col">
-                  <p class="text-center">상품명 - 초코티라미수</p>
+                  <h5 class="text-center">상품명 - 초코티라미수</h5>
                   <input type = "hidden" value = "초코티라미수" name = "product_name">
-                  <p class="text-center">가격 - 3900</p>
+                  <h5 class="text-center">가격 - 3900</h5>
                   <input type = "hidden" value = "3900" name = "basic_price">
                   </div>
               </div>
@@ -3638,8 +3659,8 @@ app.get("/scenario1/guide_mode/1", (req, res) => {
       <br><br>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-        <button type="submit" class="btn btn-primary">장바구니에 추가</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><h5>닫기</h5></button>
+        <button type="submit" class="btn btn-primary" style = "background-color: red;"><h5>장바구니에 추가</h5></button>
 
       </div>
 
@@ -3661,6 +3682,7 @@ app.get("/scenario1/guide_mode/1", (req, res) => {
 //시나리오1 코드 종료
 
 
+
 //시나리오 선택 및 진행을 위한 if문
 app.get("/scenario_process", (req, res) => {
 
@@ -3680,7 +3702,7 @@ app.get("/scenario_process", (req, res) => {
           </div>
       </div>
 
-      <p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
+      <p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
 
 
       <div class="d-flex justify-content-center">
@@ -3694,7 +3716,7 @@ app.get("/scenario_process", (req, res) => {
         </form>
       </div>
 
-      <p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
+      <p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
 
 
         <div class="row text-center" style="width: 100%">
@@ -3782,7 +3804,7 @@ app.get("/start_scenario", (req, res) => {
 
   <div class="container justify-content-center m-1">
   <div class="row text-center" style="width: 100%">
-  <h5><img src='${server_url}/img/speak.png' alt ="#">주문하기 버튼을 누르고 주문을 진행해주세요.</h5> 
+  <h3><img src='${server_url}/img/speak.png' alt ="#">마이크 버튼을 누르고 주문을 진행해주세요.</h3> 
   </div>
   </div>
 
@@ -3796,13 +3818,13 @@ app.get("/start_scenario", (req, res) => {
 
   <div class="row text-center" style="width: 100%">
   <div style="width: 30%; float:none; margin:0 auto" >
-  <button type="button" class="btn btn-primary btn-lg m-1" onclick="startSpeechRecognition();">주문하기</button>
+  <button type="button" class="m-1" onclick="startSpeechRecognition();"><img class = "btn-img m-3" src='${server_url}/img/mic.png' alt="#"></button>
   </div>
   </div>
 
   <div class="row text-center" style="width: 100%">
   <div style="width: 30%; float:none; margin:0 auto" >
-  <a href="/scenario_process" class="btn btn-primary btn-lg m-1" id="btn_end" tabindex="-1" role="button">주문완료</a>
+  <a href="/scenario_process" class="btn btn-primary btn-lg m-1" id="btn_end" tabindex="-1" role="button">주문하기</a>
   </div>
   </div>
   
@@ -3906,11 +3928,9 @@ app.post('/order_main', function (req, res) { //장바구니에 넣고 order_mai
     img_src: req.body.img_src
   };
 
-  console.log(temp)
+  console.log(temp);
 
   cart.push(temp);
-
-  console.log(cart);
 
   res.redirect('/order_main');
 
@@ -3950,13 +3970,13 @@ app.get('/order_main', function (req, res) { //커피 선택 메뉴
             
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
-              <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">커피</button>
+              <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true"><h5>커피</h5></button>
             </li>
             <li class="nav-item" role="presentation">
-              <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">음료/에이드</button>
+              <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false"><h5>음료/에이드</h5></button>
             </li>
             <li class="nav-item" role="presentation">
-              <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">디저트</button>
+              <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false"><h5>디저트</h5></button>
             </li>
           </ul>
 
@@ -3964,7 +3984,7 @@ app.get('/order_main', function (req, res) { //커피 선택 메뉴
           <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab">
           <!--커피 상세 메뉴-->
           
-            <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:750px;">
+            <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:850px;">
 
             <!--한 세트 시작-->
 
@@ -3979,8 +3999,8 @@ app.get('/order_main', function (req, res) { //커피 선택 메뉴
                             </button>
                           <div class="card-body">
                               <h5 class="card-title">아메리카노</h5>
-                              <p class="card-text">3200원
-                              </p>
+                              <h5 class="card-text">3200원
+                              </h5>
                           </div>
                           </div>
                   </div>
@@ -3995,8 +4015,8 @@ app.get('/order_main', function (req, res) { //커피 선택 메뉴
                         </button>
                       <div class="card-body">
                           <h5 class="card-title">버블흑당콜드브루</h5>
-                          <p class="card-text">4700원
-                          </p>
+                          <h5 class="card-text">4700원
+                          </h5>
                       </div>
                       </div>
                   </div>
@@ -4021,8 +4041,8 @@ app.get('/order_main', function (req, res) { //커피 선택 메뉴
                                 </button>
                               <div class="card-body">
                                   <h5 class="card-title">카페라떼</h5>
-                                  <p class="card-text">3700원
-                                  </p>
+                                  <h5 class="card-text">3700원
+                                  </h5>
                               </div>
                               </div>
                       </div>
@@ -4037,8 +4057,8 @@ app.get('/order_main', function (req, res) { //커피 선택 메뉴
                             </button>
                           <div class="card-body">
                               <h5 class="card-title">콜드브루아메리카노</h5>
-                              <p class="card-text">3700원
-                              </p>
+                              <h5 class="card-text">3700원
+                              </h5>
                           </div>
                           </div>
                       </div>
@@ -4061,8 +4081,8 @@ app.get('/order_main', function (req, res) { //커피 선택 메뉴
                                     </button>
                                   <div class="card-body">
                                       <h5 class="card-title">콜드브루라떼</h5>
-                                      <p class="card-text">4200원
-                                      </p>
+                                      <h5 class="card-text">4200원
+                                      </h5>
                                   </div>
                                   </div>
                           </div>
@@ -4077,8 +4097,8 @@ app.get('/order_main', function (req, res) { //커피 선택 메뉴
                                 </button>
                               <div class="card-body">
                                   <h5 class="card-title">아인슈페너</h5>
-                                  <p class="card-text">3700원
-                                  </p>
+                                  <h5 class="card-text">3700원
+                                  </h5>
                               </div>
                               </div>
                           </div>
@@ -4095,7 +4115,7 @@ app.get('/order_main', function (req, res) { //커피 선택 메뉴
           <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab">
           <!--음료, 에이드 상세 메뉴-->
 
-          <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:750px;">
+          <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:850px;">
 
             <!--한 세트 시작-->
 
@@ -4110,8 +4130,8 @@ app.get('/order_main', function (req, res) { //커피 선택 메뉴
                             </button>
                           <div class="card-body">
                               <h5 class="card-title">딸기쉐이크</h5>
-                              <p class="card-text">4800원
-                              </p>
+                              <h5 class="card-text">4800원
+                              </h5>
                           </div>
                           </div>
                   </div>
@@ -4126,8 +4146,8 @@ app.get('/order_main', function (req, res) { //커피 선택 메뉴
                         </button>
                       <div class="card-body">
                           <h5 class="card-title">레몬에이드</h5>
-                          <p class="card-text">3800원
-                          </p>
+                          <h5 class="card-text">3800원
+                          </h5>
                       </div>
                       </div>
                   </div>
@@ -4152,7 +4172,7 @@ app.get('/order_main', function (req, res) { //커피 선택 메뉴
                                 </button>
                               <div class="card-body">
                                   <h5 class="card-title">청포도에이드</h5>
-                                  <p class="card-text">3800원
+                                  <h5 class="card-text">3800원
                                   </p>
                               </div>
                               </div>
@@ -4164,12 +4184,12 @@ app.get('/order_main', function (req, res) { //커피 선택 메뉴
                           
                       <div class="card m-1" style="width: 18rem;">
                           <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#peach">
-                          <img class = "btn-img m-3" src='${server_url}/img/peach.png' alt="#">
+                          <img class = "btn-smg m-3" src='${server_url}/img/peach.png' alt="#">
                             </button>
                           <div class="card-body">
                               <h5 class="card-title">피치얼그레이</h5>
-                              <p class="card-text">3200원
-                              </p>
+                              <h5 class="card-text">3200원
+                              </h5>
                           </div>
                           </div>
                       </div>
@@ -4186,7 +4206,7 @@ app.get('/order_main', function (req, res) { //커피 선택 메뉴
           <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab">
           <!--디저트 상세 메뉴-->
 
-          <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:750px;">
+          <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:850px;">
 
           <!--한 세트 시작-->
 
@@ -4201,8 +4221,8 @@ app.get('/order_main', function (req, res) { //커피 선택 메뉴
                           </button>
                         <div class="card-body">
                             <h5 class="card-title">맛있는와플</h5>
-                            <p class="card-text">3000원
-                            </p>
+                            <h5 class="card-text">3000원
+                            </h5>
                         </div>
                         </div>
                 </div>
@@ -4217,8 +4237,8 @@ app.get('/order_main', function (req, res) { //커피 선택 메뉴
                       </button>
                     <div class="card-body">
                         <h5 class="card-title">생크림와플</h5>
-                        <p class="card-text">2500원
-                        </p>
+                        <h5 class="card-text">2500원
+                        </h5>
                     </div>
                     </div>
                 </div>
@@ -4243,8 +4263,8 @@ app.get('/order_main', function (req, res) { //커피 선택 메뉴
                               </button>
                             <div class="card-body">
                                 <h5 class="card-title">수플레치즈케이크</h5>
-                                <p class="card-text">3900원
-                                </p>
+                                <h5 class="card-text">3900원
+                                </h5>
                             </div>
                             </div>
                     </div>
@@ -4259,8 +4279,8 @@ app.get('/order_main', function (req, res) { //커피 선택 메뉴
                           </button>
                         <div class="card-body">
                             <h5 class="card-title">오리진쉐이크</h5>
-                            <p class="card-text">4300원
-                            </p>
+                            <h5 class="card-text">4300원
+                            </h5>
                         </div>
                         </div>
                     </div>
@@ -4283,8 +4303,8 @@ app.get('/order_main', function (req, res) { //커피 선택 메뉴
                                   </button>
                                 <div class="card-body">
                                     <h5 class="card-title">초코티라미수</h5>
-                                    <p class="card-text">3900원
-                                    </p>
+                                    <h5 class="card-text">3900원
+                                    </h5>
                                 </div>
                                 </div>
                         </div>
@@ -4299,8 +4319,8 @@ app.get('/order_main', function (req, res) { //커피 선택 메뉴
                               </button>
                             <div class="card-body">
                                 <h5 class="card-title">크림치즈와플</h5>
-                                <p class="card-text">3000원
-                                </p>
+                                <h5 class="card-text">3000원
+                                </h5>
                             </div>
                             </div>
                         </div>
@@ -4407,13 +4427,13 @@ app.get("/payment", function (req, res) {
                 
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
-                  <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">카드</button>
+                  <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true"><h5>카드</h5></button>
                 </li>
                 <li class="nav-item" role="presentation">
-                  <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false" disabled>포인트</button>
+                  <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false" disabled><h5>포인트</h5></button>
                 </li>
                 <li class="nav-item" role="presentation">
-                  <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false" disabled>삼성PAY</button>
+                  <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false" disabled><h5>삼성PAY</h5></button>
                 </li>        
               </ul>
             </div>
@@ -4424,7 +4444,7 @@ app.get("/payment", function (req, res) {
 
             <div class="container justify-content-center mt-3">
 
-            <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:750px;">
+            <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:850px;">
 
 
             <!--한세트시작-->
@@ -4474,7 +4494,7 @@ app.get("/payment_process", function (req, res) {
           </div>
       </div>
 
-      <p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
+      <p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
 
 
       <div class="d-flex justify-content-center">
@@ -4488,7 +4508,7 @@ app.get("/payment_process", function (req, res) {
         </form>
       </div>
 
-      <p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
+      <p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
 
 
         <div class="row text-center" style="width: 100%">
@@ -4535,7 +4555,7 @@ app.get("/payment_success", function (req, res) {
       </div>
   </div>
 
-  <p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
+  <p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
 
 
   <div class="d-flex justify-content-center">
@@ -4547,7 +4567,7 @@ app.get("/payment_success", function (req, res) {
 </form>
     </div>
 
-    <p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
+    <p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
 
 
     <div class="row text-center" style="width: 100%">
