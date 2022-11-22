@@ -13,7 +13,8 @@ var cart = []; //장바구니
 
 var result_price; //총 결제금액 변수
 
-var server_url = "http://52.21.241.198:80"; //나중에 서버 배포시 바꿔얗 하는 내용
+//var server_url = "http://localhost:80";
+var server_url = "http://52.21.241.198:80";  //나중에 서버 배포시 바꿔얗 하는 내용
 
 var mode = 1; //1은 가이드 모드, 2는 결과창 모드
 var scenario = 1; //각 숫자 별로 담당 시나리오가 다르다.
@@ -1883,16 +1884,89 @@ app.get('/mode_result', (req,res) => {
   res.redirect('/');
 })
 
+app.get('/scenario1', (req,res) => {
+  scenario = 1;
+
+})
+
+app.get('/scenario2', (req,res) => {
+  scenario = 2;
+
+  res.redirect('/');
+})
+
+app.get('/scenario3', (req,res) => {
+  scenario = 3;
+
+  res.redirect('/');
+})
+
+app.get('/scenario4', (req,res) => {
+  scenario = 4;
+
+  res.redirect('/');
+})
+
+app.get('/scenario9', (req,res) => {
+  scenario = 9;
+
+  res.redirect('/');
+})
+
+app.get('/scenario10', (req,res) => {
+  scenario = 10;
+
+  res.redirect('/');
+})
+
+app.get('/scenario11', (req,res) => {
+  scenario = 11;
+
+  res.redirect('/');
+})
+
+app.get('/scenario12', (req,res) => {
+  scenario = 12;
+
+  res.redirect('/');
+})
+
 app.get('/mode_change', (req,res) => {
 
   var output=`
   ${starthtml()}
 
+  <p>
   <ul>
     <li><a href = '/mode_guide'>모드 : 가이드</a></li>
     <li><a href = '/mode_result'>모드 : 결과창 출력</a></li>
-  <ul>
+  </ul>
+  </p>
+
+  <p><br><br><br><br><br><br></p>
+
   
+  <h1>난이도 하</h1>
+  <p>
+  <ul>
+  <li><a href = '/scenario1'>시나리오1 : 초코티라미수랑 아메리카노 주문해줘</a></li>
+  <li><a href = '/scenario2'>시나리오2 : 피치 얼그레이 한 잔 주문해줘</a></li>
+  <li><a href = '/scenario3'>시나리오3 : 아메리카노 엑스트라 사이즈로 두 잔 주문해줘</a></li>
+  <li><a href = '/scenario4'>시나리오4 : 아인슈페너 한 잔 주문해줘</a></li>
+  </ul>
+  </p>  
+
+
+  <h1>난이도 상</h1>
+  <p>
+  <ul>
+  <li><a href = '/scenario9'>시나리오9 : 아메리카노 한 잔 이랑, 청포도 에이드 한 잔, 생크림 와플 두 개 주문해줘</a></li>
+  <li><a href = '/scenario10'>시나리오10 : 카페라떼 휘핑크림이랑 샷 추가해서 한 잔, 아메리카노 한 잔에 시럽 추가하고 딸기 쉐이크 한 잔 주문해줘 </a></li>
+  <li><a href = '/scenario11'>시나리오11 : 콜드 부르 아메리카노 샷 추가해서 한 잔, 오리진 쉐이크 한 잔 주문해줘</a></li>
+  <li><a href = '/scenario12'>시나리오12 : 아메리카노 그냥 한 잔, 시럽 추가해서 한 잔, 그리고 수플레 치즈 케이크 하나 주문해줘</a></li>
+  </ul>
+  </p>
+
   ${endhtml()}
   `;
   res.send(output);
@@ -1957,7 +2031,9 @@ app.get('/main', function(req,res){ //키오스크 메인화면, 주문하기 �
 
               <p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
 
-              <a href = '/mode_change'>모드 변경</a> 현재 모드 : ${mode}
+              <a href = '/mode_change'>모드 변경</a>
+              <p>현재 모드 : ${mode}</p>
+              <p>현재 시나리오 : ${scenario}</p>
     ${endhtml()}
     `;
     res.send(output);
@@ -3683,8 +3759,6 @@ output += `
 
 app.get("/start_scenario", (req,res) => {
 
-
-
   var output =`
   ${starthtml()}
 
@@ -3890,7 +3964,7 @@ app.get('/order_main', function(req,res){ //커피 선택 메뉴
           <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab">
           <!--커피 상세 메뉴-->
           
-            <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:500px;">
+            <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:800px;">
 
             <!--한 세트 시작-->
 
