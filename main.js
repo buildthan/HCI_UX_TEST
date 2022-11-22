@@ -7,7 +7,7 @@ var app = express();
 
 app.use('/img', express.static('img'));
 app.use('/tts', express.static('tts'));
-app.use('/main.html',express.static('main.html'));
+app.use('/main.html', express.static('main.html'));
 
 var cart = []; //장바구니
 
@@ -19,16 +19,16 @@ var server_url = "http://52.21.241.198:80";  //나중에 서버 배포시 바꿔
 var mode = 1; //1은 가이드 모드, 2는 결과창 모드
 var scenario = 1; //각 숫자 별로 담당 시나리오가 다르다.
 
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(session({
-    secret: '123412sadfF1312@#!F',
-    resave: false,
-    saveUninitialized: true,
-    store : new FileStore({path : './sessions'})
+  secret: '123412sadfF1312@#!F',
+  resave: false,
+  saveUninitialized: true,
+  store: new FileStore({ path: './sessions' })
 }));
 
-function starthtml(){ //귀찮은 html도입부 자동작성
-    return(`
+function starthtml() { //귀찮은 html도입부 자동작성
+  return (`
     <!doctype html>
 <html lang="en">
   <head>
@@ -40,38 +40,38 @@ function starthtml(){ //귀찮은 html도입부 자동작성
   <body>
     `);
 }
-function endhtml(){ //귀찮은 html 끝부분 자동 작성
-    return(`
+function endhtml() { //귀찮은 html 끝부분 자동 작성
+  return (`
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
   </body>
 </html>
     `);
 }
 
-function order_main_cart_html(){
+function order_main_cart_html() {
 
-result_price = 0;
-    
-var output = `<ul>`;
+  result_price = 0;
 
-for(var i=0; i<cart.length; i++){ //cart에 담긴 리스트를 출력해주는 반복문
-  output += `<li>` + `${cart[i].name} 주문 수량 : ${cart[i].count} 가격 : ${cart[i].total}` + `</li>`
-  result_price += parseInt(cart[i].total)
-}
+  var output = `<ul>`;
 
-
-output = output + `</ul>`;
+  for (var i = 0; i < cart.length; i++) { //cart에 담긴 리스트를 출력해주는 반복문
+    output += `<li>` + `${cart[i].name} 주문 수량 : ${cart[i].count} 가격 : ${cart[i].total}` + `</li>`
+    result_price += parseInt(cart[i].total)
+  }
 
 
-return(output);
+  output = output + `</ul>`;
+
+
+  return (output);
 
 
 }
 
 //여기서부터 커피 상세메뉴 모달창
 
-function americano_modal(){
-    return(`
+function americano_modal() {
+  return (`
 <form action="${server_url}/order_main" method="post">
     <div class="modal fade" id="americano" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -230,8 +230,8 @@ function americano_modal(){
 
 
 }
-function bubble_black_modal(){
-    return(`
+function bubble_black_modal() {
+  return (`
     <form action="${server_url}/order_main" method="post">
         <div class="modal fade" id="bubble_black" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -391,7 +391,7 @@ function bubble_black_modal(){
 }
 function einstephener_modal() {
 
-  return`
+  return `
   <form action="${server_url}/order_main" method="post">
   <div class="modal fade" id="einstephener" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -551,9 +551,9 @@ function einstephener_modal() {
 
 
 }
-function cafe_latte_modal(){
+function cafe_latte_modal() {
 
-  return`
+  return `
   <form action="${server_url}/order_main" method="post">
   <div class="modal fade" id="cafe_latte" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -712,9 +712,9 @@ function cafe_latte_modal(){
   `;
 
 }
-function cold_brew_modal(){
+function cold_brew_modal() {
 
-  return`
+  return `
   <form action="${server_url}/order_main" method="post">
   <div class="modal fade" id="cold_brew" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -874,9 +874,9 @@ function cold_brew_modal(){
 
 
 }
-function cold_brew_americano_modal(){
+function cold_brew_americano_modal() {
 
-  return`
+  return `
   <form action="${server_url}/order_main" method="post">
   <div class="modal fade" id="cold_brew_americano" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -1035,8 +1035,8 @@ function cold_brew_americano_modal(){
   `;
 
 }
-function strawberry_modal(){
-  return`
+function strawberry_modal() {
+  return `
   <form action="${server_url}/order_main" method="post">
   <div class="modal fade" id="strawberry" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -1125,8 +1125,8 @@ function strawberry_modal(){
 </form>
   `;
 }
-function lemonade_modal(){
-  return`
+function lemonade_modal() {
+  return `
   <form action="${server_url}/order_main" method="post">
   <div class="modal fade" id="lemonade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -1215,8 +1215,8 @@ function lemonade_modal(){
 </form>
   `;
 }
-function green_grape_modal(){
-  return`
+function green_grape_modal() {
+  return `
   <form action="${server_url}/order_main" method="post">
   <div class="modal fade" id="green_grape" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -1305,8 +1305,8 @@ function green_grape_modal(){
 </form>
   `;
 }
-function peach_modal(){
-  return`
+function peach_modal() {
+  return `
   <form action="${server_url}/order_main" method="post">
   <div class="modal fade" id="peach" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -1395,9 +1395,9 @@ function peach_modal(){
 </form>
   `;
 }
-function delicious_waffle_modal(){
-  
-  return`
+function delicious_waffle_modal() {
+
+  return `
   <form action="${server_url}/order_main" method="post">
   <div class="modal fade" id="delicious_waffle" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -1455,9 +1455,9 @@ function delicious_waffle_modal(){
 </form>
   `;
 }
-function cream_waffle(){
-    
-  return`
+function cream_waffle() {
+
+  return `
   <form action="${server_url}/order_main" method="post">
   <div class="modal fade" id="cream_waffle" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -1516,9 +1516,9 @@ function cream_waffle(){
 </form>
   `;
 }
-function cheese_cake_modal(){  
-      
-  return`
+function cheese_cake_modal() {
+
+  return `
   <form action="${server_url}/order_main" method="post">
   <div class="modal fade" id="cheese_cake" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -1578,10 +1578,10 @@ function cheese_cake_modal(){
   `;
 
 }
-function origin_shake_modal(){
+function origin_shake_modal() {
 
-        
-  return`
+
+  return `
   <form action="${server_url}/order_main" method="post">
   <div class="modal fade" id="origin_shake" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -1641,9 +1641,9 @@ function origin_shake_modal(){
   `;
 
 }
-function tiramisu_modal(){
-          
-  return`
+function tiramisu_modal() {
+
+  return `
   <form action="${server_url}/order_main" method="post">
   <div class="modal fade" id="tiramisu" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -1704,9 +1704,9 @@ function tiramisu_modal(){
 
 
 }
-function cream_cheese_waffle(){
-            
-  return`
+function cream_cheese_waffle() {
+
+  return `
   <form action="${server_url}/order_main" method="post">
   <div class="modal fade" id="cream_cheese_waffle" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -1771,7 +1771,7 @@ function cream_cheese_waffle(){
 
 //모달창 불러오기 끝
 
-function payment_cart_html(){
+function payment_cart_html() {
 
   // <!--한세트시작-->
 
@@ -1796,16 +1796,16 @@ function payment_cart_html(){
   //         </p>
   //     </div>
   //     </div>
-      
+
   // </div>
 
   // <!--한세트끝-->
 
   var output = ``;
 
-  for(var i=0; i < cart.length; i++){
+  for (var i = 0; i < cart.length; i++) {
 
-    if(i % 2 === 0){ //세트의 시작
+    if (i % 2 === 0) { //세트의 시작
       output += `<div class="row justify-content-center">`;
     }
 
@@ -1815,50 +1815,50 @@ function payment_cart_html(){
     output += `<h5 class="card-title">${cart[i].name}</h5>`;
     output += `<p class="card-text">`;
 
-    if(cart[i].size){
-      if(cart[i].size === "0"){
-      output += `사이즈 : 레귤러 (+0) <br>`;
-      }else{
-      output += `사이즈 : 엑스트라 (+1000) <br>`;
+    if (cart[i].size) {
+      if (cart[i].size === "0") {
+        output += `사이즈 : 레귤러 (+0) <br>`;
+      } else {
+        output += `사이즈 : 엑스트라 (+1000) <br>`;
       }
     }
 
-    if(cart[i].ice){
+    if (cart[i].ice) {
       var arr = cart[i].ice.split(",");
-      if(arr[1] === "S"){
+      if (arr[1] === "S") {
         output += `얼음 : 적게 (+0) <br>`;
-      }else if(arr[1] === "M"){
+      } else if (arr[1] === "M") {
         output += `얼음 : 보통 (+0) <br>`;
-      }else if(arr[1] === "L"){
+      } else if (arr[1] === "L") {
         output += `얼음 : 많이 (+0) <br>`;
       }
     }
 
-    if(cart[i].topping1 || cart[i].topping2 || cart[i].topping3){
+    if (cart[i].topping1 || cart[i].topping2 || cart[i].topping3) {
       output += `토핑 : `;
-    if(cart[i].topping1){
-      output += `샷(+500) `;
+      if (cart[i].topping1) {
+        output += `샷(+500) `;
+      }
+
+      if (cart[i].topping2) {
+        output += `휘핑크림(+500) `;
+      }
+
+      if (cart[i].topping3) {
+        output += `시럽(+300)`;
+      }
     }
 
-    if(cart[i].topping2){
-      output += `휘핑크림(+500) `;
+    if (cart[i].count) {
+      output += '<br>수량:' + cart[i].count;
     }
-
-    if(cart[i].topping3){
-      output += `시럽(+300)`;
-    }
-  }
-
-  if(cart[i].count){
-    output += '<br>수량:' + cart[i].count;
-  }
 
     output += `</p>`;
     output += `</div>`;
     output += `</div>`;
 
 
-    if(i % 2 === 1){ //세트의 끝
+    if (i % 2 === 1) { //세트의 끝
       output += `</div>`;
     }
 
@@ -1868,72 +1868,72 @@ function payment_cart_html(){
 }
 
 
-app.get('/',function(req,res){ //아무런 pathname없이 들어왔을 경우 main 키오스크 화면으로 보내준다.
-    res.redirect('/main');
+app.get('/', function (req, res) { //아무런 pathname없이 들어왔을 경우 main 키오스크 화면으로 보내준다.
+  res.redirect('/main');
 })
 
-app.get('/mode_guide', (req,res) => {
+app.get('/mode_guide', (req, res) => {
   mode = 1;
 
   res.redirect('/');
 })
 
-app.get('/mode_result', (req,res) => {
+app.get('/mode_result', (req, res) => {
   mode = 2;
 
   res.redirect('/');
 })
 
-app.get('/scenario1', (req,res) => {
+app.get('/scenario1', (req, res) => {
   scenario = 1;
 
 })
 
-app.get('/scenario2', (req,res) => {
+app.get('/scenario2', (req, res) => {
   scenario = 2;
 
   res.redirect('/');
 })
 
-app.get('/scenario3', (req,res) => {
+app.get('/scenario3', (req, res) => {
   scenario = 3;
 
   res.redirect('/');
 })
 
-app.get('/scenario4', (req,res) => {
+app.get('/scenario4', (req, res) => {
   scenario = 4;
 
   res.redirect('/');
 })
 
-app.get('/scenario9', (req,res) => {
+app.get('/scenario9', (req, res) => {
   scenario = 9;
 
   res.redirect('/');
 })
 
-app.get('/scenario10', (req,res) => {
+app.get('/scenario10', (req, res) => {
   scenario = 10;
 
   res.redirect('/');
 })
 
-app.get('/scenario11', (req,res) => {
+app.get('/scenario11', (req, res) => {
   scenario = 11;
 
   res.redirect('/');
 })
 
-app.get('/scenario12', (req,res) => {
+app.get('/scenario12', (req, res) => {
   scenario = 12;
 
   res.redirect('/');
 })
 
-app.get('/mode_change', (req,res) => {
+app.get('/mode_change', (req, res) => {
 
-  var output=`
+  var output = `
   ${starthtml()}
 
   <p>
@@ -1972,9 +1972,9 @@ app.get('/mode_change', (req,res) => {
   res.send(output);
 })
 
-app.get('/main', function(req,res){ //키오스크 메인화면, 주문하기 버튼이 주요 요소임.
+app.get('/main', function (req, res) { //키오스크 메인화면, 주문하기 버튼이 주요 요소임.
 
-    var output = `
+  var output = `
     ${starthtml()}
 
 
@@ -2001,7 +2001,7 @@ app.get('/main', function(req,res){ //키오스크 메인화면, 주문하기 �
     
         <!--출력 종료-->
 
-        <p><br><br><br><br><br><br><br><br><br><br></p>
+        <p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
         
   <div class="d-flex justify-content-center">
   <form class="row justify-content-center " >
@@ -2013,7 +2013,7 @@ app.get('/main', function(req,res){ //키오스크 메인화면, 주문하기 �
   </form>
   </div>
 
-        <p><br><br><br><br><br><br><br><br><br><br></p>
+        <p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
 
             <div class="container justify-content-center border mt-5">
                 <div class="row justify-content-center">
@@ -2036,40 +2036,40 @@ app.get('/main', function(req,res){ //키오스크 메인화면, 주문하기 �
               <p>현재 시나리오 : ${scenario}</p>
     ${endhtml()}
     `;
-    res.send(output);
+  res.send(output);
 });
 
 
 //여기서부터 시나리오1을 위한 코드 목록
 
-app.get("/scenario1/result_mode/1", (req,res) => { //시나리오1 결과창을 바로 입력요청 했을시
+app.get("/scenario1/result_mode/1", (req, res) => { //시나리오1 결과창을 바로 입력요청 했을시
 
 
-  var temp_1 ={ //장바구니에 내용을 추가할 객체
-    name : '초코티라미수',
-    price : '3900',
-    count : '1',
-    total : '3900',
-    img_src : server_url+'/img/tiramisu.png'
+  var temp_1 = { //장바구니에 내용을 추가할 객체
+    name: '초코티라미수',
+    price: '3900',
+    count: '1',
+    total: '3900',
+    img_src: server_url + '/img/tiramisu.png'
   };
 
   result_price += 3900;
 
-  cart.push(temp_1); 
+  cart.push(temp_1);
 
-  var temp_2 ={ //장바구니에 내용을 추가할 객체
-    name : '아메리카노',
-    price : '3200',
-    size : '0',
-    ice : '0,M',
-    count : '1',
-    total : '3200',
-    img_src : server_url+'/img/americano.png'
+  var temp_2 = { //장바구니에 내용을 추가할 객체
+    name: '아메리카노',
+    price: '3200',
+    size: '0',
+    ice: '0,M',
+    count: '1',
+    total: '3200',
+    img_src: server_url + '/img/americano.png'
   };
 
   result_price += 3200;
 
-  cart.push(temp_2); 
+  cart.push(temp_2);
 
   console.log(result_price);
 
@@ -2077,8 +2077,8 @@ app.get("/scenario1/result_mode/1", (req,res) => { //시나리오1 결과창을 
 })
 
 
-app.get("/scenario1/guide_mode/3", (req,res) => {
-  
+app.get("/scenario1/guide_mode/3", (req, res) => {
+
   var output = `
     ${starthtml()}
 
@@ -2125,7 +2125,7 @@ app.get("/scenario1/guide_mode/3", (req,res) => {
           <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab">
           <!--커피 상세 메뉴-->
           
-            <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:500px;">
+            <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:750px;">
 
             <!--한 세트 시작-->
 
@@ -2256,7 +2256,7 @@ app.get("/scenario1/guide_mode/3", (req,res) => {
           <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab">
           <!--음료, 에이드 상세 메뉴-->
 
-          <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:500px;">
+          <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:750px;">
 
             <!--한 세트 시작-->
 
@@ -2347,7 +2347,7 @@ app.get("/scenario1/guide_mode/3", (req,res) => {
           <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab">
           <!--디저트 상세 메뉴-->
 
-          <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:500px;">
+          <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:750px;">
 
           <!--한 세트 시작-->
 
@@ -2501,58 +2501,58 @@ app.get("/scenario1/guide_mode/3", (req,res) => {
     `;
 
 
-    res.send(output);
-  
-  
+  res.send(output);
+
+
 
 })
-app.post("/scenario1/guide_mode/2",(req,res) => { //받아온 수식 또 계산
-  
+app.post("/scenario1/guide_mode/2", (req, res) => { //받아온 수식 또 계산
+
   var total_price = parseInt(req.body.basic_price)
 
-  if(req.body.size){
+  if (req.body.size) {
     total_price += parseInt(req.body.size); //존재할 경우에만 더해주어야 한다.
   }
 
-  if(req.body.ice){
+  if (req.body.ice) {
     var arr = req.body.ice.split(",");
     total_price += parseInt(arr[0]);
   }
 
-  if(req.body.topping1){
+  if (req.body.topping1) {
     total_price += parseInt(req.body.topping1)
   }
-  
-  if(req.body.topping2){
+
+  if (req.body.topping2) {
     total_price += parseInt(req.body.topping2)
   }
 
-  if(req.body.topping3){
+  if (req.body.topping3) {
     total_price += parseInt(req.body.topping3)
   }
 
 
   total_price = total_price * parseInt(req.body.count)
 
-  var temp ={ //장바구니에 내용을 추가할 객체
-    name : req.body.product_name,
-    price : req.body.basic_price,
-    size : req.body.size,
-    ice : req.body.ice,
-    topping1 : req.body.topping1,
-    topping2 : req.body.topping2,
-    topping3 : req.body.topping3,
-    count : req.body.count,
-    total : total_price,
-    img_src : req.body.img_src
+  var temp = { //장바구니에 내용을 추가할 객체
+    name: req.body.product_name,
+    price: req.body.basic_price,
+    size: req.body.size,
+    ice: req.body.ice,
+    topping1: req.body.topping1,
+    topping2: req.body.topping2,
+    topping3: req.body.topping3,
+    count: req.body.count,
+    total: total_price,
+    img_src: req.body.img_src
   };
 
-  cart.push(temp); 
+  cart.push(temp);
 
   res.redirect("/scenario1/guide_mode/3");
 
 })
-app.get("/scenario1/guide_mode/2", (req,res) =>{  //시나리오1 가이드 모드의 2단계
+app.get("/scenario1/guide_mode/2", (req, res) => {  //시나리오1 가이드 모드의 2단계
 
   var output = `
     ${starthtml()}
@@ -2600,7 +2600,7 @@ app.get("/scenario1/guide_mode/2", (req,res) =>{  //시나리오1 가이드 모�
           <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab">
           <!--커피 상세 메뉴-->
           
-            <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:500px;">
+            <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:750px;">
 
             <!--한 세트 시작-->
 
@@ -2731,7 +2731,7 @@ app.get("/scenario1/guide_mode/2", (req,res) =>{  //시나리오1 가이드 모�
           <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab">
           <!--음료, 에이드 상세 메뉴-->
 
-          <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:500px;">
+          <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:750px;">
 
             <!--한 세트 시작-->
 
@@ -2822,7 +2822,7 @@ app.get("/scenario1/guide_mode/2", (req,res) =>{  //시나리오1 가이드 모�
           <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab">
           <!--디저트 상세 메뉴-->
 
-          <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:500px;">
+          <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:750px;">
 
           <!--한 세트 시작-->
 
@@ -3129,54 +3129,54 @@ app.get("/scenario1/guide_mode/2", (req,res) =>{  //시나리오1 가이드 모�
     `;
 
 
-    res.send(output);
+  res.send(output);
 })
-app.post("/scenario1/guide_mode/1", (req,res) => {
+app.post("/scenario1/guide_mode/1", (req, res) => {
 
   var total_price = parseInt(req.body.basic_price)
 
-  if(req.body.size){
+  if (req.body.size) {
     total_price += parseInt(req.body.size); //존재할 경우에만 더해주어야 한다.
   }
 
-  if(req.body.ice){
+  if (req.body.ice) {
     var arr = req.body.ice.split(",");
     total_price += parseInt(arr[0]);
   }
 
-  if(req.body.topping1){
+  if (req.body.topping1) {
     total_price += parseInt(req.body.topping1)
   }
-  
-  if(req.body.topping2){
+
+  if (req.body.topping2) {
     total_price += parseInt(req.body.topping2)
   }
 
-  if(req.body.topping3){
+  if (req.body.topping3) {
     total_price += parseInt(req.body.topping3)
   }
 
 
   total_price = total_price * parseInt(req.body.count)
 
-  var temp ={ //장바구니에 내용을 추가할 객체
-    name : req.body.product_name,
-    price : req.body.basic_price,
-    size : req.body.size,
-    ice : req.body.ice,
-    topping1 : req.body.topping1,
-    topping2 : req.body.topping2,
-    topping3 : req.body.topping3,
-    count : req.body.count,
-    total : total_price,
-    img_src : req.body.img_src
+  var temp = { //장바구니에 내용을 추가할 객체
+    name: req.body.product_name,
+    price: req.body.basic_price,
+    size: req.body.size,
+    ice: req.body.ice,
+    topping1: req.body.topping1,
+    topping2: req.body.topping2,
+    topping3: req.body.topping3,
+    count: req.body.count,
+    total: total_price,
+    img_src: req.body.img_src
   };
 
-  cart.push(temp); 
+  cart.push(temp);
 
   res.redirect("/scenario1/guide_mode/2");
 })
-app.get("/scenario1/guide_mode/1", (req,res) =>{
+app.get("/scenario1/guide_mode/1", (req, res) => {
 
   var output = `
     ${starthtml()}
@@ -3224,7 +3224,7 @@ app.get("/scenario1/guide_mode/1", (req,res) =>{
           <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab">
           <!--커피 상세 메뉴-->
           
-            <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:500px;">
+            <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:750px;">
 
             <!--한 세트 시작-->
 
@@ -3355,7 +3355,7 @@ app.get("/scenario1/guide_mode/1", (req,res) =>{
           <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab">
           <!--음료, 에이드 상세 메뉴-->
 
-          <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:500px;">
+          <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:750px;">
 
             <!--한 세트 시작-->
 
@@ -3446,7 +3446,7 @@ app.get("/scenario1/guide_mode/1", (req,res) =>{
           <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab">
           <!--디저트 상세 메뉴-->
 
-          <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:500px;">
+          <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:750px;">
 
           <!--한 세트 시작-->
 
@@ -3655,14 +3655,14 @@ app.get("/scenario1/guide_mode/1", (req,res) =>{
     `;
 
 
-    res.send(output);
+  res.send(output);
 })
 
 //시나리오1 코드 종료
 
 
 //시나리오 선택 및 진행을 위한 if문
-app.get("/scenario_process", (req,res) =>{
+app.get("/scenario_process", (req, res) => {
 
   var output = `
   ${starthtml()}
@@ -3680,7 +3680,7 @@ app.get("/scenario_process", (req,res) =>{
           </div>
       </div>
 
-      <p><br><br><br><br><br><br><br><br><br><br></p>
+      <p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
 
 
       <div class="d-flex justify-content-center">
@@ -3694,7 +3694,7 @@ app.get("/scenario_process", (req,res) =>{
         </form>
       </div>
 
-      <p><br><br><br><br><br><br><br><br><br><br></p>
+      <p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
 
 
         <div class="row text-center" style="width: 100%">
@@ -3708,12 +3708,12 @@ app.get("/scenario_process", (req,res) =>{
 </div>`
 
 
-//if문에 따라 어디로 이동시킬지 이곳에서 정한다.
+  //if문에 따라 어디로 이동시킬지 이곳에서 정한다.
 
 
-if(mode === 1 && scenario === 1){ //시나리오 1 - 가이드 모드
+  if (mode === 1 && scenario === 1) { //시나리오 1 - 가이드 모드
 
-  output += `  
+    output += `  
 <script>
 
 setTimeout(function() {
@@ -3723,9 +3723,9 @@ setTimeout(function() {
 </script>
   `;
 
-}else if(mode === 2 && scenario === 1){ //시나리오 1 - 결과창 모드
+  } else if (mode === 2 && scenario === 1) { //시나리오 1 - 결과창 모드
 
-  output += `  
+    output += `  
 <script>
 
 setTimeout(function() {
@@ -3735,21 +3735,21 @@ setTimeout(function() {
 </script>
 `;
 
-}
+  }
 
 
-//코드 예시
-// output += `  
-// <script>
+  //코드 예시
+  // output += `  
+  // <script>
 
-// setTimeout(function() {
-//   location.href = './';
-// }, 3500);
+  // setTimeout(function() {
+  //   location.href = './';
+  // }, 3500);
 
-// </script>
-// `;
+  // </script>
+  // `;
 
-output += `
+  output += `
   ${endhtml()}
   `;
 
@@ -3757,9 +3757,9 @@ output += `
 
 })
 
-app.get("/start_scenario", (req,res) => {
+app.get("/start_scenario", (req, res) => {
 
-  var output =`
+  var output = `
   ${starthtml()}
 
   
@@ -3772,7 +3772,7 @@ app.get("/start_scenario", (req,res) => {
       </div>
   </div>
 
-  <br><br><br><br><br><br><br><br>
+  <p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
 
   <!--이곳에 음성 안내메세지 출력-->
 
@@ -3788,7 +3788,7 @@ app.get("/start_scenario", (req,res) => {
 
   <!--출력 종료-->
 
-  <p><br><br><br><br><br><br><br><br><br><br></p>
+  <p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
 
   <div class="row text-center" style="width: 100%">
   <input type="text" id="speech_result" readonly/>
@@ -3864,61 +3864,61 @@ app.get("/start_scenario", (req,res) => {
 
 })
 
-app.post('/order_main', function(req,res){ //장바구니에 넣고 order_main page로 돌려보낸다.
-    
+app.post('/order_main', function (req, res) { //장바구니에 넣고 order_main page로 돌려보낸다.
 
-    var total_price = parseInt(req.body.basic_price)
 
-    if(req.body.size){
-      total_price += parseInt(req.body.size); //존재할 경우에만 더해주어야 한다.
-    }
+  var total_price = parseInt(req.body.basic_price)
 
-    if(req.body.ice){
-      var arr = req.body.ice.split(",");
-      total_price += parseInt(arr[0]);
-    }
+  if (req.body.size) {
+    total_price += parseInt(req.body.size); //존재할 경우에만 더해주어야 한다.
+  }
 
-    if(req.body.topping1){
-      total_price += parseInt(req.body.topping1)
-    }
-    
-    if(req.body.topping2){
-      total_price += parseInt(req.body.topping2)
-    }
+  if (req.body.ice) {
+    var arr = req.body.ice.split(",");
+    total_price += parseInt(arr[0]);
+  }
 
-    if(req.body.topping3){
-      total_price += parseInt(req.body.topping3)
-    }
-  
+  if (req.body.topping1) {
+    total_price += parseInt(req.body.topping1)
+  }
 
-    total_price = total_price * parseInt(req.body.count)
+  if (req.body.topping2) {
+    total_price += parseInt(req.body.topping2)
+  }
 
-    var temp ={ //장바구니에 내용을 추가할 객체
-      name : req.body.product_name,
-      price : req.body.basic_price,
-      size : req.body.size,
-      ice : req.body.ice,
-      topping1 : req.body.topping1,
-      topping2 : req.body.topping2,
-      topping3 : req.body.topping3,
-      count : req.body.count,
-      total : total_price,
-      img_src : req.body.img_src
-    };
+  if (req.body.topping3) {
+    total_price += parseInt(req.body.topping3)
+  }
 
-    console.log(temp)
 
-    cart.push(temp); 
+  total_price = total_price * parseInt(req.body.count)
 
-    console.log(cart);
+  var temp = { //장바구니에 내용을 추가할 객체
+    name: req.body.product_name,
+    price: req.body.basic_price,
+    size: req.body.size,
+    ice: req.body.ice,
+    topping1: req.body.topping1,
+    topping2: req.body.topping2,
+    topping3: req.body.topping3,
+    count: req.body.count,
+    total: total_price,
+    img_src: req.body.img_src
+  };
 
-    res.redirect('/order_main');
+  console.log(temp)
+
+  cart.push(temp);
+
+  console.log(cart);
+
+  res.redirect('/order_main');
 
 })
 
-app.get('/order_main', function(req,res){ //커피 선택 메뉴
+app.get('/order_main', function (req, res) { //커피 선택 메뉴
 
-    var output = `
+  var output = `
     ${starthtml()}
 
     <!--상세 메뉴의 상단 부분을 구성하는 ui 시작 지점-->
@@ -3964,7 +3964,7 @@ app.get('/order_main', function(req,res){ //커피 선택 메뉴
           <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab">
           <!--커피 상세 메뉴-->
           
-            <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:800px;">
+            <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:750px;">
 
             <!--한 세트 시작-->
 
@@ -4095,7 +4095,7 @@ app.get('/order_main', function(req,res){ //커피 선택 메뉴
           <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab">
           <!--음료, 에이드 상세 메뉴-->
 
-          <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:500px;">
+          <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:750px;">
 
             <!--한 세트 시작-->
 
@@ -4186,7 +4186,7 @@ app.get('/order_main', function(req,res){ //커피 선택 메뉴
           <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab">
           <!--디저트 상세 메뉴-->
 
-          <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:500px;">
+          <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:750px;">
 
           <!--한 세트 시작-->
 
@@ -4365,16 +4365,16 @@ app.get('/order_main', function(req,res){ //커피 선택 메뉴
     `;
 
 
-    res.send(output);
+  res.send(output);
 });
 
-app.get("/vacate_cart",function(req,res){ //장바구니 비우기 버튼 클릭시
+app.get("/vacate_cart", function (req, res) { //장바구니 비우기 버튼 클릭시
   cart = [];
 
   res.redirect("/order_main");
 });
 
-app.get("/payment", function(req,res){
+app.get("/payment", function (req, res) {
 
   var output = `
   ${starthtml()}
@@ -4424,7 +4424,7 @@ app.get("/payment", function(req,res){
 
             <div class="container justify-content-center mt-3">
 
-            <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:500px;">
+            <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:750px;">
 
 
             <!--한세트시작-->
@@ -4456,8 +4456,8 @@ app.get("/payment", function(req,res){
   res.send(output);
 });
 
-app.get("/payment_process",function(req,res){
-  
+app.get("/payment_process", function (req, res) {
+
   var output = `
   ${starthtml()}
   <body>
@@ -4474,7 +4474,7 @@ app.get("/payment_process",function(req,res){
           </div>
       </div>
 
-      <p><br><br><br><br><br><br><br><br><br><br></p>
+      <p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
 
 
       <div class="d-flex justify-content-center">
@@ -4488,7 +4488,7 @@ app.get("/payment_process",function(req,res){
         </form>
       </div>
 
-      <p><br><br><br><br><br><br><br><br><br><br></p>
+      <p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
 
 
         <div class="row text-center" style="width: 100%">
@@ -4515,12 +4515,12 @@ setTimeout(function() {
   res.send(output);
 })
 
-app.get("/payment_success",function(req,res){
+app.get("/payment_success", function (req, res) {
 
   cart = []; //결제 종료와 동시에 장바구니를 비운다.
   result_price = 0;
 
-  var output=`
+  var output = `
   ${starthtml()}
 
   <audio autoplay="autoplay">
@@ -4535,7 +4535,7 @@ app.get("/payment_success",function(req,res){
       </div>
   </div>
 
-  <p><br><br><br><br><br><br><br><br><br><br></p>
+  <p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
 
 
   <div class="d-flex justify-content-center">
@@ -4547,7 +4547,7 @@ app.get("/payment_success",function(req,res){
 </form>
     </div>
 
-    <p><br><br><br><br><br><br><br><br><br><br></p>
+    <p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
 
 
     <div class="row text-center" style="width: 100%">
@@ -4575,6 +4575,6 @@ setTimeout(function() {
 
 
 
-app.listen(80,function(){
-    console.log('Connected 80 port!!');
+app.listen(80, function () {
+  console.log('Connected 80 port!!');
 });
