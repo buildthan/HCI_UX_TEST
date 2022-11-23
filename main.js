@@ -13,11 +13,11 @@ var cart = []; //장바구니
 
 var result_price; //총 결제금액 변수
 
-//var server_url = "http://localhost:80";
-var server_url = "http://52.21.241.198:80";  //나중에 서버 배포시 바꿔얗 하는 내용
+var server_url = "http://localhost:80";
+//var server_url = "http://52.21.241.198:80";  //나중에 서버 배포시 바꿔얗 하는 내용
 
 var mode = 1; //1은 가이드 모드, 2는 결과창 모드
-var scenario = 1; //각 숫자 별로 담당 시나리오가 다르다.
+var scenario = 4; //각 숫자 별로 담당 시나리오가 다르다.
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(session({
@@ -2062,6 +2062,3180 @@ app.get('/main', function (req, res) { //키오스크 메인화면, 주문하기
   res.send(output);
 });
 
+//여기서부터 시나리오4를 위한 코드 목록
+
+app.get("/scenario4/result_mode/1", (req, res) => { //시나리오1 결과창을 바로 입력요청 했을시
+
+
+  var temp_1 = { //장바구니에 내용을 추가할 객체
+    name: '아인슈페너',
+    price: '3700',
+    count: '1',
+    total: '3700',
+    img_src: server_url + '/img/einstephener.png'
+  };
+
+  result_price += 3700;
+
+  cart.push(temp_1);
+
+  res.redirect('/payment');
+})
+
+app.get("/scenario4/guide_mode/2", (req, res) => {
+
+  var output = `
+    ${starthtml()}
+
+    <!--상세 메뉴의 상단 부분을 구성하는 ui 시작 지점-->
+    <div class="container justify-content-center">
+        
+    <div class="row text-center" style="width: 100%">
+
+        <div style="width: 30%; float:none; margin:0 auto" >
+                <h1>HCI & UX</h1>
+        </div>
+    </div>
+
+    <!--이곳에 음성 안내메세지 출력-->
+
+    <audio autoplay="autoplay">
+    <source src="${server_url}/tts/scenario_final.mp3" type="audio/mpeg" />
+    </audio> 
+
+    <div class="container justify-content-center m-1">
+    <div class="row text-center" style="width: 100%">
+    <h5><img src='${server_url}/img/speak.png' alt ="#">결제하기 버튼을 눌러 결제를 진행해주세요.</h5> 
+    </div>
+    </div>
+
+    <!--출력 종료-->
+
+    <nav class="navbar">
+        <div class="container-fluid">
+            
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true"><h5>커피</h5></button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false" disabled><h5>음료/에이드</h5></button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false" disabled><h5>디저트</h5></button>
+            </li>
+          </ul>
+
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab">
+          <!--커피 상세 메뉴-->
+          
+            <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:850px;">
+
+            <!--한 세트 시작-->
+
+            <div class="row justify-content-center">
+              
+                <div class="col-5 m-2 border"  >
+                  <div class="row justify-content-center">
+                      
+                      <div class="card m-1" style="width: 18rem;">
+                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#americano" disabled>
+                              <img class = "btn-img m-3" src='${server_url}/img/americano.png' alt="#">
+                            </button>
+                          <div class="card-body">
+                              <h5 class="card-title">아메리카노</h5>
+                              <h5 class="card-text">3200원
+                              </h5>
+                          </div>
+                          </div>
+                  </div>
+                </div>
+
+                <div class="col-5 m-2 border">
+                <div class="row justify-content-center">
+                      
+                  <div class="card m-1" style="width: 18rem;">
+                      <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#bubble_black" disabled>
+                      <img class = "btn-img m-3" src='${server_url}/img/bubble_black.png' alt="#">
+                        </button>
+                      <div class="card-body">
+                          <h5 class="card-title">버블흑당콜드브루</h5>
+                          <h5 class="card-text">4700원
+                          </h5>
+                      </div>
+                      </div>
+                  </div>
+                </div>
+
+                </div>
+
+                <!--한 세트 끝-->
+
+
+
+                <!--한 세트 시작-->
+
+                <div class="row justify-content-center">
+                  
+                    <div class="col-5 m-2 border"  >
+                      <div class="row justify-content-center">
+                          
+                          <div class="card m-1" style="width: 18rem;">
+                              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cafe_latte" disabled>
+                                  <img class = "btn-img m-3" src='${server_url}/img/cafe_latte.png' alt="#">
+                                </button>
+                              <div class="card-body">
+                                  <h5 class="card-title">카페라떼</h5>
+                                  <h5 class="card-text">3700원
+                                  </h5>
+                              </div>
+                              </div>
+                      </div>
+                    </div>
+    
+                    <div class="col-5 m-2 border">
+                    <div class="row justify-content-center">
+                          
+                      <div class="card m-1" style="width: 18rem;">
+                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cold_brew_americano" disabled>
+                          <img class = "btn-img m-3" src='${server_url}/img/cold_brew_americano.png' alt="#">
+                            </button>
+                          <div class="card-body">
+                              <h5 class="card-title">콜드브루아메리카노</h5>
+                              <h5 class="card-text">3700원
+                              </h5>
+                          </div>
+                          </div>
+                      </div>
+                    </div>
+    
+                    </div>
+    
+                    <!--한 세트 끝-->
+
+                    <!--한 세트 시작-->
+
+                    <div class="row justify-content-center">
+                      
+                        <div class="col-5 m-2 border"  >
+                          <div class="row justify-content-center">
+                              
+                              <div class="card m-1" style="width: 18rem;">
+                                  <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cold_brew" disabled>
+                                      <img class = "btn-img m-3" src='${server_url}/img/cold_brew.png' alt="#">
+                                    </button>
+                                  <div class="card-body">
+                                      <h5 class="card-title">콜드브루라떼</h5>
+                                      <h5 class="card-text">4200원
+                                      </h5>
+                                  </div>
+                                  </div>
+                          </div>
+                        </div>
+        
+                        <div class="col-5 m-2 border">
+                        <div class="row justify-content-center">
+                              
+                          <div class="card m-1" style="width: 18rem;">
+                              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#einstephener" disabled>
+                              <img class = "btn-img m-3" src='${server_url}/img/einstephener.png' alt="#">
+                                </button>
+                              <div class="card-body">
+                                  <h5 class="card-title">아인슈페너</h5>
+                                  <h5 class="card-text">3700원
+                                  </h5>
+                              </div>
+                              </div>
+                          </div>
+                        </div>
+        
+                        </div>
+        
+                        <!--한 세트 끝-->
+
+
+            </div>
+          </div>
+
+          <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab">
+          <!--음료, 에이드 상세 메뉴-->
+
+          <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:850px;">
+
+            <!--한 세트 시작-->
+
+            <div class="row justify-content-center">
+              
+                <div class="col-5 m-2 border"  >
+                  <div class="row justify-content-center">
+                      
+                      <div class="card m-1" style="width: 18rem;">
+                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#strawberry" disabled>
+                              <img class = "btn-img m-3" src='${server_url}/img/strawberry.png' alt="#">
+                            </button>
+                          <div class="card-body">
+                              <h5 class="card-title">딸기쉐이크</h5>
+                              <h5 class="card-text">4800원
+                              </h5>
+                          </div>
+                          </div>
+                  </div>
+                </div>
+
+                <div class="col-5 m-2 border">
+                <div class="row justify-content-center">
+                      
+                  <div class="card m-1" style="width: 18rem;">
+                      <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#lemonade" disabled>
+                      <img class = "btn-img m-3" src='${server_url}/img/lemonade.png' alt="#">
+                        </button>
+                      <div class="card-body">
+                          <h5 class="card-title">레몬에이드</h5>
+                          <h5 class="card-text">3800원
+                          </h5>
+                      </div>
+                      </div>
+                  </div>
+                </div>
+
+                </div>
+
+                <!--한 세트 끝-->
+
+
+
+                <!--한 세트 시작-->
+
+                <div class="row justify-content-center">
+                  
+                    <div class="col-5 m-2 border"  >
+                      <div class="row justify-content-center">
+                          
+                          <div class="card m-1" style="width: 18rem;">
+                              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#green_grape" disabled>
+                                  <img class = "btn-img m-3" src='${server_url}/img/green_grape.png' alt="#">
+                                </button>
+                              <div class="card-body">
+                                  <h5 class="card-title">청포도에이드</h5>
+                                  <h5 class="card-text">3800원
+                                  </h5>
+                              </div>
+                              </div>
+                      </div>
+                    </div>
+    
+                    <div class="col-5 m-2 border">
+                    <div class="row justify-content-center">
+                          
+                      <div class="card m-1" style="width: 18rem;">
+                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#peach" disabled>
+                          <img class = "btn-img m-3" src='${server_url}/img/peach.png' alt="#">
+                            </button>
+                          <div class="card-body">
+                              <h5 class="card-title">피치얼그레이</h5>
+                              <h5 class="card-text">3200원
+                              </h5>
+                          </div>
+                          </div>
+                      </div>
+                    </div>
+    
+                    </div>
+    
+                    <!--한 세트 끝-->
+
+            </div>
+
+          </div>
+
+          <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab">
+          <!--디저트 상세 메뉴-->
+
+          <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:850px;">
+
+          <!--한 세트 시작-->
+
+          <div class="row justify-content-center">
+            
+              <div class="col-5 m-2 border"  >
+                <div class="row justify-content-center">
+                    
+                    <div class="card m-1" style="width: 18rem;">
+                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#delicious_waffle" disabled>
+                            <img class = "btn-img m-3" src='${server_url}/img/delicious_waffle.png' alt="#">
+                          </button>
+                        <div class="card-body">
+                            <h5 class="card-title">맛있는와플</h5>
+                            <h5 class="card-text">3000원
+                            </h5>
+                        </div>
+                        </div>
+                </div>
+              </div>
+
+              <div class="col-5 m-2 border">
+              <div class="row justify-content-center">
+                    
+                <div class="card m-1" style="width: 18rem;">
+                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cream_waffle" disabled>
+                    <img class = "btn-img m-3" src='${server_url}/img/cream_waffle.png' alt="#">
+                      </button>
+                    <div class="card-body">
+                        <h5 class="card-title">생크림와플</h5>
+                        <h5 class="card-text">2500원
+                        </h5>
+                    </div>
+                    </div>
+                </div>
+              </div>
+
+              </div>
+
+              <!--한 세트 끝-->
+
+
+
+              <!--한 세트 시작-->
+
+              <div class="row justify-content-center">
+                
+                  <div class="col-5 m-2 border"  >
+                    <div class="row justify-content-center">
+                        
+                        <div class="card m-1" style="width: 18rem;">
+                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cheese_cake" disabled>
+                                <img class = "btn-img m-3" src='${server_url}/img/cheese_cake.png' alt="#">
+                              </button>
+                            <div class="card-body">
+                                <h5 class="card-title">수플레치즈케이크</h5>
+                                <h5 class="card-text">3900원
+                                </h5>
+                            </div>
+                            </div>
+                    </div>
+                  </div>
+  
+                  <div class="col-5 m-2 border">
+                  <div class="row justify-content-center">
+                        
+                    <div class="card m-1" style="width: 18rem;">
+                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#origin_shake" disabled>
+                        <img class = "btn-img m-3" src='${server_url}/img/origin_shake.png' alt="#">
+                          </button>
+                        <div class="card-body">
+                            <h5 class="card-title">오리진쉐이크</h5>
+                            <h5 class="card-text">4300원
+                            </h5>
+                        </div>
+                        </div>
+                    </div>
+                  </div>
+  
+                  </div>
+  
+                  <!--한 세트 끝-->
+
+                  <!--한 세트 시작-->
+
+                  <div class="row justify-content-center">
+                    
+                      <div class="col-5 m-2 border"  >
+                        <div class="row justify-content-center">
+                            
+                            <div class="card m-1" style="width: 18rem;">
+                                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#tiramisu" disabled>
+                                    <img class = "btn-img m-3" src='${server_url}/img/tiramisu.png' alt="#">
+                                  </button>
+                                <div class="card-body">
+                                    <h5 class="card-title">초코티라미수</h5>
+                                    <h5 class="card-text">3900원
+                                    </h5>
+                                </div>
+                                </div>
+                        </div>
+                      </div>
+      
+                      <div class="col-5 m-2 border">
+                      <div class="row justify-content-center">
+                            
+                        <div class="card m-1" style="width: 18rem;">
+                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cream_cheese_waffle" disabled>
+                            <img class = "btn-img m-3" src='${server_url}/img/cream_cheese_waffle.png' alt="#">
+                              </button>
+                            <div class="card-body">
+                                <h5 class="card-title">크림치즈와플</h5>
+                                <h5 class="card-text">3000원
+                                </h5>
+                            </div>
+                            </div>
+                        </div>
+                      </div>
+      
+                      </div>
+      
+                      <!--한 세트 끝-->
+
+          </div>
+
+          </div>
+        </div>
+        </div>
+
+        <div class="container justify-content-center border mt-5">
+        <p>${order_main_cart_html()}</p>
+        </div>
+
+        <div class="container justify-content-center">
+        <h3>총 가격 : ${result_price} 원</h3>
+        </div>
+
+        <div class="container justify-content-end">
+        <a href="/payment" class="btn btn-primary btn-lg m-1" tabindex="-1" role="button" style="background-color:red;">결제하기</a>
+        </div>
+
+
+      </nav>
+</div>
+    <!--상세 메뉴의 상단을 구분하는 ui 종료지점-->
+
+    <!--여기서부터 modal창들을 불러오는 함수-->
+
+    <!--종료-->
+    ${endhtml()}
+    `;
+
+
+  res.send(output);
+
+
+
+})
+
+app.post("/scenario4/guide_mode/1", (req, res) => { //시나리오2에서 받은 post form을 처리
+
+  var total_price = parseInt(req.body.basic_price)
+
+  if (req.body.size) {
+    total_price += parseInt(req.body.size); //존재할 경우에만 더해주어야 한다.
+  }
+
+  if (req.body.ice) {
+    var arr = req.body.ice.split(",");
+    total_price += parseInt(arr[0]);
+  }
+
+  if (req.body.topping1) {
+    total_price += parseInt(req.body.topping1)
+  }
+
+  if (req.body.topping2) {
+    total_price += parseInt(req.body.topping2)
+  }
+
+  if (req.body.topping3) {
+    total_price += parseInt(req.body.topping3)
+  }
+
+
+  total_price = total_price * parseInt(req.body.count)
+
+  var temp = { //장바구니에 내용을 추가할 객체
+    name: req.body.product_name,
+    price: req.body.basic_price,
+    size: req.body.size,
+    ice: req.body.ice,
+    topping1: req.body.topping1,
+    topping2: req.body.topping2,
+    topping3: req.body.topping3,
+    count: req.body.count,
+    total: total_price,
+    img_src: req.body.img_src
+  };
+
+  cart.push(temp);
+
+  res.redirect("/scenario4/guide_mode/2");
+})
+
+app.get("/scenario4/guide_mode/1", (req, res) => {
+
+  var output = `
+    ${starthtml()}
+
+    <!--상세 메뉴의 상단 부분을 구성하는 ui 시작 지점-->
+    <div class="container justify-content-center">
+        
+    <div class="row text-center" style="width: 100%">
+
+        <div style="width: 30%; float:none; margin:0 auto" >
+                <h1>HCI & UX</h1>
+        </div>
+    </div>
+
+    <!--이곳에 음성 안내메세지 출력-->
+
+    <audio autoplay="autoplay">
+    <source src="${server_url}/tts/test.mp3" type="audio/mpeg" />
+    </audio> 
+
+    <div class="container justify-content-center m-1">
+    <div class="row text-center" style="width: 100%">
+    <h5><img src='${server_url}/img/speak.png' alt ="#">커피탭에서 아인슈페너를 주문해주세요.</h5> 
+    </div>
+    </div>
+
+    <!--출력 종료-->
+
+    <nav class="navbar">
+        <div class="container-fluid">
+            
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link text-white active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true" style="background-color:red;"><h5>커피</h5></button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false" disabled><h5>음료/에이드</h5></button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false" disabled><h5>디저트</h5></button>
+            </li>
+          </ul>
+
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab">
+          <!--커피 상세 메뉴-->
+          
+            <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:850px;">
+
+            <!--한 세트 시작-->
+
+            <div class="row justify-content-center">
+              
+                <div class="col-5 m-2 border"  >
+                  <div class="row justify-content-center">
+                      
+                      <div class="card m-1" style="width: 18rem;">
+                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#americano" disabled>
+                              <img class = "btn-img m-3" src='${server_url}/img/americano.png' alt="#">
+                            </button>
+                          <div class="card-body">
+                              <h5 class="card-title">아메리카노</h5>
+                              <h5 class="card-text">3200원
+                              </h5>
+                          </div>
+                          </div>
+                  </div>
+                </div>
+
+                <div class="col-5 m-2 border">
+                <div class="row justify-content-center">
+                      
+                  <div class="card m-1" style="width: 18rem;">
+                      <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#bubble_black" disabled>
+                      <img class = "btn-img m-3" src='${server_url}/img/bubble_black.png' alt="#">
+                        </button>
+                      <div class="card-body">
+                          <h5 class="card-title">버블흑당콜드브루</h5>
+                          <h5 class="card-text">4700원
+                          </h5>
+                      </div>
+                      </div>
+                  </div>
+                </div>
+
+                </div>
+
+                <!--한 세트 끝-->
+
+
+
+                <!--한 세트 시작-->
+
+                <div class="row justify-content-center">
+                  
+                    <div class="col-5 m-2 border"  >
+                      <div class="row justify-content-center">
+                          
+                          <div class="card m-1" style="width: 18rem;">
+                              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cafe_latte" disabled>
+                                  <img class = "btn-img m-3" src='${server_url}/img/cafe_latte.png' alt="#">
+                                </button>
+                              <div class="card-body">
+                                  <h5 class="card-title">카페라떼</h5>
+                                  <h5 class="card-text">3700원
+                                  </h5>
+                              </div>
+                              </div>
+                      </div>
+                    </div>
+    
+                    <div class="col-5 m-2 border">
+                    <div class="row justify-content-center">
+                          
+                      <div class="card m-1" style="width: 18rem;">
+                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cold_brew_americano" disabled>
+                          <img class = "btn-img m-3" src='${server_url}/img/cold_brew_americano.png' alt="#">
+                            </button>
+                          <div class="card-body">
+                              <h5 class="card-title">콜드브루아메리카노</h5>
+                              <h5 class="card-text">3700원
+                              </h5>
+                          </div>
+                          </div>
+                      </div>
+                    </div>
+    
+                    </div>
+    
+                    <!--한 세트 끝-->
+
+                    <!--한 세트 시작-->
+
+                    <div class="row justify-content-center">
+                      
+                        <div class="col-5 m-2 border"  >
+                          <div class="row justify-content-center">
+                              
+                              <div class="card m-1" style="width: 18rem;">
+                                  <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cold_brew" disabled>
+                                      <img class = "btn-img m-3" src='${server_url}/img/cold_brew.png' alt="#">
+                                    </button>
+                                  <div class="card-body">
+                                      <h5 class="card-title">콜드브루라떼</h5>
+                                      <h5 class="card-text">4200원
+                                      </h5>
+                                  </div>
+                                  </div>
+                          </div>
+                        </div>
+        
+                        <div class="col-5 m-2 border">
+                        <div class="row justify-content-center">
+                              
+                          <div class="card m-1" style="width: 18rem; background-color:red;">
+                              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#einstephener">
+                              <img class = "btn-img m-3" src='${server_url}/img/einstephener.png' alt="#">
+                                </button>
+                              <div class="card-body">
+                                  <h5 class="card-title text-white">아인슈페너</h5>
+                                  <h5 class="card-text text-white">3700원
+                                  </h5>
+                              </div>
+                              </div>
+                          </div>
+                        </div>
+        
+                        </div>
+        
+                        <!--한 세트 끝-->
+
+
+            </div>
+          </div>
+
+          <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab">
+          <!--음료, 에이드 상세 메뉴-->
+
+          <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:850px;">
+
+            <!--한 세트 시작-->
+
+            <div class="row justify-content-center">
+              
+                <div class="col-5 m-2 border"  >
+                  <div class="row justify-content-center">
+                      
+                      <div class="card m-1" style="width: 18rem;">
+                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#strawberry" disabled>
+                              <img class = "btn-img m-3" src='${server_url}/img/strawberry.png' alt="#">
+                            </button>
+                          <div class="card-body">
+                              <h5 class="card-title">딸기쉐이크</h5>
+                              <h5 class="card-text">4800원
+                              </h5>
+                          </div>
+                          </div>
+                  </div>
+                </div>
+
+                <div class="col-5 m-2 border">
+                <div class="row justify-content-center">
+                      
+                  <div class="card m-1" style="width: 18rem;">
+                      <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#lemonade" disabled>
+                      <img class = "btn-img m-3" src='${server_url}/img/lemonade.png' alt="#">
+                        </button>
+                      <div class="card-body">
+                          <h5 class="card-title">레몬에이드</h5>
+                          <h5 class="card-text">3800원
+                          </h5>
+                      </div>
+                      </div>
+                  </div>
+                </div>
+
+                </div>
+
+                <!--한 세트 끝-->
+
+
+
+                <!--한 세트 시작-->
+
+                <div class="row justify-content-center">
+                  
+                    <div class="col-5 m-2 border"  >
+                      <div class="row justify-content-center">
+                          
+                          <div class="card m-1" style="width: 18rem;">
+                              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#green_grape" disabled>
+                                  <img class = "btn-img m-3" src='${server_url}/img/green_grape.png' alt="#">
+                                </button>
+                              <div class="card-body">
+                                  <h5 class="card-title">청포도에이드</h5>
+                                  <h5 class="card-text">3800원
+                                  </h5>
+                              </div>
+                              </div>
+                      </div>
+                    </div>
+    
+                    <div class="col-5 m-2 border">
+                    <div class="row justify-content-center">
+                          
+                      <div class="card m-1" style="width: 18rem;">
+                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#peach" disabled>
+                          <img class = "btn-img m-3" src='${server_url}/img/peach.png' alt="#">
+                            </button>
+                          <div class="card-body">
+                              <h5 class="card-title">피치얼그레이</h5>
+                              <h5 class="card-text">3200원
+                              </h5>
+                          </div>
+                          </div>
+                      </div>
+                    </div>
+    
+                    </div>
+    
+                    <!--한 세트 끝-->
+
+            </div>
+
+          </div>
+
+          <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab">
+          <!--디저트 상세 메뉴-->
+
+          <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:850px;">
+
+          <!--한 세트 시작-->
+
+          <div class="row justify-content-center">
+            
+              <div class="col-5 m-2 border"  >
+                <div class="row justify-content-center">
+                    
+                    <div class="card m-1" style="width: 18rem;">
+                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#delicious_waffle" disabled>
+                            <img class = "btn-img m-3" src='${server_url}/img/delicious_waffle.png' alt="#">
+                          </button>
+                        <div class="card-body">
+                            <h5 class="card-title">맛있는와플</h5>
+                            <h5 class="card-text">3000원
+                            </h5>
+                        </div>
+                        </div>
+                </div>
+              </div>
+
+              <div class="col-5 m-2 border">
+              <div class="row justify-content-center">
+                    
+                <div class="card m-1" style="width: 18rem;">
+                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cream_waffle" disabled>
+                    <img class = "btn-img m-3" src='${server_url}/img/cream_waffle.png' alt="#">
+                      </button>
+                    <div class="card-body">
+                        <h5 class="card-title">생크림와플</h5>
+                        <h5 class="card-text">2500원
+                        </h5>
+                    </div>
+                    </div>
+                </div>
+              </div>
+
+              </div>
+
+              <!--한 세트 끝-->
+
+
+
+              <!--한 세트 시작-->
+
+              <div class="row justify-content-center">
+                
+                  <div class="col-5 m-2 border"  >
+                    <div class="row justify-content-center">
+                        
+                        <div class="card m-1" style="width: 18rem;">
+                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cheese_cake" disabled>
+                                <img class = "btn-img m-3" src='${server_url}/img/cheese_cake.png' alt="#">
+                              </button>
+                            <div class="card-body">
+                                <h5 class="card-title">수플레치즈케이크</h5>
+                                <h5 class="card-text">3900원
+                                </h5>
+                            </div>
+                            </div>
+                    </div>
+                  </div>
+  
+                  <div class="col-5 m-2 border">
+                  <div class="row justify-content-center">
+                        
+                    <div class="card m-1" style="width: 18rem;">
+                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#origin_shake" disabled>
+                        <img class = "btn-img m-3" src='${server_url}/img/origin_shake.png' alt="#">
+                          </button>
+                        <div class="card-body">
+                            <h5 class="card-title">오리진쉐이크</h5>
+                            <h5 class="card-text">4300원
+                            </h5>
+                        </div>
+                        </div>
+                    </div>
+                  </div>
+  
+                  </div>
+  
+                  <!--한 세트 끝-->
+
+                  <!--한 세트 시작-->
+
+                  <div class="row justify-content-center">
+                    
+                      <div class="col-5 m-2 border"  >
+                        <div class="row justify-content-center">
+                            
+                            <div class="card m-1" style="width: 18rem;">
+                                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#tiramisu" disabled>
+                                    <img class = "btn-img m-3" src='${server_url}/img/tiramisu.png' alt="#">
+                                  </button>
+                                <div class="card-body">
+                                    <h5 class="card-title">초코티라미수</h5>
+                                    <h5 class="card-text">3900원
+                                    </h5>
+                                </div>
+                                </div>
+                        </div>
+                      </div>
+      
+                      <div class="col-5 m-2 border">
+                      <div class="row justify-content-center">
+                            
+                        <div class="card m-1" style="width: 18rem;">
+                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cream_cheese_waffle" disabled>
+                            <img class = "btn-img m-3" src='${server_url}/img/cream_cheese_waffle.png' alt="#">
+                              </button>
+                            <div class="card-body">
+                                <h5 class="card-title">크림치즈와플</h5>
+                                <h5 class="card-text">3000원
+                                </h5>
+                            </div>
+                            </div>
+                        </div>
+                      </div>
+      
+                      </div>
+      
+                      <!--한 세트 끝-->
+
+          </div>
+
+          </div>
+        </div>
+        </div>
+
+        <div class="container justify-content-center border mt-5">
+        <p>${order_main_cart_html()}</p>
+        </div>
+
+        <div class="container justify-content-center">
+        <h3>총 가격 : ${result_price} 원</h3>
+        </div>
+
+
+      </nav>
+</div>
+    <!--상세 메뉴의 상단을 구분하는 ui 종료지점-->
+
+    <!--여기서부터 modal창들을 불러오는 함수-->
+
+    <form action="${server_url}/scenario4/guide_mode/1" method="post">
+  <div class="modal fade" id="einstephener" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">상세 옵션</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!--여기에 프로필 편집창 내용물을 삽입-->
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+          <!--프로필1번 내용물-->
+          <div class = "container justify-content-center mt-3">
+              <div class = "row">
+                  <div class="col">
+                      <img src='${server_url}/img/einstephener.png' alt="Logo" width="140" height="140">
+                      <input type = "hidden" value = '${server_url}/img/einstephener.png' name = "img_src">
+                  </div>
+  
+                  <div class = "col">
+                  <h5 class="text-center">상품명 - 아인슈페너</h5>
+                  <input type = "hidden" value = "아인슈페너" name = "product_name">
+                  <h5 class="text-center">가격 - 3700</h5>
+                  <input type = "hidden" value = "3700" name = "basic_price">
+                  </div>
+              </div>
+              <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <!---->
+                      <th scope="row"><h5>사이즈 선택</h5></th>
+
+                      <td>
+                  <div class="custom-control custom-radio image-checkbox">
+                      <input type="radio" name="size" class="custom-control-input" id="ek1a" value = "0" checked>
+                      <label class="custom-control-label" for="ek1a">
+                      <h5>레귤러<br>+0</h5>
+                      </label>
+                  </div>
+                      </td>
+
+                      <td>
+                  <div class="custom-control custom-radio image-checkbox">
+                      <input type="radio" name="size" class="custom-control-input" id="ek1b" value = "1000">
+                      <label class="custom-control-label" for="ek1b">
+                      <h5>엑스트라<br>+1000</h5>
+                      </label>
+                  </div>
+                      </td>
+
+                    </tr>
+
+
+                    <tr>
+                      <th scope="row"><h5>얼음 선택</h5></th>
+                      <td>
+                  <div class="custom-control custom-radio image-checkbox">
+                      <input type="radio" name="ice" class="custom-control-input" id="ek1c" value = "0,S">
+                      <label class="custom-control-label" for="ek1c">
+                      <h5>조금<br>+0</h5>
+                      </label>
+                  </div>
+                      </td>
+
+                      <td>
+                  <div class="custom-control custom-radio image-checkbox">
+                          <input type="radio" name="ice" class="custom-control-input" id="ek1d" value = "0,M" checked>
+                          <label class="custom-control-label" for="ek1d">
+                          <h5>보통<br>+0</h5>
+                          </label>
+                  </div>
+                      </td>
+
+                      <td>
+                  <div class="custom-control custom-radio image-checkbox">
+                          <input type="radio" name="ice" class="custom-control-input" id="ek1e" value = "0,L">
+                          <label class="custom-control-label" for="ek1e">
+                          <h5>많이<br>+0</h5>
+                          </label>
+                  </div>
+                      </td>
+                    </tr>
+
+
+                    <tr>
+                      <th scope="row"><h5>토핑 선택</h5></th>
+
+                      <td>
+                  <div class="custom-control custom-checkbox image-checkbox">
+                      <input type="checkbox" name="topping1" class="custom-control-input" id="ek1f" value = "500">
+                      <label class="custom-control-label" for="ek1f">
+                      <h5>샷 추가<br>+500</h5>
+                      </label>
+                  </div>
+                      </td>
+
+                      <td>
+                  <div class="custom-control custom-checkbox image-checkbox">
+                      <input type="checkbox" name="topping2" class="custom-control-input" id="ek1g" value = "500">
+                      <label class="custom-control-label" for="ek1g">
+                      <h5>휘핑크림<br>+500</h5>
+                      </label>
+                  </div>
+                      </td>
+
+                      <td>
+                  <div class="custom-control custom-checkbox image-checkbox">
+                      <input type="checkbox" name="topping3" class="custom-control-input" id="ek1h" value = "300">
+                      <label class="custom-control-label" for="ek1h">
+                      <h5>시럽<br>+300</h5>
+                      </label>
+                  </div>
+                      </td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              
+
+                         
+          </div>
+        </div>
+
+      </div>
+
+      <select class="form-select" name = "count" aria-label="Default select example">
+      <option value="1" disabled>수량 선택</option>
+      <option value="1" selected>선택한 수량 : 1</option>
+      <option value="2" disabled>2</option>
+      <option value="3" disabled>3</option>
+      </select>
+
+      <br><br>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><h5>닫기</h5></button>
+        <button type="submit" class="btn btn-primary" style="background-color:red;"><h5>장바구니에 추가</h5></button>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+</div>
+
+</form>
+
+    <!--종료-->
+    ${endhtml()}
+    `;
+
+
+  res.send(output);
+
+
+
+})
+
+//시나리오4 종료
+
+//여기서부터 시나리오3를 위한 코드 목록
+
+app.get("/scenario3/result_mode/1", (req, res) => { //시나리오1 결과창을 바로 입력요청 했을시
+
+
+  var temp_1 = { //장바구니에 내용을 추가할 객체
+    name: '아메리카노',
+    price: '3200',
+    size: '1000',
+    count: '2',
+    total: '3200',
+    img_src: server_url + '/img/americano.png'
+  };
+
+  result_price += 8400;
+
+  cart.push(temp_1);
+
+  res.redirect('/payment');
+})
+
+app.get("/scenario3/guide_mode/2", (req, res) => {
+
+  var output = `
+    ${starthtml()}
+
+    <!--상세 메뉴의 상단 부분을 구성하는 ui 시작 지점-->
+    <div class="container justify-content-center">
+        
+    <div class="row text-center" style="width: 100%">
+
+        <div style="width: 30%; float:none; margin:0 auto" >
+                <h1>HCI & UX</h1>
+        </div>
+    </div>
+
+    <!--이곳에 음성 안내메세지 출력-->
+
+    <audio autoplay="autoplay">
+    <source src="${server_url}/tts/scenario_final.mp3" type="audio/mpeg" />
+    </audio> 
+
+    <div class="container justify-content-center m-1">
+    <div class="row text-center" style="width: 100%">
+    <h5><img src='${server_url}/img/speak.png' alt ="#">결제하기 버튼을 눌러 결제를 진행해주세요.</h5> 
+    </div>
+    </div>
+
+    <!--출력 종료-->
+
+    <nav class="navbar">
+        <div class="container-fluid">
+            
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true"><h5>커피</h5></button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false" disabled><h5>음료/에이드</h5></button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false" disabled><h5>디저트</h5></button>
+            </li>
+          </ul>
+
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab">
+          <!--커피 상세 메뉴-->
+          
+            <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:850px;">
+
+            <!--한 세트 시작-->
+
+            <div class="row justify-content-center">
+              
+                <div class="col-5 m-2 border"  >
+                  <div class="row justify-content-center">
+                      
+                      <div class="card m-1" style="width: 18rem;">
+                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#americano" disabled>
+                              <img class = "btn-img m-3" src='${server_url}/img/americano.png' alt="#">
+                            </button>
+                          <div class="card-body">
+                              <h5 class="card-title">아메리카노</h5>
+                              <h5 class="card-text">3200원
+                              </h5>
+                          </div>
+                          </div>
+                  </div>
+                </div>
+
+                <div class="col-5 m-2 border">
+                <div class="row justify-content-center">
+                      
+                  <div class="card m-1" style="width: 18rem;">
+                      <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#bubble_black" disabled>
+                      <img class = "btn-img m-3" src='${server_url}/img/bubble_black.png' alt="#">
+                        </button>
+                      <div class="card-body">
+                          <h5 class="card-title">버블흑당콜드브루</h5>
+                          <h5 class="card-text">4700원
+                          </h5>
+                      </div>
+                      </div>
+                  </div>
+                </div>
+
+                </div>
+
+                <!--한 세트 끝-->
+
+
+
+                <!--한 세트 시작-->
+
+                <div class="row justify-content-center">
+                  
+                    <div class="col-5 m-2 border"  >
+                      <div class="row justify-content-center">
+                          
+                          <div class="card m-1" style="width: 18rem;">
+                              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cafe_latte" disabled>
+                                  <img class = "btn-img m-3" src='${server_url}/img/cafe_latte.png' alt="#">
+                                </button>
+                              <div class="card-body">
+                                  <h5 class="card-title">카페라떼</h5>
+                                  <h5 class="card-text">3700원
+                                  </h5>
+                              </div>
+                              </div>
+                      </div>
+                    </div>
+    
+                    <div class="col-5 m-2 border">
+                    <div class="row justify-content-center">
+                          
+                      <div class="card m-1" style="width: 18rem;">
+                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cold_brew_americano" disabled>
+                          <img class = "btn-img m-3" src='${server_url}/img/cold_brew_americano.png' alt="#">
+                            </button>
+                          <div class="card-body">
+                              <h5 class="card-title">콜드브루아메리카노</h5>
+                              <h5 class="card-text">3700원
+                              </h5>
+                          </div>
+                          </div>
+                      </div>
+                    </div>
+    
+                    </div>
+    
+                    <!--한 세트 끝-->
+
+                    <!--한 세트 시작-->
+
+                    <div class="row justify-content-center">
+                      
+                        <div class="col-5 m-2 border"  >
+                          <div class="row justify-content-center">
+                              
+                              <div class="card m-1" style="width: 18rem;">
+                                  <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cold_brew" disabled>
+                                      <img class = "btn-img m-3" src='${server_url}/img/cold_brew.png' alt="#">
+                                    </button>
+                                  <div class="card-body">
+                                      <h5 class="card-title">콜드브루라떼</h5>
+                                      <h5 class="card-text">4200원
+                                      </h5>
+                                  </div>
+                                  </div>
+                          </div>
+                        </div>
+        
+                        <div class="col-5 m-2 border">
+                        <div class="row justify-content-center">
+                              
+                          <div class="card m-1" style="width: 18rem;">
+                              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#einstephener" disabled>
+                              <img class = "btn-img m-3" src='${server_url}/img/einstephener.png' alt="#">
+                                </button>
+                              <div class="card-body">
+                                  <h5 class="card-title">아인슈페너</h5>
+                                  <h5 class="card-text">3700원
+                                  </h5>
+                              </div>
+                              </div>
+                          </div>
+                        </div>
+        
+                        </div>
+        
+                        <!--한 세트 끝-->
+
+
+            </div>
+          </div>
+
+          <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab">
+          <!--음료, 에이드 상세 메뉴-->
+
+          <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:850px;">
+
+            <!--한 세트 시작-->
+
+            <div class="row justify-content-center">
+              
+                <div class="col-5 m-2 border"  >
+                  <div class="row justify-content-center">
+                      
+                      <div class="card m-1" style="width: 18rem;">
+                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#strawberry" disabled>
+                              <img class = "btn-img m-3" src='${server_url}/img/strawberry.png' alt="#">
+                            </button>
+                          <div class="card-body">
+                              <h5 class="card-title">딸기쉐이크</h5>
+                              <h5 class="card-text">4800원
+                              </h5>
+                          </div>
+                          </div>
+                  </div>
+                </div>
+
+                <div class="col-5 m-2 border">
+                <div class="row justify-content-center">
+                      
+                  <div class="card m-1" style="width: 18rem;">
+                      <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#lemonade" disabled>
+                      <img class = "btn-img m-3" src='${server_url}/img/lemonade.png' alt="#">
+                        </button>
+                      <div class="card-body">
+                          <h5 class="card-title">레몬에이드</h5>
+                          <h5 class="card-text">3800원
+                          </h5>
+                      </div>
+                      </div>
+                  </div>
+                </div>
+
+                </div>
+
+                <!--한 세트 끝-->
+
+
+
+                <!--한 세트 시작-->
+
+                <div class="row justify-content-center">
+                  
+                    <div class="col-5 m-2 border"  >
+                      <div class="row justify-content-center">
+                          
+                          <div class="card m-1" style="width: 18rem;">
+                              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#green_grape" disabled>
+                                  <img class = "btn-img m-3" src='${server_url}/img/green_grape.png' alt="#">
+                                </button>
+                              <div class="card-body">
+                                  <h5 class="card-title">청포도에이드</h5>
+                                  <h5 class="card-text">3800원
+                                  </h5>
+                              </div>
+                              </div>
+                      </div>
+                    </div>
+    
+                    <div class="col-5 m-2 border">
+                    <div class="row justify-content-center">
+                          
+                      <div class="card m-1" style="width: 18rem;">
+                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#peach" disabled>
+                          <img class = "btn-img m-3" src='${server_url}/img/peach.png' alt="#">
+                            </button>
+                          <div class="card-body">
+                              <h5 class="card-title">피치얼그레이</h5>
+                              <h5 class="card-text">3200원
+                              </h5>
+                          </div>
+                          </div>
+                      </div>
+                    </div>
+    
+                    </div>
+    
+                    <!--한 세트 끝-->
+
+            </div>
+
+          </div>
+
+          <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab">
+          <!--디저트 상세 메뉴-->
+
+          <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:850px;">
+
+          <!--한 세트 시작-->
+
+          <div class="row justify-content-center">
+            
+              <div class="col-5 m-2 border"  >
+                <div class="row justify-content-center">
+                    
+                    <div class="card m-1" style="width: 18rem;">
+                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#delicious_waffle" disabled>
+                            <img class = "btn-img m-3" src='${server_url}/img/delicious_waffle.png' alt="#">
+                          </button>
+                        <div class="card-body">
+                            <h5 class="card-title">맛있는와플</h5>
+                            <h5 class="card-text">3000원
+                            </h5>
+                        </div>
+                        </div>
+                </div>
+              </div>
+
+              <div class="col-5 m-2 border">
+              <div class="row justify-content-center">
+                    
+                <div class="card m-1" style="width: 18rem;">
+                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cream_waffle" disabled>
+                    <img class = "btn-img m-3" src='${server_url}/img/cream_waffle.png' alt="#">
+                      </button>
+                    <div class="card-body">
+                        <h5 class="card-title">생크림와플</h5>
+                        <h5 class="card-text">2500원
+                        </h5>
+                    </div>
+                    </div>
+                </div>
+              </div>
+
+              </div>
+
+              <!--한 세트 끝-->
+
+
+
+              <!--한 세트 시작-->
+
+              <div class="row justify-content-center">
+                
+                  <div class="col-5 m-2 border"  >
+                    <div class="row justify-content-center">
+                        
+                        <div class="card m-1" style="width: 18rem;">
+                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cheese_cake" disabled>
+                                <img class = "btn-img m-3" src='${server_url}/img/cheese_cake.png' alt="#">
+                              </button>
+                            <div class="card-body">
+                                <h5 class="card-title">수플레치즈케이크</h5>
+                                <h5 class="card-text">3900원
+                                </h5>
+                            </div>
+                            </div>
+                    </div>
+                  </div>
+  
+                  <div class="col-5 m-2 border">
+                  <div class="row justify-content-center">
+                        
+                    <div class="card m-1" style="width: 18rem;">
+                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#origin_shake" disabled>
+                        <img class = "btn-img m-3" src='${server_url}/img/origin_shake.png' alt="#">
+                          </button>
+                        <div class="card-body">
+                            <h5 class="card-title">오리진쉐이크</h5>
+                            <h5 class="card-text">4300원
+                            </h5>
+                        </div>
+                        </div>
+                    </div>
+                  </div>
+  
+                  </div>
+  
+                  <!--한 세트 끝-->
+
+                  <!--한 세트 시작-->
+
+                  <div class="row justify-content-center">
+                    
+                      <div class="col-5 m-2 border"  >
+                        <div class="row justify-content-center">
+                            
+                            <div class="card m-1" style="width: 18rem;">
+                                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#tiramisu" disabled>
+                                    <img class = "btn-img m-3" src='${server_url}/img/tiramisu.png' alt="#">
+                                  </button>
+                                <div class="card-body">
+                                    <h5 class="card-title">초코티라미수</h5>
+                                    <h5 class="card-text">3900원
+                                    </h5>
+                                </div>
+                                </div>
+                        </div>
+                      </div>
+      
+                      <div class="col-5 m-2 border">
+                      <div class="row justify-content-center">
+                            
+                        <div class="card m-1" style="width: 18rem;">
+                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cream_cheese_waffle" disabled>
+                            <img class = "btn-img m-3" src='${server_url}/img/cream_cheese_waffle.png' alt="#">
+                              </button>
+                            <div class="card-body">
+                                <h5 class="card-title">크림치즈와플</h5>
+                                <h5 class="card-text">3000원
+                                </h5>
+                            </div>
+                            </div>
+                        </div>
+                      </div>
+      
+                      </div>
+      
+                      <!--한 세트 끝-->
+
+          </div>
+
+          </div>
+        </div>
+        </div>
+
+        <div class="container justify-content-center border mt-5">
+        <p>${order_main_cart_html()}</p>
+        </div>
+
+        <div class="container justify-content-center">
+        <h3>총 가격 : ${result_price} 원</h3>
+        </div>
+
+        <div class="container justify-content-end">
+        <a href="/payment" class="btn btn-primary btn-lg m-1" tabindex="-1" role="button" style="background-color:red;">결제하기</a>
+        </div>
+
+
+      </nav>
+</div>
+    <!--상세 메뉴의 상단을 구분하는 ui 종료지점-->
+
+    <!--여기서부터 modal창들을 불러오는 함수-->
+
+    <!--종료-->
+    ${endhtml()}
+    `;
+
+
+  res.send(output);
+
+
+
+})
+
+app.post("/scenario3/guide_mode/1", (req, res) => { //시나리오2에서 받은 post form을 처리
+
+  var total_price = parseInt(req.body.basic_price)
+
+  if (req.body.size) {
+    total_price += parseInt(req.body.size); //존재할 경우에만 더해주어야 한다.
+  }
+
+  if (req.body.ice) {
+    var arr = req.body.ice.split(",");
+    total_price += parseInt(arr[0]);
+  }
+
+  if (req.body.topping1) {
+    total_price += parseInt(req.body.topping1)
+  }
+
+  if (req.body.topping2) {
+    total_price += parseInt(req.body.topping2)
+  }
+
+  if (req.body.topping3) {
+    total_price += parseInt(req.body.topping3)
+  }
+
+
+  total_price = total_price * parseInt(req.body.count)
+
+  var temp = { //장바구니에 내용을 추가할 객체
+    name: req.body.product_name,
+    price: req.body.basic_price,
+    size: req.body.size,
+    ice: req.body.ice,
+    topping1: req.body.topping1,
+    topping2: req.body.topping2,
+    topping3: req.body.topping3,
+    count: req.body.count,
+    total: total_price,
+    img_src: req.body.img_src
+  };
+
+  cart.push(temp);
+
+  res.redirect("/scenario3/guide_mode/2");
+})
+
+app.get("/scenario3/guide_mode/1", (req, res) => {
+
+  var output = `
+    ${starthtml()}
+
+    <!--상세 메뉴의 상단 부분을 구성하는 ui 시작 지점-->
+    <div class="container justify-content-center">
+        
+    <div class="row text-center" style="width: 100%">
+
+        <div style="width: 30%; float:none; margin:0 auto" >
+                <h1>HCI & UX</h1>
+        </div>
+    </div>
+
+    <!--이곳에 음성 안내메세지 출력-->
+
+    <audio autoplay="autoplay">
+    <source src="${server_url}/tts/test.mp3" type="audio/mpeg" />
+    </audio> 
+
+    <div class="container justify-content-center m-1">
+    <div class="row text-center" style="width: 100%">
+    <h5><img src='${server_url}/img/speak.png' alt ="#">커피탭에서 아메리카노 엑스트라 사이즈를 두 잔 주문하세요.</h5> 
+    </div>
+    </div>
+
+    <!--출력 종료-->
+
+    <nav class="navbar">
+        <div class="container-fluid">
+            
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link text-white active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true" style = "background-color:red;"><h5>커피</h5></button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false" disabled><h5>음료/에이드</h5></button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false" disabled><h5>디저트</h5></button>
+            </li>
+          </ul>
+
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab">
+          <!--커피 상세 메뉴-->
+          
+            <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:850px;">
+
+            <!--한 세트 시작-->
+
+            <div class="row justify-content-center">
+              
+                <div class="col-5 m-2 border"  >
+                  <div class="row justify-content-center">
+                      
+                      <div class="card m-1" style="width: 18rem; background-color:red;">
+                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#americano">
+                              <img class = "btn-img m-3" src='${server_url}/img/americano.png' alt="#">
+                            </button>
+                          <div class="card-body">
+                              <h5 class="card-title text-white">아메리카노</h5>
+                              <h5 class="card-text text-white">3200원
+                              </h5>
+                          </div>
+                          </div>
+                  </div>
+                </div>
+
+                <div class="col-5 m-2 border">
+                <div class="row justify-content-center">
+                      
+                  <div class="card m-1" style="width: 18rem;">
+                      <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#bubble_black" disabled>
+                      <img class = "btn-img m-3" src='${server_url}/img/bubble_black.png' alt="#">
+                        </button>
+                      <div class="card-body">
+                          <h5 class="card-title">버블흑당콜드브루</h5>
+                          <h5 class="card-text">4700원
+                          </h5>
+                      </div>
+                      </div>
+                  </div>
+                </div>
+
+                </div>
+
+                <!--한 세트 끝-->
+
+
+
+                <!--한 세트 시작-->
+
+                <div class="row justify-content-center">
+                  
+                    <div class="col-5 m-2 border"  >
+                      <div class="row justify-content-center">
+                          
+                          <div class="card m-1" style="width: 18rem;">
+                              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cafe_latte" disabled>
+                                  <img class = "btn-img m-3" src='${server_url}/img/cafe_latte.png' alt="#">
+                                </button>
+                              <div class="card-body">
+                                  <h5 class="card-title">카페라떼</h5>
+                                  <h5 class="card-text">3700원
+                                  </h5>
+                              </div>
+                              </div>
+                      </div>
+                    </div>
+    
+                    <div class="col-5 m-2 border">
+                    <div class="row justify-content-center">
+                          
+                      <div class="card m-1" style="width: 18rem;">
+                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cold_brew_americano" disabled>
+                          <img class = "btn-img m-3" src='${server_url}/img/cold_brew_americano.png' alt="#">
+                            </button>
+                          <div class="card-body">
+                              <h5 class="card-title">콜드브루아메리카노</h5>
+                              <h5 class="card-text">3700원
+                              </h5>
+                          </div>
+                          </div>
+                      </div>
+                    </div>
+    
+                    </div>
+    
+                    <!--한 세트 끝-->
+
+                    <!--한 세트 시작-->
+
+                    <div class="row justify-content-center">
+                      
+                        <div class="col-5 m-2 border"  >
+                          <div class="row justify-content-center">
+                              
+                              <div class="card m-1" style="width: 18rem;">
+                                  <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cold_brew" disabled>
+                                      <img class = "btn-img m-3" src='${server_url}/img/cold_brew.png' alt="#">
+                                    </button>
+                                  <div class="card-body">
+                                      <h5 class="card-title">콜드브루라떼</h5>
+                                      <h5 class="card-text">4200원
+                                      </h5>
+                                  </div>
+                                  </div>
+                          </div>
+                        </div>
+        
+                        <div class="col-5 m-2 border">
+                        <div class="row justify-content-center">
+                              
+                          <div class="card m-1" style="width: 18rem;">
+                              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#einstephener" disabled>
+                              <img class = "btn-img m-3" src='${server_url}/img/einstephener.png' alt="#">
+                                </button>
+                              <div class="card-body">
+                                  <h5 class="card-title">아인슈페너</h5>
+                                  <h5 class="card-text">3700원
+                                  </h5>
+                              </div>
+                              </div>
+                          </div>
+                        </div>
+        
+                        </div>
+        
+                        <!--한 세트 끝-->
+
+
+            </div>
+          </div>
+
+          <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab">
+          <!--음료, 에이드 상세 메뉴-->
+
+          <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:850px;">
+
+            <!--한 세트 시작-->
+
+            <div class="row justify-content-center">
+              
+                <div class="col-5 m-2 border"  >
+                  <div class="row justify-content-center">
+                      
+                      <div class="card m-1" style="width: 18rem;">
+                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#strawberry" disabled>
+                              <img class = "btn-img m-3" src='${server_url}/img/strawberry.png' alt="#">
+                            </button>
+                          <div class="card-body">
+                              <h5 class="card-title">딸기쉐이크</h5>
+                              <h5 class="card-text">4800원
+                              </h5>
+                          </div>
+                          </div>
+                  </div>
+                </div>
+
+                <div class="col-5 m-2 border">
+                <div class="row justify-content-center">
+                      
+                  <div class="card m-1" style="width: 18rem;">
+                      <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#lemonade" disabled>
+                      <img class = "btn-img m-3" src='${server_url}/img/lemonade.png' alt="#">
+                        </button>
+                      <div class="card-body">
+                          <h5 class="card-title">레몬에이드</h5>
+                          <h5 class="card-text">3800원
+                          </h5>
+                      </div>
+                      </div>
+                  </div>
+                </div>
+
+                </div>
+
+                <!--한 세트 끝-->
+
+
+
+                <!--한 세트 시작-->
+
+                <div class="row justify-content-center">
+                  
+                    <div class="col-5 m-2 border"  >
+                      <div class="row justify-content-center">
+                          
+                          <div class="card m-1" style="width: 18rem;">
+                              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#green_grape" disabled>
+                                  <img class = "btn-img m-3" src='${server_url}/img/green_grape.png' alt="#">
+                                </button>
+                              <div class="card-body">
+                                  <h5 class="card-title">청포도에이드</h5>
+                                  <h5 class="card-text">3800원
+                                  </h5>
+                              </div>
+                              </div>
+                      </div>
+                    </div>
+    
+                    <div class="col-5 m-2 border">
+                    <div class="row justify-content-center">
+                          
+                      <div class="card m-1" style="width: 18rem;">
+                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#peach" disabled>
+                          <img class = "btn-img m-3" src='${server_url}/img/peach.png' alt="#">
+                            </button>
+                          <div class="card-body">
+                              <h5 class="card-title">피치얼그레이</h5>
+                              <h5 class="card-text">3200원
+                              </h5>
+                          </div>
+                          </div>
+                      </div>
+                    </div>
+    
+                    </div>
+    
+                    <!--한 세트 끝-->
+
+            </div>
+
+          </div>
+
+          <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab">
+          <!--디저트 상세 메뉴-->
+
+          <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:850px;">
+
+          <!--한 세트 시작-->
+
+          <div class="row justify-content-center">
+            
+              <div class="col-5 m-2 border"  >
+                <div class="row justify-content-center">
+                    
+                    <div class="card m-1" style="width: 18rem;">
+                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#delicious_waffle" disabled>
+                            <img class = "btn-img m-3" src='${server_url}/img/delicious_waffle.png' alt="#">
+                          </button>
+                        <div class="card-body">
+                            <h5 class="card-title">맛있는와플</h5>
+                            <h5 class="card-text">3000원
+                            </h5>
+                        </div>
+                        </div>
+                </div>
+              </div>
+
+              <div class="col-5 m-2 border">
+              <div class="row justify-content-center">
+                    
+                <div class="card m-1" style="width: 18rem;">
+                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cream_waffle" disabled>
+                    <img class = "btn-img m-3" src='${server_url}/img/cream_waffle.png' alt="#">
+                      </button>
+                    <div class="card-body">
+                        <h5 class="card-title">생크림와플</h5>
+                        <h5 class="card-text">2500원
+                        </h5>
+                    </div>
+                    </div>
+                </div>
+              </div>
+
+              </div>
+
+              <!--한 세트 끝-->
+
+
+
+              <!--한 세트 시작-->
+
+              <div class="row justify-content-center">
+                
+                  <div class="col-5 m-2 border"  >
+                    <div class="row justify-content-center">
+                        
+                        <div class="card m-1" style="width: 18rem;">
+                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cheese_cake" disabled>
+                                <img class = "btn-img m-3" src='${server_url}/img/cheese_cake.png' alt="#">
+                              </button>
+                            <div class="card-body">
+                                <h5 class="card-title">수플레치즈케이크</h5>
+                                <h5 class="card-text">3900원
+                                </h5>
+                            </div>
+                            </div>
+                    </div>
+                  </div>
+  
+                  <div class="col-5 m-2 border">
+                  <div class="row justify-content-center">
+                        
+                    <div class="card m-1" style="width: 18rem;">
+                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#origin_shake" disabled>
+                        <img class = "btn-img m-3" src='${server_url}/img/origin_shake.png' alt="#">
+                          </button>
+                        <div class="card-body">
+                            <h5 class="card-title">오리진쉐이크</h5>
+                            <h5 class="card-text">4300원
+                            </h5>
+                        </div>
+                        </div>
+                    </div>
+                  </div>
+  
+                  </div>
+  
+                  <!--한 세트 끝-->
+
+                  <!--한 세트 시작-->
+
+                  <div class="row justify-content-center">
+                    
+                      <div class="col-5 m-2 border"  >
+                        <div class="row justify-content-center">
+                            
+                            <div class="card m-1" style="width: 18rem;">
+                                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#tiramisu" disabled>
+                                    <img class = "btn-img m-3" src='${server_url}/img/tiramisu.png' alt="#">
+                                  </button>
+                                <div class="card-body">
+                                    <h5 class="card-title">초코티라미수</h5>
+                                    <h5 class="card-text">3900원
+                                    </h5>
+                                </div>
+                                </div>
+                        </div>
+                      </div>
+      
+                      <div class="col-5 m-2 border">
+                      <div class="row justify-content-center">
+                            
+                        <div class="card m-1" style="width: 18rem;">
+                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cream_cheese_waffle" disabled>
+                            <img class = "btn-img m-3" src='${server_url}/img/cream_cheese_waffle.png' alt="#">
+                              </button>
+                            <div class="card-body">
+                                <h5 class="card-title">크림치즈와플</h5>
+                                <h5 class="card-text">3000원
+                                </h5>
+                            </div>
+                            </div>
+                        </div>
+                      </div>
+      
+                      </div>
+      
+                      <!--한 세트 끝-->
+
+          </div>
+
+          </div>
+        </div>
+        </div>
+
+        <div class="container justify-content-center border mt-5">
+        <p>${order_main_cart_html()}</p>
+        </div>
+
+        <div class="container justify-content-center">
+        <h3>총 가격 : ${result_price} 원</h3>
+        </div>
+
+
+      </nav>
+</div>
+    <!--상세 메뉴의 상단을 구분하는 ui 종료지점-->
+
+    <!--여기서부터 modal창들을 불러오는 함수-->
+
+    <form action="${server_url}/scenario3/guide_mode/1" method="post">
+    <div class="modal fade" id="americano" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">상세 옵션</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!--여기에 프로필 편집창 내용물을 삽입-->
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+            <!--프로필1번 내용물-->
+            <div class = "container justify-content-center mt-3">
+                <div class = "row">
+                    <div class="col">
+                        <img src='${server_url}/img/americano.png' alt="Logo" width="140" height="140">
+                        <input type = "hidden" value = '${server_url}/img/americano.png' name = "img_src">
+                    </div>
+    
+                    <div class = "col">
+                        <h5 class="text-center">상품명 - 아메리카노</h5>
+                        <input type = "hidden" value = "아메리카노" name = "product_name">
+                        <h5 class="text-center">가격 - 3200원</h5>
+                        <input type = "hidden" value = "3200" name = "basic_price">
+                    </div>
+                </div>
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <!---->
+                        <th scope="row"><h5>사이즈 선택</h5></th>
+
+                        <td>
+                    <div class="custom-control custom-radio image-checkbox">
+                        <input type="radio" name="size" class="custom-control-input" id="ck1a" value = "0" disabled>
+                        <label class="custom-control-label" for="ck1a">
+                        <h5>레귤러<br>+0</h5>
+                        </label>
+                    </div>
+                        </td>
+
+                        <td>
+                    <div class="custom-control custom-radio image-checkbox">
+                        <input type="radio" name="size" class="custom-control-input" id="ck1b" value = "1000" checked>
+                        <label class="custom-control-label" for="ck1b">
+                        <h5 class="text-primary">엑스트라<br>+1000</h5>
+                        </label>
+                    </div>
+                        </td>
+
+                      </tr>
+
+
+                      <tr>
+                        <th scope="row"><h5>얼음 선택</h5></th>
+                        <td>
+                    <div class="custom-control custom-radio image-checkbox">
+                        <input type="radio" name="ice" class="custom-control-input" id="ck1c" value = "0,S">
+                        <label class="custom-control-label" for="ck1c">
+                        <h5>조금<br>+0</h5>
+                        </label>
+                    </div>
+                        </td>
+
+                        <td>
+                    <div class="custom-control custom-radio image-checkbox">
+                            <input type="radio" name="ice" class="custom-control-input" id="ck1d" value = "0,M" checked>
+                            <label class="custom-control-label" for="ck1d">
+                            <h5>보통<br>+0</h5>
+                            </label>
+                    </div>
+                        </td>
+
+                        <td>
+                    <div class="custom-control custom-radio image-checkbox">
+                            <input type="radio" name="ice" class="custom-control-input" id="ck1e" value = "0,L">
+                            <label class="custom-control-label" for="ck1e">
+                            <h5>많이<br>+0</h5>
+                            </label>
+                    </div>
+                        </td>
+                      </tr>
+
+
+                      <tr>
+                        <th scope="row"><h5>토핑 선택</h5></th>
+
+                        <td>
+                    <div class="custom-control custom-checkbox image-checkbox">
+                        <input type="checkbox" name="topping1" class="custom-control-input" id="ck1f" value = "500">
+                        <label class="custom-control-label" for="ck1f">
+                        <h5>샷 추가<br>+500</h5>
+                        </label>
+                    </div>
+                        </td>
+
+                        <td>
+                    <div class="custom-control custom-checkbox image-checkbox">
+                        <input type="checkbox" name="topping2" class="custom-control-input" id="ck1g" value = "500">
+                        <label class="custom-control-label" for="ck1g">
+                        <h5>휘핑크림<br>+500</h5>
+                        </label>
+                    </div>
+                        </td>
+
+                        <td>
+                    <div class="custom-control custom-checkbox image-checkbox">
+                        <input type="checkbox" name="topping3" class="custom-control-input" id="ck1h" value = "300">
+                        <label class="custom-control-label" for="ck1h">
+                        <h5>시럽<br>+300</h5>
+                        </label>
+                    </div>
+                        </td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+                
+
+                           
+            </div>
+          </div>
+
+        </div>
+
+        <select class="form-select" name = "count" aria-label="Default select example">
+  <option value="1" disabled>수량 선택</option>
+  <option value="1" disabled>1</option>
+  <option value="2" selected>선택한 수량 : 2</option>
+  <option value="3" disabled>3</option>
+        </select>
+
+        <br><br>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><h5>닫기</h5></button>
+          <button type="submit" class="btn btn-primary text-white" style="background-color:red;"><h5>장바구니에 추가</h5></button>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+</form>
+
+    <!--종료-->
+    ${endhtml()}
+    `;
+
+
+  res.send(output);
+
+
+
+})
+
+//시나리오3 종료
+
+//여기서부터 시나리오2를 위한 코드 목록
+
+app.get("/scenario2/result_mode/1", (req, res) => { //시나리오1 결과창을 바로 입력요청 했을시
+
+
+  var temp_1 = { //장바구니에 내용을 추가할 객체
+    name: '피치얼그레이',
+    price: '3200',
+    count: '1',
+    total: '3200',
+    img_src: server_url + '/img/peach.png'
+  };
+
+  result_price += 3900;
+
+  cart.push(temp_1);
+
+  res.redirect('/payment');
+})
+
+app.get("/scenario2/guide_mode/2", (req, res) => {
+
+  var output = `
+    ${starthtml()}
+
+    <!--상세 메뉴의 상단 부분을 구성하는 ui 시작 지점-->
+    <div class="container justify-content-center">
+        
+    <div class="row text-center" style="width: 100%">
+
+        <div style="width: 30%; float:none; margin:0 auto" >
+                <h1>HCI & UX</h1>
+        </div>
+    </div>
+
+    <!--이곳에 음성 안내메세지 출력-->
+
+    <audio autoplay="autoplay">
+    <source src="${server_url}/tts/scenario_final.mp3" type="audio/mpeg" />
+    </audio> 
+
+    <div class="container justify-content-center m-1">
+    <div class="row text-center" style="width: 100%">
+    <h5><img src='${server_url}/img/speak.png' alt ="#">결제하기 버튼을 눌러 결제를 진행해주세요.</h5> 
+    </div>
+    </div>
+
+    <!--출력 종료-->
+
+    <nav class="navbar">
+        <div class="container-fluid">
+            
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true"><h5>커피</h5></button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false" disabled><h5>음료/에이드</h5></button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false" disabled><h5>디저트</h5></button>
+            </li>
+          </ul>
+
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab">
+          <!--커피 상세 메뉴-->
+          
+            <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:850px;">
+
+            <!--한 세트 시작-->
+
+            <div class="row justify-content-center">
+              
+                <div class="col-5 m-2 border"  >
+                  <div class="row justify-content-center">
+                      
+                      <div class="card m-1" style="width: 18rem;">
+                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#americano" disabled>
+                              <img class = "btn-img m-3" src='${server_url}/img/americano.png' alt="#">
+                            </button>
+                          <div class="card-body">
+                              <h5 class="card-title">아메리카노</h5>
+                              <h5 class="card-text">3200원
+                              </h5>
+                          </div>
+                          </div>
+                  </div>
+                </div>
+
+                <div class="col-5 m-2 border">
+                <div class="row justify-content-center">
+                      
+                  <div class="card m-1" style="width: 18rem;">
+                      <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#bubble_black" disabled>
+                      <img class = "btn-img m-3" src='${server_url}/img/bubble_black.png' alt="#">
+                        </button>
+                      <div class="card-body">
+                          <h5 class="card-title">버블흑당콜드브루</h5>
+                          <h5 class="card-text">4700원
+                          </h5>
+                      </div>
+                      </div>
+                  </div>
+                </div>
+
+                </div>
+
+                <!--한 세트 끝-->
+
+
+
+                <!--한 세트 시작-->
+
+                <div class="row justify-content-center">
+                  
+                    <div class="col-5 m-2 border"  >
+                      <div class="row justify-content-center">
+                          
+                          <div class="card m-1" style="width: 18rem;">
+                              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cafe_latte" disabled>
+                                  <img class = "btn-img m-3" src='${server_url}/img/cafe_latte.png' alt="#">
+                                </button>
+                              <div class="card-body">
+                                  <h5 class="card-title">카페라떼</h5>
+                                  <h5 class="card-text">3700원
+                                  </h5>
+                              </div>
+                              </div>
+                      </div>
+                    </div>
+    
+                    <div class="col-5 m-2 border">
+                    <div class="row justify-content-center">
+                          
+                      <div class="card m-1" style="width: 18rem;">
+                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cold_brew_americano" disabled>
+                          <img class = "btn-img m-3" src='${server_url}/img/cold_brew_americano.png' alt="#">
+                            </button>
+                          <div class="card-body">
+                              <h5 class="card-title">콜드브루아메리카노</h5>
+                              <h5 class="card-text">3700원
+                              </h5>
+                          </div>
+                          </div>
+                      </div>
+                    </div>
+    
+                    </div>
+    
+                    <!--한 세트 끝-->
+
+                    <!--한 세트 시작-->
+
+                    <div class="row justify-content-center">
+                      
+                        <div class="col-5 m-2 border"  >
+                          <div class="row justify-content-center">
+                              
+                              <div class="card m-1" style="width: 18rem;">
+                                  <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cold_brew" disabled>
+                                      <img class = "btn-img m-3" src='${server_url}/img/cold_brew.png' alt="#">
+                                    </button>
+                                  <div class="card-body">
+                                      <h5 class="card-title">콜드브루라떼</h5>
+                                      <h5 class="card-text">4200원
+                                      </h5>
+                                  </div>
+                                  </div>
+                          </div>
+                        </div>
+        
+                        <div class="col-5 m-2 border">
+                        <div class="row justify-content-center">
+                              
+                          <div class="card m-1" style="width: 18rem;">
+                              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#einstephener" disabled>
+                              <img class = "btn-img m-3" src='${server_url}/img/einstephener.png' alt="#">
+                                </button>
+                              <div class="card-body">
+                                  <h5 class="card-title">아인슈페너</h5>
+                                  <h5 class="card-text">3700원
+                                  </h5>
+                              </div>
+                              </div>
+                          </div>
+                        </div>
+        
+                        </div>
+        
+                        <!--한 세트 끝-->
+
+
+            </div>
+          </div>
+
+          <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab">
+          <!--음료, 에이드 상세 메뉴-->
+
+          <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:850px;">
+
+            <!--한 세트 시작-->
+
+            <div class="row justify-content-center">
+              
+                <div class="col-5 m-2 border"  >
+                  <div class="row justify-content-center">
+                      
+                      <div class="card m-1" style="width: 18rem;">
+                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#strawberry" disabled>
+                              <img class = "btn-img m-3" src='${server_url}/img/strawberry.png' alt="#">
+                            </button>
+                          <div class="card-body">
+                              <h5 class="card-title">딸기쉐이크</h5>
+                              <h5 class="card-text">4800원
+                              </h5>
+                          </div>
+                          </div>
+                  </div>
+                </div>
+
+                <div class="col-5 m-2 border">
+                <div class="row justify-content-center">
+                      
+                  <div class="card m-1" style="width: 18rem;">
+                      <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#lemonade" disabled>
+                      <img class = "btn-img m-3" src='${server_url}/img/lemonade.png' alt="#">
+                        </button>
+                      <div class="card-body">
+                          <h5 class="card-title">레몬에이드</h5>
+                          <h5 class="card-text">3800원
+                          </h5>
+                      </div>
+                      </div>
+                  </div>
+                </div>
+
+                </div>
+
+                <!--한 세트 끝-->
+
+
+
+                <!--한 세트 시작-->
+
+                <div class="row justify-content-center">
+                  
+                    <div class="col-5 m-2 border"  >
+                      <div class="row justify-content-center">
+                          
+                          <div class="card m-1" style="width: 18rem;">
+                              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#green_grape" disabled>
+                                  <img class = "btn-img m-3" src='${server_url}/img/green_grape.png' alt="#">
+                                </button>
+                              <div class="card-body">
+                                  <h5 class="card-title">청포도에이드</h5>
+                                  <h5 class="card-text">3800원
+                                  </h5>
+                              </div>
+                              </div>
+                      </div>
+                    </div>
+    
+                    <div class="col-5 m-2 border">
+                    <div class="row justify-content-center">
+                          
+                      <div class="card m-1" style="width: 18rem;">
+                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#peach" disabled>
+                          <img class = "btn-img m-3" src='${server_url}/img/peach.png' alt="#">
+                            </button>
+                          <div class="card-body">
+                              <h5 class="card-title">피치얼그레이</h5>
+                              <h5 class="card-text">3200원
+                              </h5>
+                          </div>
+                          </div>
+                      </div>
+                    </div>
+    
+                    </div>
+    
+                    <!--한 세트 끝-->
+
+            </div>
+
+          </div>
+
+          <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab">
+          <!--디저트 상세 메뉴-->
+
+          <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:850px;">
+
+          <!--한 세트 시작-->
+
+          <div class="row justify-content-center">
+            
+              <div class="col-5 m-2 border"  >
+                <div class="row justify-content-center">
+                    
+                    <div class="card m-1" style="width: 18rem;">
+                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#delicious_waffle" disabled>
+                            <img class = "btn-img m-3" src='${server_url}/img/delicious_waffle.png' alt="#">
+                          </button>
+                        <div class="card-body">
+                            <h5 class="card-title">맛있는와플</h5>
+                            <h5 class="card-text">3000원
+                            </h5>
+                        </div>
+                        </div>
+                </div>
+              </div>
+
+              <div class="col-5 m-2 border">
+              <div class="row justify-content-center">
+                    
+                <div class="card m-1" style="width: 18rem;">
+                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cream_waffle" disabled>
+                    <img class = "btn-img m-3" src='${server_url}/img/cream_waffle.png' alt="#">
+                      </button>
+                    <div class="card-body">
+                        <h5 class="card-title">생크림와플</h5>
+                        <h5 class="card-text">2500원
+                        </h5>
+                    </div>
+                    </div>
+                </div>
+              </div>
+
+              </div>
+
+              <!--한 세트 끝-->
+
+
+
+              <!--한 세트 시작-->
+
+              <div class="row justify-content-center">
+                
+                  <div class="col-5 m-2 border"  >
+                    <div class="row justify-content-center">
+                        
+                        <div class="card m-1" style="width: 18rem;">
+                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cheese_cake" disabled>
+                                <img class = "btn-img m-3" src='${server_url}/img/cheese_cake.png' alt="#">
+                              </button>
+                            <div class="card-body">
+                                <h5 class="card-title">수플레치즈케이크</h5>
+                                <h5 class="card-text">3900원
+                                </h5>
+                            </div>
+                            </div>
+                    </div>
+                  </div>
+  
+                  <div class="col-5 m-2 border">
+                  <div class="row justify-content-center">
+                        
+                    <div class="card m-1" style="width: 18rem;">
+                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#origin_shake" disabled>
+                        <img class = "btn-img m-3" src='${server_url}/img/origin_shake.png' alt="#">
+                          </button>
+                        <div class="card-body">
+                            <h5 class="card-title">오리진쉐이크</h5>
+                            <h5 class="card-text">4300원
+                            </h5>
+                        </div>
+                        </div>
+                    </div>
+                  </div>
+  
+                  </div>
+  
+                  <!--한 세트 끝-->
+
+                  <!--한 세트 시작-->
+
+                  <div class="row justify-content-center">
+                    
+                      <div class="col-5 m-2 border"  >
+                        <div class="row justify-content-center">
+                            
+                            <div class="card m-1" style="width: 18rem;">
+                                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#tiramisu" disabled>
+                                    <img class = "btn-img m-3" src='${server_url}/img/tiramisu.png' alt="#">
+                                  </button>
+                                <div class="card-body">
+                                    <h5 class="card-title">초코티라미수</h5>
+                                    <h5 class="card-text">3900원
+                                    </h5>
+                                </div>
+                                </div>
+                        </div>
+                      </div>
+      
+                      <div class="col-5 m-2 border">
+                      <div class="row justify-content-center">
+                            
+                        <div class="card m-1" style="width: 18rem;">
+                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cream_cheese_waffle" disabled>
+                            <img class = "btn-img m-3" src='${server_url}/img/cream_cheese_waffle.png' alt="#">
+                              </button>
+                            <div class="card-body">
+                                <h5 class="card-title">크림치즈와플</h5>
+                                <h5 class="card-text">3000원
+                                </h5>
+                            </div>
+                            </div>
+                        </div>
+                      </div>
+      
+                      </div>
+      
+                      <!--한 세트 끝-->
+
+          </div>
+
+          </div>
+        </div>
+        </div>
+
+        <div class="container justify-content-center border mt-5">
+        <p>${order_main_cart_html()}</p>
+        </div>
+
+        <div class="container justify-content-center">
+        <h3>총 가격 : ${result_price} 원</h3>
+        </div>
+
+        <div class="container justify-content-end">
+        <a href="/payment" class="btn btn-primary btn-lg m-1" tabindex="-1" role="button" style="background-color:red;">결제하기</a>
+        </div>
+
+
+      </nav>
+</div>
+    <!--상세 메뉴의 상단을 구분하는 ui 종료지점-->
+
+    <!--여기서부터 modal창들을 불러오는 함수-->
+
+    <!--종료-->
+    ${endhtml()}
+    `;
+
+
+  res.send(output);
+
+
+
+})
+
+app.post("/scenario2/guide_mode/1", (req, res) => { //시나리오2에서 받은 post form을 처리
+
+  var total_price = parseInt(req.body.basic_price)
+
+  if (req.body.size) {
+    total_price += parseInt(req.body.size); //존재할 경우에만 더해주어야 한다.
+  }
+
+  if (req.body.ice) {
+    var arr = req.body.ice.split(",");
+    total_price += parseInt(arr[0]);
+  }
+
+  if (req.body.topping1) {
+    total_price += parseInt(req.body.topping1)
+  }
+
+  if (req.body.topping2) {
+    total_price += parseInt(req.body.topping2)
+  }
+
+  if (req.body.topping3) {
+    total_price += parseInt(req.body.topping3)
+  }
+
+
+  total_price = total_price * parseInt(req.body.count)
+
+  var temp = { //장바구니에 내용을 추가할 객체
+    name: req.body.product_name,
+    price: req.body.basic_price,
+    size: req.body.size,
+    ice: req.body.ice,
+    topping1: req.body.topping1,
+    topping2: req.body.topping2,
+    topping3: req.body.topping3,
+    count: req.body.count,
+    total: total_price,
+    img_src: req.body.img_src
+  };
+
+  cart.push(temp);
+
+  res.redirect("/scenario2/guide_mode/2");
+})
+
+app.get("/scenario2/guide_mode/1", (req,res) => {
+
+  var output =`
+  ${starthtml()}
+
+  <!--상세 메뉴의 상단 부분을 구성하는 ui 시작 지점-->
+  <div class="container justify-content-center">
+      
+  <div class="row text-center" style="width: 100%">
+
+      <div style="width: 30%; float:none; margin:0 auto" >
+              <h1>HCI & UX</h1>
+      </div>
+  </div>
+
+  <!--이곳에 음성 안내메세지 출력-->
+
+  <audio autoplay="autoplay">
+  <source src="${server_url}/tts/test.mp3" type="audio/mpeg" />
+  </audio> 
+
+  <div class="container justify-content-center m-1">
+  <div class="row text-center" style="width: 100%">
+  <h5><img src='${server_url}/img/speak.png' alt ="#">음료 에이드 탭을 누른 다음에, 피치 얼그레이를 주문해주세요.</h5> 
+  </div>
+  </div>
+
+  <!--출력 종료-->
+
+  <nav class="navbar">
+      <div class="container-fluid">
+          
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true" disabled><h5>커피</h5></button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link text-white " id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false" style="background-color: red;"><h5>음료/에이드</h5></button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false" disabled><h5>디저트</h5></button>
+          </li>
+        </ul>
+
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab">
+        <!--커피 상세 메뉴-->
+        
+          <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:850px;">
+
+          <!--한 세트 시작-->
+
+          <div class="row justify-content-center">
+            
+              <div class="col-5 m-2 border"  >
+                <div class="row justify-content-center">
+                    
+                    <div class="card m-1" style="width: 18rem;">
+                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#americano" disabled>
+                            <img class = "btn-img m-3" src='${server_url}/img/americano.png' alt="#">
+                          </button>
+                        <div class="card-body">
+                            <h5 class="card-title">아메리카노</h5>
+                            <h5 class="card-text">3200원
+                            </h5>
+                        </div>
+                        </div>
+                </div>
+              </div>
+
+              <div class="col-5 m-2 border">
+              <div class="row justify-content-center">
+                    
+                <div class="card m-1" style="width: 18rem;">
+                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#bubble_black" disabled>
+                    <img class = "btn-img m-3" src='${server_url}/img/bubble_black.png' alt="#">
+                      </button>
+                    <div class="card-body">
+                        <h5 class="card-title">버블흑당콜드브루</h5>
+                        <h5 class="card-text">4700원
+                        </h5>
+                    </div>
+                    </div>
+                </div>
+              </div>
+
+              </div>
+
+              <!--한 세트 끝-->
+
+
+
+              <!--한 세트 시작-->
+
+              <div class="row justify-content-center">
+                
+                  <div class="col-5 m-2 border"  >
+                    <div class="row justify-content-center">
+                        
+                        <div class="card m-1" style="width: 18rem;">
+                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cafe_latte" disabled>
+                                <img class = "btn-img m-3" src='${server_url}/img/cafe_latte.png' alt="#">
+                              </button>
+                            <div class="card-body">
+                                <h5 class="card-title">카페라떼</h5>
+                                <h5 class="card-text">3700원
+                                </h5>
+                            </div>
+                            </div>
+                    </div>
+                  </div>
+  
+                  <div class="col-5 m-2 border">
+                  <div class="row justify-content-center">
+                        
+                    <div class="card m-1" style="width: 18rem;">
+                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cold_brew_americano" disabled>
+                        <img class = "btn-img m-3" src='${server_url}/img/cold_brew_americano.png' alt="#">
+                          </button>
+                        <div class="card-body">
+                            <h5 class="card-title">콜드브루아메리카노</h5>
+                            <h5 class="card-text">3700원
+                            </h5>
+                        </div>
+                        </div>
+                    </div>
+                  </div>
+  
+                  </div>
+  
+                  <!--한 세트 끝-->
+
+                  <!--한 세트 시작-->
+
+                  <div class="row justify-content-center">
+                    
+                      <div class="col-5 m-2 border"  >
+                        <div class="row justify-content-center">
+                            
+                            <div class="card m-1" style="width: 18rem;">
+                                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cold_brew" disabled>
+                                    <img class = "btn-img m-3" src='${server_url}/img/cold_brew.png' alt="#">
+                                  </button>
+                                <div class="card-body">
+                                    <h5 class="card-title">콜드브루라떼</h5>
+                                    <h5 class="card-text">4200원
+                                    </h5>
+                                </div>
+                                </div>
+                        </div>
+                      </div>
+      
+                      <div class="col-5 m-2 border">
+                      <div class="row justify-content-center">
+                            
+                        <div class="card m-1" style="width: 18rem;">
+                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#einstephener" disabled>
+                            <img class = "btn-img m-3" src='${server_url}/img/einstephener.png' alt="#">
+                              </button>
+                            <div class="card-body">
+                                <h5 class="card-title">아인슈페너</h5>
+                                <h5 class="card-text">3700원
+                                </h5>
+                            </div>
+                            </div>
+                        </div>
+                      </div>
+      
+                      </div>
+      
+                      <!--한 세트 끝-->
+
+
+          </div>
+        </div>
+
+        <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab">
+        <!--음료, 에이드 상세 메뉴-->
+
+        <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:850px;">
+
+          <!--한 세트 시작-->
+
+          <div class="row justify-content-center">
+            
+              <div class="col-5 m-2 border"  >
+                <div class="row justify-content-center">
+                    
+                    <div class="card m-1" style="width: 18rem;">
+                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#strawberry" disabled>
+                            <img class = "btn-img m-3" src='${server_url}/img/strawberry.png' alt="#">
+                          </button>
+                        <div class="card-body">
+                            <h5 class="card-title">딸기쉐이크</h5>
+                            <h5 class="card-text">4800원
+                            </h5>
+                        </div>
+                        </div>
+                </div>
+              </div>
+
+              <div class="col-5 m-2 border">
+              <div class="row justify-content-center">
+                    
+                <div class="card m-1" style="width: 18rem;">
+                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#lemonade" disabled>
+                    <img class = "btn-img m-3" src='${server_url}/img/lemonade.png' alt="#">
+                      </button>
+                    <div class="card-body">
+                        <h5 class="card-title">레몬에이드</h5>
+                        <h5 class="card-text">3800원
+                        </h5>
+                    </div>
+                    </div>
+                </div>
+              </div>
+
+              </div>
+
+              <!--한 세트 끝-->
+
+
+
+              <!--한 세트 시작-->
+
+              <div class="row justify-content-center">
+                
+                  <div class="col-5 m-2 border"  >
+                    <div class="row justify-content-center">
+                        
+                        <div class="card m-1" style="width: 18rem;">
+                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#green_grape" disabled>
+                                <img class = "btn-img m-3" src='${server_url}/img/green_grape.png' alt="#">
+                              </button>
+                            <div class="card-body">
+                                <h5 class="card-title">청포도에이드</h5>
+                                <h5 class="card-text">3800원
+                                </h5>
+                            </div>
+                            </div>
+                    </div>
+                  </div>
+  
+                  <div class="col-5 m-2 border">
+                  <div class="row justify-content-center">
+                        
+                    <div class="card m-1" style="width: 18rem; background-color:red;">
+                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#peach">
+                        <img class = "btn-img m-3" src='${server_url}/img/peach.png' alt="#">
+                          </button>
+                        <div class="card-body">
+                            <h5 class="card-title text-white">피치얼그레이</h5>
+                            <h5 class="card-text text-white">3200원
+                            </h5>
+                        </div>
+                        </div>
+                    </div>
+                  </div>
+  
+                  </div>
+  
+                  <!--한 세트 끝-->
+
+          </div>
+
+        </div>
+
+        <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab">
+        <!--디저트 상세 메뉴-->
+
+        <div class="container justify-content-center mt-3" style="overflow:auto; width:1080px; height:850px;">
+
+        <!--한 세트 시작-->
+
+        <div class="row justify-content-center">
+          
+            <div class="col-5 m-2 border"  >
+              <div class="row justify-content-center">
+                  
+                  <div class="card m-1" style="width: 18rem;">
+                      <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#delicious_waffle" disabled>
+                          <img class = "btn-img m-3" src='${server_url}/img/delicious_waffle.png' alt="#">
+                        </button>
+                      <div class="card-body">
+                          <h5 class="card-title">맛있는와플</h5>
+                          <h5 class="card-text">3000원
+                          </h5>
+                      </div>
+                      </div>
+              </div>
+            </div>
+
+            <div class="col-5 m-2 border">
+            <div class="row justify-content-center">
+                  
+              <div class="card m-1" style="width: 18rem;">
+                  <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cream_waffle" disabled>
+                  <img class = "btn-img m-3" src='${server_url}/img/cream_waffle.png' alt="#">
+                    </button>
+                  <div class="card-body">
+                      <h5 class="card-title">생크림와플</h5>
+                      <h5 class="card-text">2500원
+                      </h5>
+                  </div>
+                  </div>
+              </div>
+            </div>
+
+            </div>
+
+            <!--한 세트 끝-->
+
+
+
+            <!--한 세트 시작-->
+
+            <div class="row justify-content-center">
+              
+                <div class="col-5 m-2 border"  >
+                  <div class="row justify-content-center">
+                      
+                      <div class="card m-1" style="width: 18rem;">
+                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cheese_cake" disabled>
+                              <img class = "btn-img m-3" src='${server_url}/img/cheese_cake.png' alt="#">
+                            </button>
+                          <div class="card-body">
+                              <h5 class="card-title">수플레치즈케이크</h5>
+                              <h5 class="card-text">3900원
+                              </h5>
+                          </div>
+                          </div>
+                  </div>
+                </div>
+
+                <div class="col-5 m-2 border">
+                <div class="row justify-content-center">
+                      
+                  <div class="card m-1" style="width: 18rem;">
+                      <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#origin_shake" disabled>
+                      <img class = "btn-img m-3" src='${server_url}/img/origin_shake.png' alt="#">
+                        </button>
+                      <div class="card-body">
+                          <h5 class="card-title">오리진쉐이크</h5>
+                          <h5 class="card-text">4300원
+                          </h5>
+                      </div>
+                      </div>
+                  </div>
+                </div>
+
+                </div>
+
+                <!--한 세트 끝-->
+
+                <!--한 세트 시작-->
+
+                <div class="row justify-content-center">
+                  
+                    <div class="col-5 m-2 border"  >
+                      <div class="row justify-content-center">
+                          
+                          <div class="card m-1" style="width: 18rem">
+                              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#tiramisu" disabled>
+                                  <img class = "btn-img m-3" src='${server_url}/img/tiramisu.png' alt="#">
+                                </button>
+                              <div class="card-body">
+                                  <h5 class="card-title">초코티라미수</h5>
+                                  <h5 class="card-text">3900원
+                                  </h5>
+                              </div>
+                              </div>
+                      </div>
+                    </div>
+    
+                    <div class="col-5 m-2 border">
+                    <div class="row justify-content-center">
+                          
+                      <div class="card m-1" style="width: 18rem;">
+                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cream_cheese_waffle" disabled>
+                          <img class = "btn-img m-3" src='${server_url}/img/cream_cheese_waffle.png' alt="#">
+                            </button>
+                          <div class="card-body">
+                              <h5 class="card-title">크림치즈와플</h5>
+                              <h5 class="card-text">3000원
+                              </h5>
+                          </div>
+                          </div>
+                      </div>
+                    </div>
+    
+                    </div>
+    
+                    <!--한 세트 끝-->
+
+        </div>
+
+        </div>
+      </div>
+      </div>
+
+      <div class="container justify-content-center border mt-5">
+      <p>${order_main_cart_html()}</p>
+      </div>
+
+      <div class="container justify-content-center">
+      <h3>총 가격 : ${result_price} 원</h3>
+      </div>
+
+
+    </nav>
+</div>
+  <!--상세 메뉴의 상단을 구분하는 ui 종료지점-->
+
+  <!--여기서부터 modal창들을 불러오는 함수-->
+
+  <form action="${server_url}/scenario2/guide_mode/1" method="post">
+  <div class="modal fade" id="peach" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">상세 옵션</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!--여기에 프로필 편집창 내용물을 삽입-->
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+          <!--프로필1번 내용물-->
+          <div class = "container justify-content-center mt-3">
+              <div class = "row">
+                  <div class="col">
+                      <img src='${server_url}/img/peach.png' alt="Logo" width="140" height="140">
+                      <input type = "hidden" value = '${server_url}/img/peach.png' name = "img_src">
+                  </div>
+  
+                  <div class = "col">
+                  <h5 class="text-center ">상품명 - 피치얼그레이</h5>
+                  <input type = "hidden" value = "피치얼그레이" name = "product_name">
+                  <h5 class="text-center">가격 - 3200</h5>
+                  <input type = "hidden" value = "3200" name = "basic_price">
+                  </div>
+              </div>
+              <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <!---->
+                      <th scope="row"><h5>사이즈 선택</h5></th>
+
+                      <td>
+                  <div class="custom-control custom-radio image-checkbox">
+                      <input type="radio" name="size" class="custom-control-input" id="ik1a" value = "0" checked>
+                      <label class="custom-control-label" for="ik1a">
+                      <h5>레귤러<br>+0</h5>
+                      </label>
+                  </div>
+                      </td>
+
+                      <td>
+                  <div class="custom-control custom-radio image-checkbox">
+                      <input type="radio" name="size" class="custom-control-input" id="ik1b" value = "1000">
+                      <label class="custom-control-label" for="ik1b">
+                      <h5>엑스트라<br>+1000</h5>
+                      </label>
+                  </div>
+                      </td>
+                    </tr>
+
+                  </tbody>
+                </table>
+                
+                <br><br><br><br><br><br><br>
+          </div>
+        </div>
+
+      </div>
+
+      <select class="form-select" name = "count" aria-label="Default select example">
+      <option value="1" disabled>수량 선택</option>
+      <option value="1" selected>선택한 수량 : 1</option>
+      <option value="2" disabled>2</option>
+      <option value="3" disabled>3</option>
+      </select>
+
+      <br><br>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><h5>닫기</h5></button>
+        <button type="submit" class="btn btn-primary" style = "background-color:red;"><h5>장바구니에 추가</h5></button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+</form>
+
+  <!--종료-->
+  ${endhtml()}
+  
+  `;
+
+  res.send(output);
+})
+
+//시나리오2 종료
+
 
 //여기서부터 시나리오1을 위한 코드 목록
 
@@ -3739,7 +6913,7 @@ app.get("/scenario_process", (req, res) => {
 <script>
 
 setTimeout(function() {
-  location.href = './scenario1/guide_mode/1';
+  location.href = '/scenario1/guide_mode/1';
 }, 4500);
 
 </script>
@@ -3751,7 +6925,79 @@ setTimeout(function() {
 <script>
 
 setTimeout(function() {
-  location.href = './scenario1/result_mode/1';
+  location.href = '/scenario1/result_mode/1';
+}, 4500);
+
+</script>
+`;
+
+  } else if (mode === 1 && scenario === 2) { //시나리오 2 - 가이드 모드
+
+    output += `  
+<script>
+
+setTimeout(function() {
+  location.href = '/scenario2/guide_mode/1';
+}, 4500);
+
+</script>
+`;
+
+  } else if (mode === 2 && scenario === 2) { //시나리오 2 - 결과창 모드
+
+    output += `  
+<script>
+
+setTimeout(function() {
+  location.href = '/scenario2/result_mode/1';
+}, 4500);
+
+</script>
+`;
+
+  } else if (mode === 1 && scenario === 3) { //시나리오 3 - 가이드 모드
+
+    output += `  
+<script>
+
+setTimeout(function() {
+  location.href = '/scenario3/guide_mode/1';
+}, 4500);
+
+</script>
+`;
+
+  } else if (mode === 2 && scenario === 3) { //시나리오 3 - 결과창 모드
+
+    output += `  
+<script>
+
+setTimeout(function() {
+  location.href = '/scenario3/result_mode/1';
+}, 4500);
+
+</script>
+`;
+
+  } else if (mode === 1 && scenario === 4) { //시나리오 4 - 가이드 모드
+
+    output += `  
+<script>
+
+setTimeout(function() {
+  location.href = '/scenario4/guide_mode/1';
+}, 4500);
+
+</script>
+`;
+
+  } else if (mode === 2 && scenario === 4) { //시나리오 4 - 결과칭 모드
+
+    output += `  
+<script>
+
+setTimeout(function() {
+  location.href = '/scenario4/result_mode/1';
 }, 4500);
 
 </script>
@@ -3823,9 +7069,7 @@ app.get("/start_scenario", (req, res) => {
   </div>
 
   <div class="row text-center" style="width: 100%">
-  <div style="width: 30%; float:none; margin:0 auto" >
   <a href="/scenario_process" class="btn btn-primary btn-lg m-1" id="btn_end" tabindex="-1" role="button">주문하기</a>
-  </div>
   </div>
   
   </div>
