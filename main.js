@@ -13,8 +13,8 @@ var cart = []; //장바구니
 
 var result_price = 0; //총 결제금액 변수
 
-var server_url = "http://localhost:80";
-//var server_url = "http://52.21.241.198:80";  //나중에 서버 배포시 바꿔얗 하는 내용
+//var server_url = "http://localhost:80";
+var server_url = "http://52.21.241.198:80";  //나중에 서버 배포시 바꿔얗 하는 내용
 
 var mode = 1; //1은 가이드 모드, 2는 결과창 모드
 var scenario = 12; //각 숫자 별로 담당 시나리오가 다르다.
