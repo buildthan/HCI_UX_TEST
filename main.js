@@ -27363,7 +27363,7 @@ app.get("/scenario1/guide_mode/3", (req, res) => {
     <!--이곳에 음성 안내메세지 출력-->
 
     <audio autoplay="autoplay">
-    <source src="${server_url}/tts/scenario1_3.mp3" type="audio/mpeg" />
+    <source src="${server_url}/tts/scenario_final.mp3" type="audio/mpeg" />
     </audio> 
 
     <div class="container justify-content-center m-1">
