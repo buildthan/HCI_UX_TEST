@@ -2657,9 +2657,16 @@ app.get("/scenario16/guide_mode/3", (req, res) => {
 
     <!--이곳에 음성 안내메세지 출력-->
 
-    <audio autoplay="autoplay">
-    <source src="${server_url}/tts/16_3.mp3" type="audio/mpeg" />
-    </audio> 
+    <script>
+    var audio = new Audio('${server_url}/tts/16_3.mp3');
+    audio.play();
+
+    function modalclick() {
+    audio.pause();
+    audio = new Audio('${server_url}/tts/modal.mp3');
+    audio.play();
+    }
+    </script> 
 
     <div class="container justify-content-center m-1">
     <div class="row text-center" style="width: 100%">
@@ -2962,7 +2969,7 @@ app.get("/scenario16/guide_mode/3", (req, res) => {
                     <div class="row justify-content-center">
                         
                         <div class="card m-1" style="width: 18rem; background-color:red; ">
-                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cheese_cake" >
+                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cheese_cake" onclick="modalclick()" >
                                 <img class = "btn-img m-3" src='${server_url}/img/cheese_cake.png' alt="#">
                               </button>
                             <div class="card-body">
@@ -3188,9 +3195,16 @@ app.get("/scenario16/guide_mode/2", (req, res) => {
 
     <!--이곳에 음성 안내메세지 출력-->
 
-    <audio autoplay="autoplay">
-    <source src="${server_url}/tts/16_2.mp3" type="audio/mpeg" />
-    </audio> 
+    <script>
+    var audio = new Audio('${server_url}/tts/16_2.mp3');
+    audio.play();
+
+    function modalclick() {
+    audio.pause();
+    audio = new Audio('${server_url}/tts/modal.mp3');
+    audio.play();
+    }
+    </script>  
 
     <div class="container justify-content-center m-1">
     <div class="row text-center" style="width: 100%">
@@ -3467,7 +3481,7 @@ app.get("/scenario16/guide_mode/2", (req, res) => {
               <div class="row justify-content-center">
                     
                 <div class="card m-1" style="width: 18rem; background-color:red;">
-                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cream_waffle" >
+                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cream_waffle" onclick="modalclick()"  >
                     <img class = "btn-img m-3" src='${server_url}/img/cream_waffle.png' alt="#">
                       </button>
                     <div class="card-body">
@@ -3718,9 +3732,16 @@ app.get("/scenario16/guide_mode/1", (req, res) => {
 
     <!--이곳에 음성 안내메세지 출력-->
 
-    <audio autoplay="autoplay">
-    <source src="${server_url}/tts/16_1.mp3" type="audio/mpeg" />
-    </audio> 
+    <script>
+    var audio = new Audio('${server_url}/tts/16_1.mp3');
+    audio.play();
+
+    function modalclick() {
+    audio.pause();
+    audio = new Audio('${server_url}/tts/modal.mp3');
+    audio.play();
+    }
+    </script>   
 
     <div class="container justify-content-center m-1">
     <div class="row text-center" style="width: 100%">
@@ -3759,7 +3780,7 @@ app.get("/scenario16/guide_mode/1", (req, res) => {
                   <div class="row justify-content-center">
                       
                       <div class="card m-1" style="width: 18rem; background-color:red;">
-                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#americano"  >
+                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#americano" onclick="modalclick()"  >
                               <img class = "btn-img m-3" src='${server_url}/img/americano.png' alt="#">
                             </button>
                           <div class="card-body">
@@ -4814,9 +4835,16 @@ app.get("/scenario15/guide_mode/2", (req, res) => {
 
     <!--이곳에 음성 안내메세지 출력-->
 
-    <audio autoplay="autoplay">
-    <source src="${server_url}/tts/15_2.mp3" type="audio/mpeg" />
-    </audio> 
+    <script>
+    var audio = new Audio('${server_url}/tts/15_2.mp3');
+    audio.play();
+
+    function modalclick() {
+    audio.pause();
+    audio = new Audio('${server_url}/tts/modal.mp3');
+    audio.play();
+    }
+    </script>
 
     <div class="container justify-content-center m-1">
     <div class="row text-center" style="width: 100%">
@@ -4871,7 +4899,7 @@ app.get("/scenario15/guide_mode/2", (req, res) => {
                 <div class="row justify-content-center">
                       
                   <div class="card m-1" style="width: 18rem; background-color:red;">
-                      <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#bubble_black"  >
+                      <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#bubble_black" onclick="modalclick()"  >
                       <img class = "btn-img m-3" src='${server_url}/img/bubble_black.png' alt="#">
                         </button>
                       <div class="card-body">
@@ -5444,9 +5472,16 @@ app.get("/scenario15/guide_mode/1", (req, res) => {
 
     <!--이곳에 음성 안내메세지 출력-->
 
-    <audio autoplay="autoplay">
-    <source src="${server_url}/tts/15_1.mp3" type="audio/mpeg" />
-    </audio> 
+    <script>
+    var audio = new Audio('${server_url}/tts/15_1.mp3');
+    audio.play();
+
+    function modalclick() {
+    audio.pause();
+    audio = new Audio('${server_url}/tts/modal.mp3');
+    audio.play();
+    }
+    </script>  
 
     <div class="container justify-content-center m-1">
     <div class="row text-center" style="width: 100%">
@@ -5485,7 +5520,7 @@ app.get("/scenario15/guide_mode/1", (req, res) => {
                   <div class="row justify-content-center">
                       
                       <div class="card m-1" style="width: 18rem; background-color:red; ">
-                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#americano"  >
+                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#americano" onclick="modalclick()"  >
                               <img class = "btn-img m-3" src='${server_url}/img/americano.png' alt="#">
                             </button>
                           <div class="card-body">
@@ -6560,9 +6595,16 @@ app.get("/scenario14/guide_mode/4", (req, res) => {
 
     <!--이곳에 음성 안내메세지 출력-->
 
-    <audio autoplay="autoplay">
-    <source src="${server_url}/tts/14_4.mp3" type="audio/mpeg" />
-    </audio> 
+    <script>
+    var audio = new Audio('${server_url}/tts/14_4.mp3');
+    audio.play();
+
+    function modalclick() {
+    audio.pause();
+    audio = new Audio('${server_url}/tts/modal.mp3');
+    audio.play();
+    }
+    </script> 
 
     <div class="container justify-content-center m-1">
     <div class="row text-center" style="width: 100%">
@@ -6643,7 +6685,7 @@ app.get("/scenario14/guide_mode/4", (req, res) => {
                       <div class="row justify-content-center">
                           
                           <div class="card m-1" style="width: 18rem; background-color:red; ">
-                              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cafe_latte"  >
+                              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cafe_latte" onclick="modalclick()"   >
                                   <img class = "btn-img m-3" src='${server_url}/img/cafe_latte.png' alt="#">
                                 </button>
                               <div class="card-body">
@@ -7190,9 +7232,16 @@ app.get("/scenario14/guide_mode/3", (req, res) => {
 
     <!--이곳에 음성 안내메세지 출력-->
 
-    <audio autoplay="autoplay">
-    <source src="${server_url}/tts/14_3.mp3" type="audio/mpeg" />
-    </audio> 
+    <script>
+    var audio = new Audio('${server_url}/tts/14_3.mp3');
+    audio.play();
+
+    function modalclick() {
+    audio.pause();
+    audio = new Audio('${server_url}/tts/modal.mp3');
+    audio.play();
+    }
+    </script>  
 
     <div class="container justify-content-center m-1">
     <div class="row text-center" style="width: 100%">
@@ -7231,7 +7280,7 @@ app.get("/scenario14/guide_mode/3", (req, res) => {
                   <div class="row justify-content-center">
                       
                       <div class="card m-1" style="width: 18rem; background-color:red;  ">
-                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#americano"  >
+                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#americano" onclick="modalclick()" >
                               <img class = "btn-img m-3" src='${server_url}/img/americano.png' alt="#">
                             </button>
                           <div class="card-body">
@@ -7819,9 +7868,16 @@ app.get("/scenario14/guide_mode/2", (req, res) => {
 
     <!--이곳에 음성 안내메세지 출력-->
 
-    <audio autoplay="autoplay">
-    <source src="${server_url}/tts/14_2.mp3" type="audio/mpeg" />
-    </audio> 
+    <script>
+    var audio = new Audio('${server_url}/tts/14_2.mp3');
+    audio.play();
+
+    function modalclick() {
+    audio.pause();
+    audio = new Audio('${server_url}/tts/modal.mp3');
+    audio.play();
+    }
+    </script>  
 
     <div class="container justify-content-center m-1">
     <div class="row text-center" style="width: 100%">
@@ -8140,7 +8196,7 @@ app.get("/scenario14/guide_mode/2", (req, res) => {
                   <div class="row justify-content-center">
                         
                     <div class="card m-1" style="width: 18rem; background-color:red;">
-                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#origin_shake"  >
+                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#origin_shake" onclick="modalclick()" >
                         <img class = "btn-img m-3" src='${server_url}/img/origin_shake.png' alt="#">
                           </button>
                         <div class="card-body">
@@ -8348,9 +8404,16 @@ app.get("/scenario14/guide_mode/1", (req, res) => {
 
     <!--이곳에 음성 안내메세지 출력-->
 
-    <audio autoplay="autoplay">
-    <source src="${server_url}/tts/14_1.mp3" type="audio/mpeg" />
-    </audio> 
+    <script>
+    var audio = new Audio('${server_url}/tts/14_1.mp3');
+    audio.play();
+
+    function modalclick() {
+    audio.pause();
+    audio = new Audio('${server_url}/tts/modal.mp3');
+    audio.play();
+    }
+    </script>  
 
     <div class="container justify-content-center m-1">
     <div class="row text-center" style="width: 100%">
@@ -8562,7 +8625,7 @@ app.get("/scenario14/guide_mode/1", (req, res) => {
                       <div class="row justify-content-center">
                           
                           <div class="card m-1" style="width: 18rem; background-color:red;   ">
-                              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#green_grape"  >
+                              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#green_grape" onclick="modalclick()"    >
                                   <img class = "btn-img m-3" src='${server_url}/img/green_grape.png' alt="#">
                                 </button>
                               <div class="card-body">
@@ -9383,9 +9446,16 @@ app.get("/scenario13/guide_mode/3", (req, res) => {
 
     <!--이곳에 음성 안내메세지 출력-->
 
-    <audio autoplay="autoplay">
-    <source src="${server_url}/tts/13_3.mp3" type="audio/mpeg" />
-    </audio> 
+    <script>
+    var audio = new Audio('${server_url}/tts/13_3.mp3');
+    audio.play();
+
+    function modalclick() {
+    audio.pause();
+    audio = new Audio('${server_url}/tts/modal.mp3');
+    audio.play();
+    }
+    </script> 
 
     <div class="container justify-content-center m-1">
     <div class="row text-center" style="width: 100%">
@@ -9728,7 +9798,7 @@ app.get("/scenario13/guide_mode/3", (req, res) => {
                         <div class="row justify-content-center">
                             
                             <div class="card m-1" style="width: 18rem; background-color:red;">
-                                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#tiramisu" >
+                                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#tiramisu" onclick="modalclick()">
                                     <img class = "btn-img m-3" src='${server_url}/img/tiramisu.png' alt="#">
                                   </button>
                                 <div class="card-body">
@@ -9913,9 +9983,16 @@ app.get("/scenario13/guide_mode/2", (req, res) => {
 
     <!--이곳에 음성 안내메세지 출력-->
 
-    <audio autoplay="autoplay">
-    <source src="${server_url}/tts/13_2.mp3" type="audio/mpeg" />
-    </audio> 
+    <script>
+    var audio = new Audio('${server_url}/tts/13_2.mp3');
+    audio.play();
+
+    function modalclick() {
+    audio.pause();
+    audio = new Audio('${server_url}/tts/modal.mp3');
+    audio.play();
+    }
+    </script> 
 
     <div class="container justify-content-center m-1">
     <div class="row text-center" style="width: 100%">
@@ -10052,7 +10129,7 @@ app.get("/scenario13/guide_mode/2", (req, res) => {
                         <div class="row justify-content-center background-color:red;    ">
                               
                           <div class="card m-1" style="width: 18rem; background-color:red;">
-                              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#einstephener" >
+                              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#einstephener" onclick="modalclick()" >
                               <img class = "btn-img m-3" src='${server_url}/img/einstephener.png' alt="#">
                                 </button>
                               <div class="card-body">
@@ -10546,9 +10623,16 @@ app.get("/scenario13/guide_mode/1", (req, res) => {
 
     <!--이곳에 음성 안내메세지 출력-->
 
-    <audio autoplay="autoplay">
-    <source src="${server_url}/tts/13_1.mp3" type="audio/mpeg" />
-    </audio> 
+    <script>
+    var audio = new Audio('${server_url}/tts/13_1.mp3');
+    audio.play();
+
+    function modalclick() {
+    audio.pause();
+    audio = new Audio('${server_url}/tts/modal.mp3');
+    audio.play();
+    }
+    </script> 
 
     <div class="container justify-content-center m-1">
     <div class="row text-center" style="width: 100%">
@@ -10587,7 +10671,7 @@ app.get("/scenario13/guide_mode/1", (req, res) => {
                   <div class="row justify-content-center">
                       
                       <div class="card m-1" style="width: 18rem; background-color:red;  ">
-                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#americano"  >
+                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#americano"  onclick="modalclick()" >
                               <img class = "btn-img m-3" src='${server_url}/img/americano.png' alt="#">
                             </button>
                           <div class="card-body">
@@ -11654,9 +11738,16 @@ app.get("/scenario12/guide_mode/3", (req, res) => {
 
     <!--이곳에 음성 안내메세지 출력-->
 
-    <audio autoplay="autoplay">
-    <source src="${server_url}/tts/12_3.mp3" type="audio/mpeg" />
-    </audio> 
+    <script>
+    var audio = new Audio('${server_url}/tts/12_3.mp3');
+    audio.play();
+
+    function modalclick() {
+    audio.pause();
+    audio = new Audio('${server_url}/tts/modal.mp3');
+    audio.play();
+    }
+    </script> 
 
     <div class="container justify-content-center m-1">
     <div class="row text-center" style="width: 100%">
@@ -11959,7 +12050,7 @@ app.get("/scenario12/guide_mode/3", (req, res) => {
                     <div class="row justify-content-center">
                         
                         <div class="card m-1" style="width: 18rem; background-color:red;">
-                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cheese_cake">
+                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cheese_cake" onclick="modalclick()" >
                                 <img class = "btn-img m-3" src='${server_url}/img/cheese_cake.png' alt="#">
                               </button>
                             <div class="card-body">
@@ -12183,9 +12274,16 @@ app.get("/scenario12/guide_mode/2", (req, res) => {
 
     <!--이곳에 음성 안내메세지 출력-->
 
-    <audio autoplay="autoplay">
-    <source src="${server_url}/tts/12_2.mp3" type="audio/mpeg" />
-    </audio> 
+    <script>
+    var audio = new Audio('${server_url}/tts/12_2.mp3');
+    audio.play();
+
+    function modalclick() {
+    audio.pause();
+    audio = new Audio('${server_url}/tts/modal.mp3');
+    audio.play();
+    }
+    </script>  
 
     <div class="container justify-content-center m-1">
     <div class="row text-center" style="width: 100%">
@@ -12224,7 +12322,7 @@ app.get("/scenario12/guide_mode/2", (req, res) => {
                   <div class="row justify-content-center">
                       
                       <div class="card m-1" style="width: 18rem; background-color:red;">
-                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#americano">
+                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#americano" onclick="modalclick()"  >
                               <img class = "btn-img m-3" src='${server_url}/img/americano.png' alt="#">
                             </button>
                           <div class="card-body">
@@ -12812,9 +12910,16 @@ app.get("/scenario12/guide_mode/1", (req, res) => {
 
     <!--이곳에 음성 안내메세지 출력-->
 
-    <audio autoplay="autoplay">
-    <source src="${server_url}/tts/12_1.mp3" type="audio/mpeg" />
-    </audio> 
+    <script>
+    var audio = new Audio('${server_url}/tts/12_1.mp3');
+    audio.play();
+
+    function modalclick() {
+    audio.pause();
+    audio = new Audio('${server_url}/tts/modal.mp3');
+    audio.play();
+    }
+    </script>
 
     <div class="container justify-content-center m-1">
     <div class="row text-center" style="width: 100%">
@@ -12853,7 +12958,7 @@ app.get("/scenario12/guide_mode/1", (req, res) => {
                   <div class="row justify-content-center">
                       
                       <div class="card m-1" style="width: 18rem; background-color:red;">
-                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#americano">
+                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#americano" onclick="modalclick()" >
                               <img class = "btn-img m-3" src='${server_url}/img/americano.png' alt="#">
                             </button>
                           <div class="card-body">
@@ -13907,9 +14012,16 @@ app.get("/scenario11/guide_mode/2", (req, res) => {
 
     <!--이곳에 음성 안내메세지 출력-->
 
-    <audio autoplay="autoplay">
-    <source src="${server_url}/tts/11_2.mp3" type="audio/mpeg" />
-    </audio> 
+    <script>
+    var audio = new Audio('${server_url}/tts/11_2.mp3');
+    audio.play();
+
+    function modalclick() {
+    audio.pause();
+    audio = new Audio('${server_url}/tts/modal.mp3');
+    audio.play();
+    }
+    </script>  
 
     <div class="container justify-content-center m-1">
     <div class="row text-center" style="width: 100%">
@@ -14228,7 +14340,7 @@ app.get("/scenario11/guide_mode/2", (req, res) => {
                   <div class="row justify-content-center">
                         
                     <div class="card m-1" style="width: 18rem; background-color:red;">
-                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#origin_shake">
+                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#origin_shake" onclick="modalclick()">
                         <img class = "btn-img m-3" src='${server_url}/img/origin_shake.png' alt="#">
                           </button>
                         <div class="card-body">
@@ -14440,9 +14552,16 @@ app.get("/scenario11/guide_mode/1", (req, res) => {
 
     <!--이곳에 음성 안내메세지 출력-->
 
-    <audio autoplay="autoplay">
-    <source src="${server_url}/tts/11_1.mp3" type="audio/mpeg" />
-    </audio> 
+    <script>
+    var audio = new Audio('${server_url}/tts/11_1.mp3');
+    audio.play();
+
+    function modalclick() {
+    audio.pause();
+    audio = new Audio('${server_url}/tts/modal.mp3');
+    audio.play();
+    }
+    </script>   
 
     <div class="container justify-content-center m-1">
     <div class="row text-center" style="width: 100%">
@@ -14539,7 +14658,7 @@ app.get("/scenario11/guide_mode/1", (req, res) => {
                     <div class="row justify-content-center">
                           
                       <div class="card m-1" style="width: 18rem; background-color:red;">
-                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cold_brew_americano">
+                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cold_brew_americano" onclick="modalclick()" >
                           <img class = "btn-img m-3" src='${server_url}/img/cold_brew_americano.png' alt="#">
                             </button>
                           <div class="card-body">
@@ -15549,9 +15668,16 @@ app.get("/scenario10/guide_mode/3", (req, res) => {
 
     <!--이곳에 음성 안내메세지 출력-->
 
-    <audio autoplay="autoplay">
-    <source src="${server_url}/tts/10_3.mp3" type="audio/mpeg" />
-    </audio> 
+    <script>
+    var audio = new Audio('${server_url}/tts/10_3.mp3');
+    audio.play();
+
+    function modalclick() {
+    audio.pause();
+    audio = new Audio('${server_url}/tts/modal.mp3');
+    audio.play();
+    }
+    </script>  
 
     <div class="container justify-content-center m-1">
     <div class="row text-center" style="width: 100%">
@@ -15721,7 +15847,7 @@ app.get("/scenario10/guide_mode/3", (req, res) => {
                   <div class="row justify-content-center">
                       
                       <div class="card m-1" style="width: 18rem; background-color:red;">
-                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#strawberry">
+                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#strawberry" onclick="modalclick()">
                               <img class = "btn-img m-3" src='${server_url}/img/strawberry.png' alt="#">
                             </button>
                           <div class="card-body">
@@ -16112,9 +16238,16 @@ app.get("/scenario10/guide_mode/2", (req, res) => {
 
     <!--이곳에 음성 안내메세지 출력-->
 
-    <audio autoplay="autoplay">
-    <source src="${server_url}/tts/10_2.mp3" type="audio/mpeg" />
-    </audio> 
+    <script>
+    var audio = new Audio('${server_url}/tts/10_2.mp3');
+    audio.play();
+
+    function modalclick() {
+    audio.pause();
+    audio = new Audio('${server_url}/tts/modal.mp3');
+    audio.play();
+    }
+    </script>   
 
     <div class="container justify-content-center m-1">
     <div class="row text-center" style="width: 100%">
@@ -16153,7 +16286,7 @@ app.get("/scenario10/guide_mode/2", (req, res) => {
                   <div class="row justify-content-center">
                       
                       <div class="card m-1" style="width: 18rem; background-color:red;">
-                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#americano">
+                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#americano" onclick="modalclick()">
                               <img class = "btn-img m-3" src='${server_url}/img/americano.png' alt="#">
                             </button>
                           <div class="card-body">
@@ -16741,9 +16874,16 @@ app.get("/scenario10/guide_mode/1", (req, res) => {
 
     <!--이곳에 음성 안내메세지 출력-->
 
-    <audio autoplay="autoplay">
-    <source src="${server_url}/tts/10_1.mp3" type="audio/mpeg" />
-    </audio> 
+    <script>
+    var audio = new Audio('${server_url}/tts/10_1.mp3');
+    audio.play();
+
+    function modalclick() {
+    audio.pause();
+    audio = new Audio('${server_url}/tts/modal.mp3');
+    audio.play();
+    }
+    </script>
 
     <div class="container justify-content-center m-1">
     <div class="row text-center" style="width: 100%">
@@ -16824,7 +16964,7 @@ app.get("/scenario10/guide_mode/1", (req, res) => {
                       <div class="row justify-content-center">
                           
                           <div class="card m-1" style="width: 18rem; background-color:red;">
-                              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cafe_latte">
+                              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cafe_latte" onclick="modalclick()">
                                   <img class = "btn-img m-3" src='${server_url}/img/cafe_latte.png' alt="#">
                                 </button>
                               <div class="card-body">
@@ -17846,9 +17986,16 @@ app.get("/scenario9/guide_mode/3", (req, res) => {
 
     <!--이곳에 음성 안내메세지 출력-->
 
-    <audio autoplay="autoplay">
-    <source src="${server_url}/tts/9_3.mp3" type="audio/mpeg" />
-    </audio> 
+    <script>
+    var audio = new Audio('${server_url}/tts/9_3.mp3');
+    audio.play();
+
+    function modalclick() {
+    audio.pause();
+    audio = new Audio('${server_url}/tts/modal.mp3');
+    audio.play();
+    }
+    </script> 
 
     <div class="container justify-content-center m-1">
     <div class="row text-center" style="width: 100%">
@@ -18125,7 +18272,7 @@ app.get("/scenario9/guide_mode/3", (req, res) => {
               <div class="row justify-content-center">
                     
                 <div class="card m-1" style="width: 18rem; background-color:red;">
-                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cream_waffle" >
+                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cream_waffle" onclick="modalclick()">
                     <img class = "btn-img m-3" src='${server_url}/img/cream_waffle.png' alt="#">
                       </button>
                     <div class="card-body">
@@ -18379,9 +18526,16 @@ app.get("/scenario9/guide_mode/2", (req, res) => {
 
     <!--이곳에 음성 안내메세지 출력-->
 
-    <audio autoplay="autoplay">
-    <source src="${server_url}/tts/9_2.mp3" type="audio/mpeg" />
-    </audio> 
+    <script>
+    var audio = new Audio('${server_url}/tts/9_2.mp3');
+    audio.play();
+
+    function modalclick() {
+    audio.pause();
+    audio = new Audio('${server_url}/tts/modal.mp3');
+    audio.play();
+    }
+    </script> 
 
     <div class="container justify-content-center m-1">
     <div class="row text-center" style="width: 100%">
@@ -18593,7 +18747,7 @@ app.get("/scenario9/guide_mode/2", (req, res) => {
                       <div class="row justify-content-center">
                           
                           <div class="card m-1" style="width: 18rem; background-color:red;">
-                              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#green_grape">
+                              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#green_grape" onclick="modalclick()">
                                   <img class = "btn-img m-3" src='${server_url}/img/green_grape.png' alt="#">
                                 </button>
                               <div class="card-body">
@@ -18938,9 +19092,16 @@ app.get("/scenario9/guide_mode/1", (req, res) => {
 
     <!--이곳에 음성 안내메세지 출력-->
 
-    <audio autoplay="autoplay">
-    <source src="${server_url}/tts/9_1.mp3" type="audio/mpeg" />
-    </audio> 
+    <script>
+    var audio = new Audio('${server_url}/tts/9_1.mp3');
+    audio.play();
+
+    function modalclick() {
+    audio.pause();
+    audio = new Audio('${server_url}/tts/modal.mp3');
+    audio.play();
+    }
+    </script> 
 
     <div class="container justify-content-center m-1">
     <div class="row text-center" style="width: 100%">
@@ -18979,7 +19140,7 @@ app.get("/scenario9/guide_mode/1", (req, res) => {
                   <div class="row justify-content-center">
                       
                       <div class="card m-1" style="width: 18rem; background-color:red;">
-                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#americano">
+                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#americano" onclick="modalclick()" >
                               <img class = "btn-img m-3" src='${server_url}/img/americano.png' alt="#">
                             </button>
                           <div class="card-body">
@@ -20018,9 +20179,16 @@ app.get("/scenario8/guide_mode/1", (req, res) => {
 
     <!--이곳에 음성 안내메세지 출력-->
 
-    <audio autoplay="autoplay">
-    <source src="${server_url}/tts/8_1.mp3" type="audio/mpeg" />
-    </audio> 
+    <script>
+    var audio = new Audio('${server_url}/tts/8_1.mp3');
+    audio.play();
+
+    function modalclick() {
+    audio.pause();
+    audio = new Audio('${server_url}/tts/modal.mp3');
+    audio.play();
+    }
+    </script> 
 
     <div class="container justify-content-center m-1">
     <div class="row text-center" style="width: 100%">
@@ -20206,7 +20374,7 @@ app.get("/scenario8/guide_mode/1", (req, res) => {
                 <div class="row justify-content-center">
                       
                   <div class="card m-1" style="width: 18rem; background-color:red;  ">
-                      <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#lemonade" >
+                      <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#lemonade" onclick="modalclick()"   >
                       <img class = "btn-img m-3" src='${server_url}/img/lemonade.png' alt="#">
                         </button>
                       <div class="card-body">
@@ -21044,9 +21212,16 @@ app.get("/scenario7/guide_mode/2", (req, res) => {
 
     <!--이곳에 음성 안내메세지 출력-->
 
-    <audio autoplay="autoplay">
-    <source src="${server_url}/tts/7_2.mp3" type="audio/mpeg" />
-    </audio> 
+    <script>
+    var audio = new Audio('${server_url}/tts/7_2.mp3');
+    audio.play();
+
+    function modalclick() {
+    audio.pause();
+    audio = new Audio('${server_url}/tts/modal.mp3');
+    audio.play();
+    }
+    </script> 
 
     <div class="container justify-content-center m-1">
     <div class="row text-center" style="width: 100%">
@@ -21405,7 +21580,7 @@ app.get("/scenario7/guide_mode/2", (req, res) => {
                       <div class="row justify-content-center">
                             
                         <div class="card m-1" style="width: 18rem; background-color:red;" >
-                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cream_cheese_waffle" >
+                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cream_cheese_waffle" onclick="modalclick()" >
                             <img class = "btn-img m-3" src='${server_url}/img/cream_cheese_waffle.png' alt="#">
                               </button>
                             <div class="card-body">
@@ -21573,9 +21748,16 @@ app.get("/scenario7/guide_mode/1", (req, res) => {
 
     <!--이곳에 음성 안내메세지 출력-->
 
-    <audio autoplay="autoplay">
-    <source src="${server_url}/tts/7_1.mp3" type="audio/mpeg" />
-    </audio> 
+    <script>
+    var audio = new Audio('${server_url}/tts/7_1.mp3');
+    audio.play();
+
+    function modalclick() {
+    audio.pause();
+    audio = new Audio('${server_url}/tts/modal.mp3');
+    audio.play();
+    }
+    </script> 
 
     <div class="container justify-content-center m-1">
     <div class="row text-center" style="width: 100%">
@@ -21852,7 +22034,7 @@ app.get("/scenario7/guide_mode/1", (req, res) => {
               <div class="row justify-content-center">
                     
                 <div class="card m-1" style="width: 18rem; background-color:red;">
-                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cream_waffle">
+                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cream_waffle" onclick="modalclick()" >
                     <img class = "btn-img m-3" src='${server_url}/img/cream_waffle.png' alt="#">
                       </button>
                     <div class="card-body">
@@ -22552,9 +22734,16 @@ app.get("/scenario6/guide_mode/1", (req, res) => {
 
     <!--이곳에 음성 안내메세지 출력-->
 
-    <audio autoplay="autoplay">
-    <source src="${server_url}/tts/6_1.mp3" type="audio/mpeg" />
-    </audio> 
+    <script>
+    var audio = new Audio('${server_url}/tts/6_1.mp3');
+    audio.play();
+
+    function modalclick() {
+    audio.pause();
+    audio = new Audio('${server_url}/tts/modal.mp3');
+    audio.play();
+    }
+    </script> 
 
     <div class="container justify-content-center m-1">
     <div class="row text-center" style="width: 100%">
@@ -22609,7 +22798,7 @@ app.get("/scenario6/guide_mode/1", (req, res) => {
                 <div class="row justify-content-center">
                       
                   <div class="card m-1" style="width: 18rem; background-color:red;">
-                      <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#bubble_black">
+                      <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#bubble_black" onclick="modalclick()" >
                       <img class = "btn-img m-3" src='${server_url}/img/bubble_black.png' alt="#">
                         </button>
                       <div class="card-body">
@@ -23633,9 +23822,16 @@ app.get("/scenario5/guide_mode/1", (req, res) => {
 
     <!--이곳에 음성 안내메세지 출력-->
 
-    <audio autoplay="autoplay">
-    <source src="${server_url}/tts/5_1.mp3" type="audio/mpeg" />
-    </audio> 
+    <script>
+    var audio = new Audio('${server_url}/tts/5_1.mp3');
+    audio.play();
+
+    function modalclick() {
+    audio.pause();
+    audio = new Audio('${server_url}/tts/modal.mp3');
+    audio.play();
+    }
+    </script> 
 
     <div class="container justify-content-center m-1">
     <div class="row text-center" style="width: 100%">
@@ -23805,7 +24001,7 @@ app.get("/scenario5/guide_mode/1", (req, res) => {
                   <div class="row justify-content-center">
                       
                       <div class="card m-1" style="width: 18rem; background-color:red;">
-                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#strawberry">
+                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#strawberry" onclick="modalclick()" >
                               <img class = "btn-img m-3" src='${server_url}/img/strawberry.png' alt="#">
                             </button>
                           <div class="card-body">
@@ -24648,9 +24844,16 @@ app.get("/scenario4/guide_mode/1", (req, res) => {
 
     <!--이곳에 음성 안내메세지 출력-->
 
-    <audio autoplay="autoplay">
-    <source src="${server_url}/tts/4_1.mp3" type="audio/mpeg" />
-    </audio> 
+    <script>
+    var audio = new Audio('${server_url}/tts/4_1.mp3');
+    audio.play();
+
+    function modalclick() {
+    audio.pause();
+    audio = new Audio('${server_url}/tts/modal.mp3');
+    audio.play();
+    }
+    </script>   
 
     <div class="container justify-content-center m-1">
     <div class="row text-center" style="width: 100%">
@@ -24787,7 +24990,7 @@ app.get("/scenario4/guide_mode/1", (req, res) => {
                         <div class="row justify-content-center">
                               
                           <div class="card m-1" style="width: 18rem; background-color:red;">
-                              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#einstephener">
+                              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#einstephener" onclick="modalclick()">
                               <img class = "btn-img m-3" src='${server_url}/img/einstephener.png' alt="#">
                                 </button>
                               <div class="card-body">
@@ -25730,9 +25933,16 @@ app.get("/scenario3/guide_mode/1", (req, res) => {
 
     <!--이곳에 음성 안내메세지 출력-->
 
-    <audio autoplay="autoplay">
-    <source src="${server_url}/tts/3_1.mp3" type="audio/mpeg" />
-    </audio> 
+    <script>
+    var audio = new Audio('${server_url}/tts/3_1.mp3');
+    audio.play();
+
+    function modalclick() {
+    audio.pause();
+    audio = new Audio('${server_url}/tts/modal.mp3');
+    audio.play();
+    }
+    </script>  
 
     <div class="container justify-content-center m-1">
     <div class="row text-center" style="width: 100%">
@@ -25771,7 +25981,7 @@ app.get("/scenario3/guide_mode/1", (req, res) => {
                   <div class="row justify-content-center">
                       
                       <div class="card m-1" style="width: 18rem; background-color:red;">
-                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#americano">
+                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#americano" onclick="modalclick()">
                               <img class = "btn-img m-3" src='${server_url}/img/americano.png' alt="#">
                             </button>
                           <div class="card-body">
@@ -26811,9 +27021,16 @@ app.get("/scenario2/guide_mode/1", (req,res) => {
 
   <!--이곳에 음성 안내메세지 출력-->
 
-  <audio autoplay="autoplay">
-  <source src="${server_url}/tts/2_1.mp3" type="audio/mpeg" />
-  </audio> 
+  <script>
+  var audio = new Audio('${server_url}/tts/2_1.mp3');
+  audio.play();
+
+  function modalclick() {
+  audio.pause();
+  audio = new Audio('${server_url}/tts/modal.mp3');
+  audio.play();
+  }
+  </script>   
 
   <div class="container justify-content-center m-1">
   <div class="row text-center" style="width: 100%">
@@ -27041,7 +27258,7 @@ app.get("/scenario2/guide_mode/1", (req,res) => {
                   <div class="row justify-content-center">
                         
                     <div class="card m-1" style="width: 18rem; background-color:red;">
-                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#peach">
+                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#peach" onclick="modalclick()">
                         <img class = "btn-img m-3" src='${server_url}/img/peach.png' alt="#">
                           </button>
                         <div class="card-body">
@@ -27837,9 +28054,16 @@ app.get("/scenario1/guide_mode/2", (req, res) => {  //시나리오1 가이드 �
 
     <!--이곳에 음성 안내메세지 출력-->
 
-    <audio autoplay="autoplay">
-    <source src="${server_url}/tts/scenario1_2.mp3" type="audio/mpeg" />
-    </audio> 
+    <script>
+    var audio = new Audio('${server_url}/tts/scenario1_2.mp3');
+    audio.play();
+
+    function modalclick() {
+    audio.pause();
+    audio = new Audio('${server_url}/tts/modal.mp3');
+    audio.play();
+    }
+    </script>   
 
     <div class="container justify-content-center m-1">
     <div class="row text-center" style="width: 100%">
@@ -27878,7 +28102,7 @@ app.get("/scenario1/guide_mode/2", (req, res) => {  //시나리오1 가이드 �
                   <div class="row justify-content-center">
                       
                       <div class="card m-1" style="width: 18rem; background-color: red;" >
-                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#americano">
+                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#americano" onclick="modalclick()" >
                               <img class = "btn-img m-3" src='${server_url}/img/americano.png' alt="#">
                             </button>
                           <div class="card-body">
@@ -28461,9 +28685,16 @@ app.get("/scenario1/guide_mode/1", (req, res) => {
 
     <!--이곳에 음성 안내메세지 출력-->
 
-    <audio autoplay="autoplay">
-    <source src="${server_url}/tts/scenario1_1.mp3" type="audio/mpeg" />
-    </audio> 
+    <script>
+    var audio = new Audio('${server_url}/tts/scenario1_1.mp3');
+    audio.play();
+
+    function modalclick() {
+    audio.pause();
+    audio = new Audio('${server_url}/tts/modal.mp3');
+    audio.play();
+    }
+    </script>
 
     <div class="container justify-content-center m-1">
     <div class="row text-center" style="width: 100%">
@@ -28806,7 +29037,7 @@ app.get("/scenario1/guide_mode/1", (req, res) => {
                         <div class="row justify-content-center">
                             
                             <div class="card m-1" style="width: 18rem; background-color: red;">
-                                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#tiramisu">
+                                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#tiramisu" onclick="modalclick()" >
                                     <img class = "btn-img m-3" src='${server_url}/img/tiramisu.png' alt="#">
                                   </button>
                                 <div class="card-body">
@@ -29558,9 +29789,7 @@ app.get('/order_main', function (req, res) { //커피 선택 메뉴
 
     <!--이곳에 음성 안내메세지 출력-->
 
-    <audio autoplay="autoplay">
-    <source src="${server_url}/tts/order_main.mp3" type="audio/mpeg" />
-    </audio> 
+
 
     <div class="container justify-content-center m-1">
     <div class="row text-center" style="width: 100%">
@@ -29599,7 +29828,7 @@ app.get('/order_main', function (req, res) { //커피 선택 메뉴
                   <div class="row justify-content-center">
                       
                       <div class="card m-1" style="width: 18rem;">
-                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#americano">
+                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#americano" onclick="modalclick()">
                               <img class = "btn-img m-3" src='${server_url}/img/americano.png' alt="#">
                             </button>
                           <div class="card-body">
@@ -29615,7 +29844,7 @@ app.get('/order_main', function (req, res) { //커피 선택 메뉴
                 <div class="row justify-content-center">
                       
                   <div class="card m-1" style="width: 18rem;">
-                      <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#bubble_black">
+                      <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#bubble_black" onclick="modalclick()" >
                       <img class = "btn-img m-3" src='${server_url}/img/bubble_black.png' alt="#">
                         </button>
                       <div class="card-body">
@@ -29641,7 +29870,7 @@ app.get('/order_main', function (req, res) { //커피 선택 메뉴
                       <div class="row justify-content-center">
                           
                           <div class="card m-1" style="width: 18rem;">
-                              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cafe_latte">
+                              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cafe_latte" onclick="modalclick()" >
                                   <img class = "btn-img m-3" src='${server_url}/img/cafe_latte.png' alt="#">
                                 </button>
                               <div class="card-body">
@@ -29657,7 +29886,7 @@ app.get('/order_main', function (req, res) { //커피 선택 메뉴
                     <div class="row justify-content-center">
                           
                       <div class="card m-1" style="width: 18rem;">
-                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cold_brew_americano">
+                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cold_brew_americano" onclick="modalclick()" >
                           <img class = "btn-img m-3" src='${server_url}/img/cold_brew_americano.png' alt="#">
                             </button>
                           <div class="card-body">
@@ -29681,7 +29910,7 @@ app.get('/order_main', function (req, res) { //커피 선택 메뉴
                           <div class="row justify-content-center">
                               
                               <div class="card m-1" style="width: 18rem;">
-                                  <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cold_brew">
+                                  <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cold_brew" onclick="modalclick()" >
                                       <img class = "btn-img m-3" src='${server_url}/img/cold_brew.png' alt="#">
                                     </button>
                                   <div class="card-body">
@@ -29697,7 +29926,7 @@ app.get('/order_main', function (req, res) { //커피 선택 메뉴
                         <div class="row justify-content-center">
                               
                           <div class="card m-1" style="width: 18rem;">
-                              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#einstephener">
+                              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#einstephener" onclick="modalclick()" >
                               <img class = "btn-img m-3" src='${server_url}/img/einstephener.png' alt="#">
                                 </button>
                               <div class="card-body">
@@ -29730,7 +29959,7 @@ app.get('/order_main', function (req, res) { //커피 선택 메뉴
                   <div class="row justify-content-center">
                       
                       <div class="card m-1" style="width: 18rem;">
-                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#strawberry">
+                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#strawberry" onclick="modalclick()" >
                               <img class = "btn-img m-3" src='${server_url}/img/strawberry.png' alt="#">
                             </button>
                           <div class="card-body">
@@ -29746,7 +29975,7 @@ app.get('/order_main', function (req, res) { //커피 선택 메뉴
                 <div class="row justify-content-center">
                       
                   <div class="card m-1" style="width: 18rem;">
-                      <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#lemonade">
+                      <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#lemonade" onclick="modalclick()" >
                       <img class = "btn-img m-3" src='${server_url}/img/lemonade.png' alt="#">
                         </button>
                       <div class="card-body">
@@ -29772,7 +30001,7 @@ app.get('/order_main', function (req, res) { //커피 선택 메뉴
                       <div class="row justify-content-center">
                           
                           <div class="card m-1" style="width: 18rem;">
-                              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#green_grape">
+                              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#green_grape" onclick="modalclick()" >
                                   <img class = "btn-img m-3" src='${server_url}/img/green_grape.png' alt="#">
                                 </button>
                               <div class="card-body">
@@ -29788,7 +30017,7 @@ app.get('/order_main', function (req, res) { //커피 선택 메뉴
                     <div class="row justify-content-center">
                           
                       <div class="card m-1" style="width: 18rem;">
-                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#peach">
+                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#peach" onclick="modalclick()" >
                           <img class = "btn-smg m-3" src='${server_url}/img/peach.png' alt="#">
                             </button>
                           <div class="card-body">
@@ -29821,7 +30050,7 @@ app.get('/order_main', function (req, res) { //커피 선택 메뉴
                 <div class="row justify-content-center">
                     
                     <div class="card m-1" style="width: 18rem;">
-                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#delicious_waffle">
+                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#delicious_waffle" onclick="modalclick()" >
                             <img class = "btn-img m-3" src='${server_url}/img/delicious_waffle.png' alt="#">
                           </button>
                         <div class="card-body">
@@ -29837,7 +30066,7 @@ app.get('/order_main', function (req, res) { //커피 선택 메뉴
               <div class="row justify-content-center">
                     
                 <div class="card m-1" style="width: 18rem;">
-                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cream_waffle">
+                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cream_waffle" onclick="modalclick()" >
                     <img class = "btn-img m-3" src='${server_url}/img/cream_waffle.png' alt="#">
                       </button>
                     <div class="card-body">
@@ -29863,7 +30092,7 @@ app.get('/order_main', function (req, res) { //커피 선택 메뉴
                     <div class="row justify-content-center">
                         
                         <div class="card m-1" style="width: 18rem;">
-                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cheese_cake">
+                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cheese_cake" onclick="modalclick()" >
                                 <img class = "btn-img m-3" src='${server_url}/img/cheese_cake.png' alt="#">
                               </button>
                             <div class="card-body">
@@ -29879,7 +30108,7 @@ app.get('/order_main', function (req, res) { //커피 선택 메뉴
                   <div class="row justify-content-center">
                         
                     <div class="card m-1" style="width: 18rem;">
-                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#origin_shake">
+                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#origin_shake" onclick="modalclick()" > 
                         <img class = "btn-img m-3" src='${server_url}/img/origin_shake.png' alt="#">
                           </button>
                         <div class="card-body">
@@ -29903,7 +30132,7 @@ app.get('/order_main', function (req, res) { //커피 선택 메뉴
                         <div class="row justify-content-center">
                             
                             <div class="card m-1" style="width: 18rem;">
-                                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#tiramisu">
+                                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#tiramisu" onclick="modalclick()" >
                                     <img class = "btn-img m-3" src='${server_url}/img/tiramisu.png' alt="#">
                                   </button>
                                 <div class="card-body">
@@ -29919,7 +30148,7 @@ app.get('/order_main', function (req, res) { //커피 선택 메뉴
                       <div class="row justify-content-center">
                             
                         <div class="card m-1" style="width: 18rem;">
-                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cream_cheese_waffle">
+                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cream_cheese_waffle" onclick="modalclick()" >
                             <img class = "btn-img m-3" src='${server_url}/img/cream_cheese_waffle.png' alt="#">
                               </button>
                             <div class="card-body">
@@ -29986,6 +30215,18 @@ app.get('/order_main', function (req, res) { //커피 선택 메뉴
     ${cream_cheese_waffle()}
 
     <!--종료-->
+
+    <script>
+    var audio = new Audio('${server_url}/tts/order_main.mp3');
+    audio.play();
+
+    function modalclick() {
+    audio.pause();
+    audio = new Audio('${server_url}/tts/modal.mp3');
+    audio.play();
+    }
+    </script>
+
     ${endhtml()}
     `;
 
