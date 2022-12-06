@@ -13,8 +13,8 @@ var cart = []; //장바구니
 
 var result_price = 0; //총 결제금액 변수
 
-//var server_url = "http://localhost:80";
-var server_url = "http://52.21.241.198:80";  //나중에 서버 배포시 바꿔얗 하는 내용
+var server_url = "http://localhost:80";
+//var server_url = "http://52.21.241.198:80";  //나중에 서버 배포시 바꿔얗 하는 내용
 
 var mode = 1; //1은 가이드 모드, 2는 결과창 모드
 var scenario = 1; //각 숫자 별로 담당 시나리오가 다르다.
@@ -2070,16 +2070,18 @@ app.get('/main', function (req, res) { //키오스크 메인화면, 주문하기
         <!--이곳에 음성 안내메세지 출력-->
 
         <audio autoplay="autoplay">
-        <source src="${server_url}/tts/main_2.mp3" type="audio/mpeg" />
+        <source src="${server_url}/tts/main.mp3" type="audio/mpeg" />
         </audio> 
     
         <div class="container justify-content-center m-1">
         <div class="row text-center" style="width: 100%">
-        <h5><img src='${server_url}/img/speak.png' alt ="#">주문 방식을 선택해주세요</h5> 
+        <h5><img src='${server_url}/img/speak.png' alt ="#">AI의 도움이 필요하시다면 가운데의 이미지를 눌러주세요</h5> 
         </div>
         </div>
     
         <!--출력 종료-->
+
+        <p><br><br><br><br><br><br></p>
 
         <div class="d-flex justify-content-center">
         <form class="row justify-content-center " >
@@ -2087,7 +2089,6 @@ app.get('/main', function (req, res) { //키오스크 메인화면, 주문하기
         <div class="card">
         <img src="${server_url}/img/ai.gif" class="card-img" alt="#">
         <div class="card-img-overlay">
-        <h1 class="card-title text-info ">AI의 도움을 받기</h1>
         <p></p>
         </div>
         </div>
@@ -2095,20 +2096,21 @@ app.get('/main', function (req, res) { //키오스크 메인화면, 주문하기
         </form>
         </div>
 
+
+        <p><br><br><br><br><br><br></p>
         
 
-        <div class="d-flex justify-content-center">
-        <form class="row justify-content-center " >
-        <a href="/order_main" class="btn btn-lg" tabindex="-1" role="button">
-        <div class="card">
-        <img src="${server_url}/img/kiosk.png" class="card-img" alt="#">
-        <div class="card-img-overlay">
-        <h1 class="card-title text-info">&nbsp&nbsp직접 주문하기</h1>
+        <div class="container justify-content-center border mt-5">
+        <div class="row justify-content-center">
+          
+            <button class="btn" id = "btn" type = "submit">
+                <a href = "/order_main">
+                <img class = "btn-img" src = "${server_url}/img/order_button.png">
+                </a>
+            </button>
+            
         </div>
-        </div>
-        </a>
-        </form>
-        </div>
+      </div>
 
 
 
@@ -29646,7 +29648,7 @@ app.get("/start_scenario", (req, res) => {
 
   <div class="container justify-content-center m-1">
   <div class="row text-center" style="width: 100%">
-  <h1><img src='${server_url}/img/speak.png' alt ="#">마이크 버튼을 누르고 주문을 진행해주세요.</h1> 
+  <h3><img src='${server_url}/img/speak.png' alt ="#">마이크 버튼을 누르고 주문을 진행해주세요.</h3> 
   </div>
   </div>
 
@@ -29655,7 +29657,7 @@ app.get("/start_scenario", (req, res) => {
   <p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
 
   <div class="row text-center" style="width: 100%">
-  <input type="text" id="speech_result" style="font-size:40px;" readonly/>
+  <input type="text" id="speech_result" readonly/>
   </div>
 
   <div class="row text-center" style="width: 100%">
@@ -29665,7 +29667,7 @@ app.get("/start_scenario", (req, res) => {
   </div>
 
   <div class="row text-center" style="width: 100%">
-  <button  onclick="location.href='/scenario_process'" class="btn btn-primary btn-lg m-1" id="btn_end" tabindex="-1" role="button" style="font-size:40px;" disabled>주문하기</button>
+  <button  onclick=" location.href='/scenario_process'" class="btn btn-primary btn-lg m-1" id="btn_end" tabindex="-1" role="button">주문하기</button>
   </div>
   
   </div>
@@ -29708,10 +29710,6 @@ app.get("/start_scenario", (req, res) => {
     recognition.start();
   }
 
-
-  function mic_clicked(){
-    document.getElementById('btn_end').disabled = false;
-  }
 
 
   
