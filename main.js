@@ -2075,36 +2075,40 @@ app.get('/main', function (req, res) { //키오스크 메인화면, 주문하기
     
         <div class="container justify-content-center m-1">
         <div class="row text-center" style="width: 100%">
-        <h5><img src='${server_url}/img/speak.png' alt ="#">AI의 도움이 필요하시다면 가운데의 이미지를 눌러주세요</h5> 
+        <h5><img src='${server_url}/img/speak.png' alt ="#">주문 방식을 선택해주세요</h5> 
         </div>
         </div>
     
         <!--출력 종료-->
 
-        <p><br><br><br><br><br><br></p>
+        <div class="d-flex justify-content-center">
+        <form class="row justify-content-center " >
+        <a href="/start_scenario" class="btn btn-lg" tabindex="-1" role="button">
+        <div class="card text-bg-dark">
+        <img src="${server_url}/img/ai.gif" class="card-img" alt="#">
+        <div class="card-img-overlay">
+        <h1 class="card-title text-dark ">AI의 도움을 받기</h1>
+        <p></p>
+        </div>
+        </div>
+        </a>
+        </form>
+        </div>
+
         
-  <div class="d-flex justify-content-center">
-  <form class="row justify-content-center " >
-      <a href="/start_scenario" class="btn btn-lg" tabindex="-1" role="button">
-          
-      <img src='${server_url}/img/ai.gif' alt ="#">
-  </a>
-  </form>
-  </div>
 
-        <p><br><br><br><br><br><br></p>
-
-            <div class="container justify-content-center border mt-5">
-                <div class="row justify-content-center">
-                  
-                    <button class="btn" id = "btn" type = "submit">
-                        <a href = "./order_main">
-                        <img src='${server_url}/img/order_button.png' alt="#">
-                        </a>
-                    </button>
-                    
-                </div>
-              </div>
+        <div class="d-flex justify-content-center">
+        <form class="row justify-content-center " >
+        <a href="/main_order" class="btn btn-lg" tabindex="-1" role="button">
+        <div class="card text-bg-dark">
+        <img src="${server_url}/img/ai.gif" class="card-img" alt="#">
+        <div class="card-img-overlay">
+        <h1 class="card-title text-dark">직접 주문하기</h1>
+        </div>
+        </div>
+        </a>
+        </form>
+        </div>
 
 
 
@@ -29642,7 +29646,7 @@ app.get("/start_scenario", (req, res) => {
 
   <div class="container justify-content-center m-1">
   <div class="row text-center" style="width: 100%">
-  <h3><img src='${server_url}/img/speak.png' alt ="#">마이크 버튼을 누르고 주문을 진행해주세요.</h3> 
+  <h1><img src='${server_url}/img/speak.png' alt ="#">마이크 버튼을 누르고 주문을 진행해주세요.</h1> 
   </div>
   </div>
 
@@ -29651,17 +29655,17 @@ app.get("/start_scenario", (req, res) => {
   <p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
 
   <div class="row text-center" style="width: 100%">
-  <input type="text" id="speech_result" readonly/>
+  <input type="text" id="speech_result" style="font-size:40px;" readonly/>
   </div>
 
   <div class="row text-center" style="width: 100%">
   <div style="width: 30%; float:none; margin:0 auto" >
-  <button type="button" class="m-1" onclick="startSpeechRecognition();"><img class = "btn-img m-3" src='${server_url}/img/mic.png' alt="#"></button>
+  <button type="button" class="m-1" onclick="startSpeechRecognition();"><img class = "btn-img m-3" src='${server_url}/img/mic.png' alt="#" onclick = 'mic_clicked()'></button>
   </div>
   </div>
 
   <div class="row text-center" style="width: 100%">
-  <a href="/scenario_process" class="btn btn-primary btn-lg m-1" id="btn_end" tabindex="-1" role="button">주문하기</a>
+  <button  onclick="location.href='/scenario_process'" class="btn btn-primary btn-lg m-1" id="btn_end" tabindex="-1" role="button" style="font-size:40px;" disabled>주문하기</button>
   </div>
   
   </div>
@@ -29702,6 +29706,11 @@ app.get("/start_scenario", (req, res) => {
     });
 
     recognition.start();
+  }
+
+
+  function mic_clicked(){
+    document.getElementById('btn_end').disabled = false;
   }
 
 
